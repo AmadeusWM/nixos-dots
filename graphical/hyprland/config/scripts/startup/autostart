@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # variables
-config=$HOME/nixos-dotfiles/home/dots/graphical/hyprland/config
+config=$HOME/nixos/home/dots/graphical/hyprland/config
 scripts=$config/scripts
 
 # notification daemon
@@ -21,7 +21,7 @@ systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
 # Background
 # sleep 3
-# ~/nixos-dotfiles/home/dots/graphical/hyprland/config/scripts/wallpaper/wallpaper
+# ~/nixos/home/dots/graphical/hyprland/config/scripts/wallpaper/wallpaper
 
 # Fix apps like gparted not staring (error: cannot open display: :0) source: https://askubuntu.com/questions/939938/gparted-cannot-open-display
 xhost +local:

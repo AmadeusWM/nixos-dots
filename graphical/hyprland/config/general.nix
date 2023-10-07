@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   wayland.windowManager.hyprland.extraConfig = ''
-    exec-once=$HOME/nixos-dotfiles/home/dots/graphical/hyprland/config/scripts/startup/autostart
+    exec=notify-send 'balls'
+    exec-once=$HOME/nixos/home/dots/graphical/hyprland/config/scripts/startup/autostart
 
     exec-once=hyprctl setcursor Sunity-cursors 24
     env=XCURSOR_THEME, Sunity-cursors 24

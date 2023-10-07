@@ -2,7 +2,7 @@
 
 # use this script with `source path/to/this/script` to load the environment variables for use in your script 
 
-temp_folder=~/nixos-dotfiles/home/dots/graphical/hyprland/config/scripts/variables/temp
+temp_folder=~/nixos/home/dots/graphical/hyprland/config/scripts/variables/temp
 
 # sets the PRIMARY_MONITOR_ID environment variable
 function exportPrimary(){

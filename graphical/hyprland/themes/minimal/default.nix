@@ -38,9 +38,9 @@
     }
 
     # binds
-    bind=SUPERSHIFT,B,exec, ~/nixos-dotfiles/home/dots/graphical/hyprland/themes/minimal/waybar/waybar.sh
+    bind=SUPERSHIFT,B,exec, ~/nixos/home/dots/graphical/hyprland/themes/minimal/waybar/waybar.sh
 
     # startup
-    exec=~/nixos-dotfiles/home/dots/graphical/hyprland/themes/minimal/waybar/waybar.sh
+    exec=~/nixos/home/dots/graphical/hyprland/themes/minimal/waybar/waybar.sh
   '';
 }

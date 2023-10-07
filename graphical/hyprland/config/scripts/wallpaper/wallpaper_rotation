@@ -1,6 +1,6 @@
 #!/bin/sh
 
-hypr=$HOME/nixos-dotfiles/home/dots/graphical/hyprland/config
+hypr=$HOME/nixos/home/dots/graphical/hyprland/config
 wallpaper_folder=$HOME/Pictures/wallpapers
 
 options=(

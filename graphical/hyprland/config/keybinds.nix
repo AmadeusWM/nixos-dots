@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let 
-  hyprPath = "~/nixos-dotfiles/home/dots/graphical/hyprland";
+  hyprPath = "~/nixos/home/dots/graphical/hyprland";
 in
 {
   wayland.windowManager.hyprland.extraConfig = ''
@@ -55,8 +55,8 @@ in
 
     # ease of life
     ## Color picker
-    bind=SUPER,C,exec,hyprpicker | wl-copy -n && notify-send --icon /home/amadeusw/nixos-dotfiles/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
-    bind=SUPERCTRL,C,exec,hyprpicker | cut -c 2-7 | wl-copy -n && notify-send --icon /home/amadeusw/nixos-dotfiles/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
+    bind=SUPER,C,exec,hyprpicker | wl-copy -n && notify-send --icon /home/amadeusw/nixos/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
+    bind=SUPERCTRL,C,exec,hyprpicker | cut -c 2-7 | wl-copy -n && notify-send --icon /home/amadeusw/nixos/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
 
     bind=SUPER,U,exec,pkill -f '.*GradleDaemon.*'
     
@@ -114,12 +114,12 @@ in
     bindl=,XF86AudioMedia,exec,playerctl play-pause
     bindl=,XF86AudioStop,exec,playerctl stop
 
-    bindle=,XF86AudioRaiseVolume,exec,~/nixos-dotfiles/home/dots/services/dunst/scripts/volume up
-    bindle=,XF86AudioLowerVolume,exec,~/nixos-dotfiles/home/dots/services/dunst/scripts/volume down
-    bindle=,XF86AudioMute,exec,~/nixos-dotfiles/home/dots/services/dunst/scripts/volume mute
+    bindle=,XF86AudioRaiseVolume,exec,~/nixos/home/dots/services/dunst/scripts/volume up
+    bindle=,XF86AudioLowerVolume,exec,~/nixos/home/dots/services/dunst/scripts/volume down
+    bindle=,XF86AudioMute,exec,~/nixos/home/dots/services/dunst/scripts/volume mute
     # brightness
-    bindle=,XF86MonBrightnessUp,exec,~/nixos-dotfiles/home/dots/services/dunst/scripts/brightness up
-    bindle=,XF86MonBrightnessDown,exec,~/nixos-dotfiles/home/dots/services/dunst/scripts/brightness down
+    bindle=,XF86MonBrightnessUp,exec,~/nixos/home/dots/services/dunst/scripts/brightness up
+    bindle=,XF86MonBrightnessDown,exec,~/nixos/home/dots/services/dunst/scripts/brightness down
     bind=,XF86Calculator,exec,qalculate
 
     # Lid open/close

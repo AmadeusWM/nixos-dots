@@ -1,6 +1,6 @@
 { pkgs, config, lib, ... }:
 let
-  chromePath = "${config.home.homeDirectory}/nixos-dotfiles/home/dots/graphical/apps/firefox/chrome";
+  chromePath = "${config.home.homeDirectory}/nixos/home/dots/graphical/apps/firefox/chrome";
 in
 {
   # Example config source: https://discourse.nixos.org/t/help-setting-up-firefox-with-home-manager/23333
@@ -31,7 +31,7 @@ in
         settings = {
           "general.smoothScroll" = true;
           # source: https://github.com/PrettyCoffee/fluidity#usage
-          "browser.startup.homepage" = "${config.home.homeDirectory}/nixos-dotfiles/home/dots/graphical/apps/firefox/startpage/index.html";
+          "browser.startup.homepage" = "${config.home.homeDirectory}/nixos/home/dots/graphical/apps/firefox/startpage/index.html";
         };
         extraConfig = ''
           user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);

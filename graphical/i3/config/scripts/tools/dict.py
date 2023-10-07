@@ -1,6 +1,6 @@
 import subprocess, os;
 
-pathStoredSearches = "~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/storage/dict_searches.txt";
+pathStoredSearches = "~/nixos/home/dots/graphical/i3/config/scripts/storage/dict_searches.txt";
 
 def runDictionary():
     inp = getRofiWithPreviousSearches();
@@ -15,7 +15,7 @@ def getRofiWithPreviousSearches():
     return subprocess.getoutput(parseEchoCommand(prevSearches) + " | " + rofiCmd);
 
 def listPrevSearches():
-    cmd = "cat ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/storage/dict_searches.txt";
+    cmd = "cat ~/nixos/home/dots/graphical/i3/config/scripts/storage/dict_searches.txt";
     return subprocess.getoutput(cmd);
 
 def showMeaning(inp):

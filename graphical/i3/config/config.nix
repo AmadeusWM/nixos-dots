@@ -4,7 +4,7 @@ let
   mod = "Mod4";
   alt = "Mod1";
 in {
-  # Example config: https://github.com/nix-community/nixos-dotfiles/blob/master/modules/services/window-managers/i3-sway/i3.nix
+  # Example config: https://github.com/nix-community/nixos/blob/master/modules/services/window-managers/i3-sway/i3.nix
   # Change display position: `xrandr --output "eDP" --right-of "DisplayPort-0"`
   # home.pointerCursor = 
   #   let 
@@ -119,7 +119,7 @@ in {
         "${mod}+Control+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
 
         # tools
-        "${mod}+d" = "exec python3 ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/tools/dict.py";
+        "${mod}+d" = "exec python3 ~/nixos/home/dots/graphical/i3/config/scripts/tools/dict.py";
 
         # i3 stuff
         "${mod}+q" = "kill";
@@ -142,40 +142,40 @@ in {
         "${mod}+Shift+l" = "move right";
 
         # switch to workspace
-        "${mod}+1" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 1";
-        "${mod}+2" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 2";
-        "${mod}+3" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 3";
-        "${mod}+4" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 4";
-        "${mod}+5" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 5";
-        "${mod}+6" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 6";
-        "${mod}+7" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 7";
-        "${mod}+8" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 8";
-        "${mod}+9" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 9";
-        "${mod}+0" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh visit 0";
+        "${mod}+1" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 1";
+        "${mod}+2" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 2";
+        "${mod}+3" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 3";
+        "${mod}+4" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 4";
+        "${mod}+5" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 5";
+        "${mod}+6" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 6";
+        "${mod}+7" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 7";
+        "${mod}+8" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 8";
+        "${mod}+9" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 9";
+        "${mod}+0" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh visit 0";
 
         # move focused container to workspace
-        "${alt}+1" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 1";
-        "${alt}+2" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 2";
-        "${alt}+3" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 3";
-        "${alt}+4" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 4";
-        "${alt}+5" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 5";
-        "${alt}+6" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 6";
-        "${alt}+7" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 7";
-        "${alt}+8" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 8";
-        "${alt}+9" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 9";
-        "${alt}+0" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh move 0";
+        "${alt}+1" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 1";
+        "${alt}+2" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 2";
+        "${alt}+3" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 3";
+        "${alt}+4" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 4";
+        "${alt}+5" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 5";
+        "${alt}+6" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 6";
+        "${alt}+7" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 7";
+        "${alt}+8" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 8";
+        "${alt}+9" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 9";
+        "${alt}+0" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh move 0";
 
         # move focused container silently
-        "${mod}+${alt}+1" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 1";
-        "${mod}+${alt}+2" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 2";
-        "${mod}+${alt}+3" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 3";
-        "${mod}+${alt}+4" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 4";
-        "${mod}+${alt}+5" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 5";
-        "${mod}+${alt}+6" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 6";
-        "${mod}+${alt}+7" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 7";
-        "${mod}+${alt}+8" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 8";
-        "${mod}+${alt}+9" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 9";
-        "${mod}+${alt}+0" = "exec ~/nixos-dotfiles/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 0";
+        "${mod}+${alt}+1" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 1";
+        "${mod}+${alt}+2" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 2";
+        "${mod}+${alt}+3" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 3";
+        "${mod}+${alt}+4" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 4";
+        "${mod}+${alt}+5" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 5";
+        "${mod}+${alt}+6" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 6";
+        "${mod}+${alt}+7" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 7";
+        "${mod}+${alt}+8" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 8";
+        "${mod}+${alt}+9" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 9";
+        "${mod}+${alt}+0" = "exec ~/nixos/home/dots/graphical/i3/config/scripts/workspace.sh movesilent 0";
 
         # Audio
         "XF86AudioPlay" = "exec playerctl -p $(tail -1 /tmp/player-last) play-pause";
@@ -185,13 +185,13 @@ in {
         "XF86AudioMedia" = "exec playerctl -p $(tail -1 /tmp/player-last) play-pause";
         "XF86AudioStop" = "exec playerctl -p $(tail -1 /tmp/player-last) stop";
 
-        "XF86AudioRaiseVolume" = "exec ~/nixos-dotfiles/home/dots/services/dunst/scripts/volume up";
-        "XF86AudioLowerVolume" = "exec ~/nixos-dotfiles/home/dots/services/dunst/scripts/volume down";
-        "XF86AudioMute" = "exec ~/nixos-dotfiles/home/dots/services/dunst/scripts/volume mute";
+        "XF86AudioRaiseVolume" = "exec ~/nixos/home/dots/services/dunst/scripts/volume up";
+        "XF86AudioLowerVolume" = "exec ~/nixos/home/dots/services/dunst/scripts/volume down";
+        "XF86AudioMute" = "exec ~/nixos/home/dots/services/dunst/scripts/volume mute";
 
         # brightness
-        "XF86MonBrightnessUp" = "exec ~/nixos-dotfiles/home/dots/services/dunst/scripts/brightness up";
-        "XF86MonBrightnessDown" = "exec ~/nixos-dotfiles/home/dots/services/dunst/scripts/brightness down";
+        "XF86MonBrightnessUp" = "exec ~/nixos/home/dots/services/dunst/scripts/brightness up";
+        "XF86MonBrightnessDown" = "exec ~/nixos/home/dots/services/dunst/scripts/brightness down";
 
         # System Shortcuts
         "XF86Calculator" = "exec kitty qalc";

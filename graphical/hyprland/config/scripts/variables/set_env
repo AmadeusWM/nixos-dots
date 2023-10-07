@@ -1,5 +1,5 @@
 #!/bin/sh
-save_location=~/nixos-dotfiles/home/dots/graphical/hyprland/config/scripts/variables/temp
+save_location=~/nixos/home/dots/graphical/hyprland/config/scripts/variables/temp
 
 function setVar(){
     checkENVDir $2
