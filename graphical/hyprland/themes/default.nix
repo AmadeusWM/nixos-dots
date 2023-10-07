@@ -1,6 +1,0 @@
-{ pkgs, config, ... }:
-{
-  imports = [
-    ./minimal
-  ];
-}

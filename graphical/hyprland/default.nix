@@ -3,7 +3,7 @@
 {
   imports = [
     ./config
-    ./themes
+    ./dependencies.nix
   ];
   
   wayland.windowManager.hyprland.enable = true;

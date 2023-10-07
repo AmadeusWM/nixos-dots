@@ -3,7 +3,7 @@
   imports = [
     ./dunst
     # Wayland:
-    # ./swayidle
-    # ./gtklock
+    ./swayidle
+    ./gtklock
   ];
 }
