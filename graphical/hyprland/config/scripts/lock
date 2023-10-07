@@ -1,0 +1,9 @@
+#!/bin/sh
+
+swayidle timeout 15 "hyprctl dispatch dpms off" \
+    resume 'hyprctl dispatch dpms on' &
+    timeout 60 "systemctl suspend" \
+
+swaylock -c000000
+
+kill %%

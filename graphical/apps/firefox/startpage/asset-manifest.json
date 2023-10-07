@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "./static/css/main.42fcf7fb.css",
+    "main.js": "./static/js/main.33890b4d.js",
+    "static/media/pic_8.png": "./static/media/pic_8.4387a5b982e94311f550.png",
+    "static/media/pic_5.jpg": "./static/media/pic_5.5d0bfb2465d8ddd5f0f5.jpg",
+    "static/media/pic_7.jpg": "./static/media/pic_7.5125a16fb9841edb115a.jpg",
+    "static/media/pic_2_darker.png": "./static/media/pic_2_darker.39c82a8210412584a3b5.png",
+    "static/media/FiraCode-Regular.woff": "./static/media/FiraCode-Regular.19a2738eed5f65644ea5.woff",
+    "static/media/pic_2.jpg": "./static/media/pic_2.8edbb3607d549bb68660.jpg",
+    "static/media/FiraCode-Light.woff": "./static/media/FiraCode-Light.e37fbea8ec98ce1ed3c5.woff",
+    "static/media/pic_0.png": "./static/media/pic_0.5222c4094d309c459089.png",
+    "static/media/pic_1.jpg": "./static/media/pic_1.7e4b1ed52e9a2bdd13ca.jpg",
+    "static/media/pic_4.jpg": "./static/media/pic_4.e0a25b1cb55cf8bdbae1.jpg",
+    "static/media/pic_6.jpg": "./static/media/pic_6.64d50c020259c8dec88e.jpg",
+    "static/media/pic_3.jpg": "./static/media/pic_3.bb8a25eed5b6fcbb4a40.jpg",
+    "static/media/ecosia.svg": "./static/media/ecosia.684173610b02f20c8a393ebc2fe49a1a.svg",
+    "static/media/logo.png": "./static/media/logo.ed388bf3dc802a18f63b.png",
+    "static/media/duckduckgo.svg": "./static/media/duckduckgo.ae4e5e007a6260841f7e0374942a4c0c.svg",
+    "static/media/qwant.svg": "./static/media/qwant.78b9cec1938f7af2dea0533d0d8aef4b.svg",
+    "static/media/google.svg": "./static/media/google.35cb91e86c1f97290021370ae33bedb7.svg",
+    "index.html": "./index.html",
+    "main.42fcf7fb.css.map": "./static/css/main.42fcf7fb.css.map",
+    "main.33890b4d.js.map": "./static/js/main.33890b4d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42fcf7fb.css",
+    "static/js/main.33890b4d.js"
+  ]
+}

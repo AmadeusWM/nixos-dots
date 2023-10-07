@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# variables
+config=$HOME/nixos-dotfiles/home/dots/graphical/hyprland/config
+scripts=$config/scripts
+
+# notification daemon
+dunst &
+
+# battery notification
+$scripts/startup/battery_notif &
+
+# other
+## persistent clipboard
+wl-clip-persist --clipboard regular &
+wl-paste --watch cliphist store &
+
+# ... this might not be necessary anymore ? idk
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+
+# Background
+# sleep 3
+# ~/nixos-dotfiles/home/dots/graphical/hyprland/config/scripts/wallpaper/wallpaper
+
+# Fix apps like gparted not staring (error: cannot open display: :0) source: https://askubuntu.com/questions/939938/gparted-cannot-open-display
+xhost +local:

@@ -1,0 +1,79 @@
+{ pkgs, ... }:
+{
+  wayland.windowManager.hyprland.extraConfig = ''
+    exec-once=$HOME/nixos-dotfiles/home/dots/graphical/hyprland/config/scripts/startup/autostart
+
+    exec-once=hyprctl setcursor Sunity-cursors 24
+    env=XCURSOR_THEME, Sunity-cursors 24
+    env=DOWNGRADE_FROM_ALA,1
+    # env=QT_STYLE_OVERRIDE,kvantum
+
+    input {
+        kb_layout=
+        kb_variant=ffffff
+        kb_model=
+        kb_options=compose:rctrl,level3:ralt_switch
+        kb_rules=
+
+        follow_mouse=1
+
+        touchpad {
+            natural_scroll=yes
+            disable_while_typing=true
+            scroll_factor=1
+        }
+    }
+
+    misc {
+        disable_hyprland_logo=true
+        animate_mouse_windowdragging=false # this fixes the laggy window movement (source: https://github.com/hyprwm/Hyprland/issues/1753)
+        animate_manual_resizes=false # fixes slow resizes
+    }
+
+    general {
+        #sensitivity=1.0 # for mouse cursor
+        # col.active_border=0xfff5c2e7
+        # col.inactive_border=0xff45475a
+        # apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+        # col.group_border=0xff89dceb
+        # col.group_border_active=0xfff9e2af
+    }
+
+    decoration {
+        blur {
+            enabled=true
+            new_optimizations = on
+            size=1 # minimum 1
+            passes=2 # minimum 1, more passes = more resource intensive.
+            # Your blur "amount" is blur_size * blur_passes, but high blur_size (over around 5-ish) will produce artifacts.
+            # if you want heavy blur, you need to up the blur_passes.
+            # the more passes, the more you can up the blur_size without noticing artifacts.
+        }
+    }
+
+    dwindle {
+        pseudotile=1 # enable pseudotiling on dwindle
+        smart_split=1
+    }
+
+    master{
+        
+    }
+
+    gestures {
+        workspace_swipe=yes
+        workspace_swipe_fingers=4
+    }
+
+    # other
+    windowrule=float,^(nm-connection-editor)$
+    # floating windows
+    windowrule=float,^(zenity)$
+    windowrule=float,title:^(New Text Note — Okular)$
+    windowrule=float,title:^(org.gnome.Nautilus New Folder)$
+    # firefox sharing indicator
+    windowrule=nofullscreenrequest,title:^(Firefox — Sharing Indicator)$
+    windowrule=float,title:^(Firefox — Sharing Indicator)$
+    windowrule=move 100%-470 15,title:^(Firefox — Sharing Indicator)$
+  '';
+}
