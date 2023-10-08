@@ -168,5 +168,6 @@ more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
 }
 
 #tray {
+  margin-right: 12px
 }
 ''

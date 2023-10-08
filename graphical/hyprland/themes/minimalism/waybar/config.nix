@@ -10,15 +10,14 @@
         # "hyprland/window"
     ];
     modules-right =  [
-        "network"
-        "custom/sep" 
         "tray"
-        "custom/sep" 
         "backlight"
         "custom/sep" 
         "pulseaudio"
         "custom/sep" 
         "bluetooth"
+        "custom/sep" 
+        "network"
         "custom/sep" 
         "battery"
         "custom/sep" 
@@ -64,7 +63,7 @@
     clock = {
         interval = 1;
         format = ''{:%Y/%d/%m %H:%M:%S}'';
-        # "on-click" = "morgen";
+        "on-click" = "morgen";
     };
     battery = {
         format = "{capacity}%";
@@ -78,15 +77,15 @@
         tooltip-format = "At {capacity}%";
     };
     network = {
-        format = "{ipaddr} ({bandwidthDownBytes})";
-        format-wifi = "W: {ipaddr} ({bandwidthDownBytes})";
-        format-ethernet = "E: {ipaddr} ({bandwidthDownBytes})";
+        format = "{ipaddr} ({essid})";
+        format-wifi = "W: {ipaddr} ({essid})";
+        format-ethernet = "E: {ipaddr}";
         format-disconnected = "W/E: down";
         format-disabled = "W/E: down";
-        format-alt = "{bandwidthDownBytes} {icon}";
+        format-alt = "W/E: {ipaddr} {bandwidthDownBytes}";
         format-alt-click = "click-right";
         interval = 5;
-        on-click = "hyprctl dispatch exec '[float; size 600 600;move 100%-620 70] nm-applet'";
+        on-click = "hyprctl dispatch exec '[float] XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi'";
         tooltip-format = "{ipaddr}/{cidr}";
     };
     bluetooth = {	
