@@ -16,7 +16,7 @@
       themes = {
         comic = ./graphical/hyprland/themes/comic;
         poeisis = ./graphical/hyprland/themes/poeisis;
-        minimalism = ./graphical/hyprland/themes/comic;
+        minimalism = ./graphical/hyprland/themes/minimalism;
       };
     };
     

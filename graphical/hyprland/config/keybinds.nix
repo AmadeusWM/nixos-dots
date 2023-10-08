@@ -62,7 +62,6 @@ in
     
     # Wallpaper
     bind=SUPER,B,exec,${hyprPath}/config/scripts/wallpaper/wallpaper_picker
-    bind=SUPERCTRL,B,exec,${hyprPath}/config/scripts/wallpaper/wallpaper
 
     ### binds for workspaces ###
     ## focusing windows

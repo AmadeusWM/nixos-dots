@@ -1,0 +1,172 @@
+''
+* {
+  border: none;
+  border-radius: 0;
+  font-family: JetbrainsMono Nerd Font, Sans;
+  font-size: 16px;
+  box-shadow: none;
+  text-shadow: none;
+  transition-duration: 0s;
+  padding: 0px;
+}
+
+window {
+  color: rgba(255, 255, 255, 0.85);
+  background: #070609;
+  padding: 0px
+}
+
+window#waybar.solo {
+  background: rgb(217, 216, 216);
+  color: rgba(32, 31, 35, 0.85);
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin-bottom: 0px;
+}
+
+.modules-right {
+  transition: 0.1s all ease;
+  color: #eae9f0;
+  background-color: unset;
+  transition: 0.1s all ease;
+  color: #eae9f0;
+  opacity: 1;
+  padding: 0px;
+}
+
+/* 
+CSS provided by Flick0
+more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
+*/
+#workspaces {
+  font-size: 16px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  transition: none;
+  color: #eae9f0;
+  margin-bottom: 0px;
+}
+
+#workspaces button {
+  min-width: 40px;
+  transition: 0.1s all ease;
+  color: #eae9f0;
+  background-color: unset;
+  opacity: 0.7;
+}
+
+#workspaces button:hover {
+  opacity: 1;
+}
+
+#workspaces button.active {
+  transition: 0.1s all ease;
+  color: #eae9f0;
+  background-color: unset;
+  transition: 0.1s all ease;
+  color: #eae9f0;
+  opacity: 1;
+}
+
+#workspaces button.active:hover {
+  transition: 0.04s all ease;
+  opacity: 1;
+}
+
+#custom-sep {
+  color: #eee;
+  margin: 0px 5px;
+}
+
+#network {
+}
+
+#network.disabled
+#network.disconnected {
+  color: #F189A6;
+}
+
+#network.linked,
+#network.ethernet,
+#network.wifi {
+  color: #A6E3A1;
+}
+
+#mode,
+#cpu,
+#memory,
+#pulseaudio,
+#idle_inhibitor,
+#backlight,
+#custom-storage,
+#custom-terminal,
+#custom-spotify,
+#custom-weather,
+#custom-dunst,
+#custom-mail {
+}
+
+#clock {
+  margin: 0px 4px 0px 0px;
+  font-weight: bold;
+}
+
+#bluetooth {
+}
+#bluetooth.disabled,
+#bluetooth.off {
+  color: #F189A6;
+}
+
+#bluetooth.on,
+#bluetooth.connected,
+#bluetooth.discoverable,
+#bluetooth.discovering,
+#bluetooth.pairable {
+  color: #89DCEB;
+}
+
+#battery.warning {
+  color: #F9E2AF;
+}
+
+#battery.critical {
+  color: #F38BA8;
+}
+
+#battery.charging {
+  color: #A6E3A1;
+}
+
+#custom-storage.warning {
+  color: #eae9f0;
+}
+
+#custom-storage.critical {
+  color: #eae9f0;
+}
+
+#apatheia {
+  color: #eae9f0;
+}
+
+#backlight {
+  padding-right: 5px;
+}
+
+#custom-spotify {
+  transition: 0.1s all ease;
+  color: #eae9f0;
+  background-color: unset;
+  transition: 0.1s all ease;
+  color: #eae9f0;
+  opacity: 1;
+  padding-right: 15px;
+}
+
+#tray {
+}
+''
