@@ -3,7 +3,7 @@
     "position": "top",
     "height": 35,
     "modules-left": [
-        "wlr/workspaces"
+        "hyprland/workspaces"
     ],
     "modules-center": [
         "custom/appname"
@@ -27,7 +27,7 @@
         "format": "{}",
         "exec": "python ~/nixos/home/dots/graphical/hyprland/themes/minimal/waybar/modules/Apatheia/main.py"
     },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
         "sort-by-number": true,
@@ -77,18 +77,18 @@
         "format": "{icon}",
         "format-alt": "{time} {icon} ",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰂄"
         ],
-        "format-charging": "",
+        "format-charging": "󰂄",
         "interval": 30,
         "states": {
             "warning": 25,
@@ -118,8 +118,8 @@
     },
     "bluetooth": {
         "format": "",
-        "format-disabled": "",
-        "format-connected": "",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -135,9 +135,9 @@
                 " "
             ],
             "default": [
-                "奄",
-                "奔",
-                "墳"
+                "",
+                "",
+                ""
             ]
         },
         "scroll-step": 10,
