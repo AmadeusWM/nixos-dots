@@ -14,8 +14,9 @@
       keybindsQwerty = ./graphical/hyprland/config/keybinds.nix;
       monitors = ./graphical/hyprland/config/monitors.nix;
       themes = {
-        minimal = ./graphical/hyprland/themes/minimal;
+        comic = ./graphical/hyprland/themes/comic;
         poeisis = ./graphical/hyprland/themes/poeisis;
+        minimalism = ./graphical/hyprland/themes/comic;
       };
     };
     

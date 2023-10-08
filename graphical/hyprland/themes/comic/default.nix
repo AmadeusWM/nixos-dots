@@ -29,7 +29,6 @@
     animations {
       # Flick0's animations
       enabled=1
-      # bezier=overshot,0.05,0.9,0.1,1.1
       bezier=normal,0.13,0.99,0.29,1.0
       animation=windows,1,1,normal,slide
       animation=border,1,2,default
@@ -38,9 +37,9 @@
     }
 
     # binds
-    bind=SUPERSHIFT,B,exec, ~/nixos/home/dots/graphical/hyprland/themes/minimal/waybar/waybar.sh
+    bind=SUPERSHIFT,B,exec, ~/nixos/home/dots/graphical/hyprland/themes/comic/waybar/waybar.sh
 
     # startup
-    exec=~/nixos/home/dots/graphical/hyprland/themes/minimal/waybar/waybar.sh
+    exec=~/nixos/home/dots/graphical/hyprland/themes/comic/waybar/waybar.sh
   '';
 }
