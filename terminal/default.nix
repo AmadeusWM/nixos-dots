@@ -5,5 +5,6 @@
     ./kitty
     ./starship
     ./nvim
+    ./helix
   ];
 }
