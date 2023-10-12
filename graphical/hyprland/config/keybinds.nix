@@ -15,7 +15,7 @@ in
     bind=SUPERALT_L,M,exec,${hyprPath}/config/scripts/quick_reboot.sh
     bind=SUPER,S,togglefloating,
     bind=SUPERCTRL,D,pin
-    bind=SUPER,space,exec,${hyprPath}/config/scripts/exec_wofi application_launcher
+    bind=SUPER,space,exec,anyrun
     bind=SUPERCTRL,S,pseudo,
     bind=SUPER,D,exec,export NO_AT_BRIDGE=1; python3 ${hyprPath}/config/scripts/tools/dict.py
 
@@ -29,7 +29,6 @@ in
     bind=SUPER,E,exec,nautilus
 
     # Kitty
-    # bind=SUPER,t,exec,kitty --start-as=fullscreen -o 'font_size=20' --title all_is_kitty
     bind=CTRLALT_L,T,exec,kitty --single-instance
     bind=SUPER,T,exec,kitty --single-instance
     # Tools
@@ -40,12 +39,8 @@ in
     bind=SUPER,F,exec,firefox
     bind=SUPER,A,exec,hyprctl dispatch fullscreen 1
     bind=SUPERCTRL,A,exec,hyprctl dispatch fullscreen 2
-    # bind=SUPER,O,exec,obsidian # --enable-features=UseOzonePlatform --ozone-platform=wayland # These fix obsidian in nvidia 
-    # bind=SUPER,O,exec,obsidian
-    bind=SUPER,O,exec,logseq # --ozone-platform=wayland --disable-gpu # --ozone-platform=wayland --enable-features=Vulkan --use-vulkan --enable-gpu
+    bind=SUPER,O,exec,obsidian
     bind=SUPERCTRL,O,exec,obs --minimize-to-tray
-    # bind=SUPER,W,exec,code --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu
-    # bind=SUPER,W,exec,code --ozone-platform=wayland --enable-features=Vulkan --use-vulkan --enable-gpu
     bind=SUPER,W,exec,code
     bind=SUPER,period,exec,emote
     bind=SUPER,P,exec,hyprctl dispatch exec '[float] nwg-displays -m ${hyprPath}/config/conf/monitors.conf'

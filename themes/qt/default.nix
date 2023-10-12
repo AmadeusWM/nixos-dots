@@ -1,9 +1,18 @@
 { pkgs, config, ... }:
 {
-  enable = true;
-  # platformTheme = "gtk"; # just an override for QT_QPA_PLATFORMTHEME, takes "gtk" or "gnome"
-  style = {
-    package = pkgs.catppuccin-kde;
-    name = "Catpuccin-Mocha-Dark";
+  home.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+    (catppuccin-kvantum.override {
+      accent = "Mauve";
+      variant = "Mocha";
+    })
+  ];
+  home.sessionVariables = {
+    QT_STYLE_OVERRIDE = "kvantum";
+  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+    General.theme = "Catppuccin-Mocha-Mauve";
+    Applications.Catppuccin-Mocha-Mauve = "org.kde.okular";
   };
 }

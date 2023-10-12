@@ -8,6 +8,8 @@
     env=DOWNGRADE_FROM_ALA,1
     # env=QT_STYLE_OVERRIDE,kvantum
 
+    exec-once=$HOME/nixos/home/dots/graphical/hyprland/config/scripts/idle_handler.sh
+
     input {
         kb_layout=
         kb_variant=ffffff
@@ -75,5 +77,9 @@
     windowrule=nofullscreenrequest,title:^(Firefox — Sharing Indicator)$
     windowrule=float,title:^(Firefox — Sharing Indicator)$
     windowrule=move 100%-470 15,title:^(Firefox — Sharing Indicator)$
+    # idle inhibit when watching videos
+    windowrulev2 = idleinhibit focus, class:^(mpv|.+exe)$
+    windowrulev2 = idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$
+    windowrulev2 = idleinhibit fullscreen, class:^(firefox)$
   '';
 }

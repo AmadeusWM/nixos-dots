@@ -1,6 +1,10 @@
 {
   description = "A very basic flake";
 
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  };
+
   outputs = inputs: {
     # all common components
     common = ./common.nix;
@@ -31,7 +35,8 @@
     vscode = ./graphical/apps/vscode;
 
     # launchers
-    wofi = ./launchers/wofi;
+    wofi = ./graphical/launchers/wofi;
+    anyrun = ./graphical/launchers/anyrun;
     
     # services
     dunst = ./services/dunst;

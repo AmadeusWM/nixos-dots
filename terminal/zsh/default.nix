@@ -12,6 +12,12 @@
     historySubstringSearch.enable = true;
     historySubstringSearch.searchUpKey = [ "^[[A" "^[OA" ];
     historySubstringSearch.searchDownKey = [ "^[[B" "^[OB" ];
+    
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      # theme = "robbyrussell";
+    };
 
     # use `cat -v` for keys
     initExtra = ''

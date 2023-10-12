@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # If an instance of wf-recorder is running under this user kill it with SIGINT and exit
-pkill --euid "$USER" --signal SIGINT wf-recorder && exit
+killall wf-recorder && exit
 
 # Define paths
 DefaultSaveDir=$HOME'/Videos/Recordings'
@@ -30,7 +30,6 @@ timeout 600 wf-recorder --audio="alsa_output.usb-C-Media_Electronics_Inc._USB_Au
 SavePath=$( zenity \
 	--file-selection \
 	--save \
-	--confirm-overwrite \
 	--file-filter=*.mp4 \
 	--filename="$DefaultSaveDir"'/.mp4' \
 ) || exit
