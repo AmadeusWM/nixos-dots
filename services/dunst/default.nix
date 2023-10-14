@@ -30,13 +30,13 @@
         width = 400;
 
         # The maximum height of a single notification, excluding the frame.
-        height = 200;
+        height = 150;
 
         # Position the notification in the top right corner
         origin = "top-right";
 
         # Offset from the origin
-        offset = "15x65";
+        offset = "15x15";
 
         # Scale factor. It is auto-detected if value is 0.
         scale = 0;
@@ -90,7 +90,7 @@
 
         # Defines width in pixels of frame around the notification window.
         # Set to 0 to disable.
-        frame_width = 2;
+        frame_width = 0;
 
         # Defines color of the frame around the notification window.
         frame_color = "#0f0f0f";

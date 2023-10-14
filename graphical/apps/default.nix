@@ -3,5 +3,6 @@
   imports = [
     ./firefox
     ./vscode
+    ./copyq
   ];
 }

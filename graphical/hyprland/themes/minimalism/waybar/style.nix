@@ -3,7 +3,7 @@
   border: none;
   border-radius: 0;
   font-family: JetbrainsMono Nerd Font, Sans;
-  font-size: 15px;
+  font-size: 14px;
   box-shadow: none;
   text-shadow: none;
   transition-duration: 0s;
@@ -12,7 +12,7 @@
 
 window {
   color: rgba(255, 255, 255, 0.85);
-  background: #070609;
+  background: rgba(7, 6, 9, 0.85);
   padding: 0px
 }
 
@@ -42,7 +42,7 @@ CSS provided by Flick0
 more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
 */
 #workspaces {
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 0px;
   border-radius: 10px;
   transition: none;

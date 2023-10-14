@@ -9,17 +9,19 @@
         inputs.anyrun.packages.${pkgs.system}.applications
         inputs.anyrun.packages.${pkgs.system}.dictionary
         inputs.anyrun.packages.${pkgs.system}.translate
+        inputs.anyrun.packages.${pkgs.system}.stdin
         # "${inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins}/lib/kidex"
       ];
       width = { fraction = 0.3; };
       y.absolute = 15;
       hideIcons = false;
-      ignoreExclusiveZones = false;
+      # ignoreExclusiveZones = false;
       layer = "overlay";
+      showResultsImmediately = true;
+      maxEntries = 15;
     };
     extraCss = ''
       * {
-        transition: 200ms ease;
         font-family: Lexend;
         font-size: 1.3rem;
       }
@@ -46,20 +48,11 @@
       }
 
       box#main {
-        background: rgba(12, 11, 16, 0.7);
-        border: 1px solid rgba(12, 11, 16, 0.7);
+        background: rgba(12, 11, 16, 0.5);
+        border: 1px solid rgba(12, 11, 16, 0.5);
         border-radius: 12px;
         padding: 8px;
       }
-    '';
-
-    extraConfigFiles."some-plugin.ron".text = ''
-      Config(
-        // for any other plugin
-        // this file will be put in ~/.config/anyrun/some-plugin.ron
-        // refer to docs of xdg.configFile for available options
-        prefix: ":def", // for dictionary
-      )
     '';
   };
 }

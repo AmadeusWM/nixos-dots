@@ -17,7 +17,7 @@
     eww
     gnome.dconf-editor # to find gnome keybinds
     gnome.gnome-tweaks
-    gnome.nautilus
+    gnome.nautilus nautilus-open-any-terminal # nautilus + open different terminals with nautilus
     gnome.zenity
     jq # JSON parsing
     killall

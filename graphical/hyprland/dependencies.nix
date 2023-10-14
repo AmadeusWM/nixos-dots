@@ -21,4 +21,6 @@
     wofi
     xorg.xhost # fix gparted not starting (and perhaps other apps aswell)
   ];
+
+  services.copyq.enable = true; 
 }

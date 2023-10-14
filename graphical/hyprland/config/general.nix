@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland.extraConfig = ''
     exec-once=$HOME/nixos/home/dots/graphical/hyprland/config/scripts/startup/autostart
+    exec-once=copyq --start-server 
 
     exec-once=hyprctl setcursor Sunity-cursors 24
     env=XCURSOR_THEME, Sunity-cursors 24
@@ -68,8 +69,9 @@
     }
 
     # other
-    windowrule=float,^(nm-connection-editor)$
     # floating windows
+    windowrule=float,^(nm-connection-editor)$
+    windowrule=float,^(copyq)$
     windowrule=float,^(zenity)$
     windowrule=float,title:^(New Text Note — Okular)$
     windowrule=float,title:^(org.gnome.Nautilus New Folder)$

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+* {
+    margin:  0;
+    border:  0;
+    padding: 0;
+    outline: 0;
+
+    list-style:      none;
+    text-decoration: none;
+    text-rendering:  optimizeLegibility;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-font-smoothing: subpixel-antialiased;
+    -ms-font-smoothing: subpixel-antialiased;
+    -o-font-smoothing: subpixel-antialiased;
+
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+*:not(:defined) {
+    display: none;
+}
+
+:root {
+    --accent: #826DA1;
+    --bg: #11111B;
+    background-color: var(--bg);
+}
+
+body {
+    background-color: var(--bg);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+::selection {
+    background: none;
+}
+
+todo-list {
+    position: relative;
+    min-width: 350px;
+    height: 100%;
+}
+
+todo-list::after {
+    position: absolute;
+    content: '';
+    display: block;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    z-index: 4;
+}
+
+tabs-list {
+    background-color: var(--bg);
+    position: relative;
+    width: 100%;
+    height: 100%;
+}

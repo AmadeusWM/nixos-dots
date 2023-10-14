@@ -6,8 +6,9 @@
 ## upstream: https://raw.githubusercontent.com/catppuccin/kitty/main/catppuccin.conf
 ## blurb: Soothing pastel theme for the high-spirited!
 {
+    allow_remote_control = true;
     # General settings
-    window_padding_width = 15;
+    window_padding_width = 8;
     font_size = 12;
 
     # The basic colors

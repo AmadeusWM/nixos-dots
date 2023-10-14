@@ -19,9 +19,9 @@ wl-paste --watch cliphist store &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
-# Background
-# sleep 3
-# ~/nixos/home/dots/graphical/hyprland/config/scripts/wallpaper/wallpaper
-
 # Fix apps like gparted not staring (error: cannot open display: :0) source: https://askubuntu.com/questions/939938/gparted-cannot-open-display
 xhost +local:
+
+# Background
+sleep 3
+~/nixos/home/dots/graphical/hyprland/config/scripts/wallpaper/wallpaper

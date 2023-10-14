@@ -29,10 +29,12 @@ in
     bind=SUPER,E,exec,nautilus
 
     # Kitty
-    bind=CTRLALT_L,T,exec,kitty --single-instance
-    bind=SUPER,T,exec,kitty --single-instance
+    bind=CTRLALT_L,T,exec,kitty
+    bind=SUPER,T,exec,kitty
     # Tools
-    bind=SUPER,V,exec,cliphist list | head -80 | wofi --show dmenu | cliphist decode | wl-copy 
+    # bind=SUPER,V,exec,cliphist list | anyrun | cliphist decode | wl-copy
+    bind=SUPER,V,exec,hyprctl dispatch exec '[float] copyq toggle'
+
 
     # running personal applications
     bind=CTRLALT_L,F,exec,firefox
