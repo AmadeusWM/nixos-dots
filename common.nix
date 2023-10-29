@@ -27,13 +27,15 @@
     pamixer
     pavucontrol
     playerctl
-    python3
     rm-improved # rip: alternative to rm (https://github.com/nivekuil/rip)
     vscode
     xorg.xkill
 
     # FONTS
     nerdfonts
+
+    # ICONS
+    papirus-icon-theme
   ];
 
   # Font for bar

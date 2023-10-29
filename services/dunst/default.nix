@@ -36,7 +36,7 @@
         origin = "top-right";
 
         # Offset from the origin
-        offset = "15x15";
+        offset = "16x16";
 
         # Scale factor. It is auto-detected if value is 0.
         scale = 0;
@@ -52,7 +52,7 @@
 
         # Set the progress bar height. This includes the frame, so make sure
         # it's at least twice as big as the frame width.
-        progress_bar_height = 10;
+        progress_bar_height = 6;
 
         # Set the frame width of the progress bar
         progress_bar_frame_width = 0;
@@ -71,7 +71,7 @@
         # The transparency of the window.  Range: [0; 100].
         # This option will only work if a compositing window manager is
         # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-        transparency = 30;
+        # transparency = 30;
 
         # Draw a line of "separator_height" pixel height between two
         # notifications.
@@ -93,7 +93,7 @@
         frame_width = 0;
 
         # Defines color of the frame around the notification window.
-        frame_color = "#0f0f0f";
+        frame_color = "#1B1B29";
 
         # Size of gap to display between notifications - requires a compositor.
         # If value is greater than 0, separator_height will be ignored and a border
@@ -168,7 +168,7 @@
 
         # Alignment of message text.
         # Possible values are "left", "center" and "right".
-        alignment = "center";
+        alignment = "left";
 
         # Vertical alignment of message text and icon.
         # Possible values are "top", "center" and "bottom".
@@ -202,14 +202,15 @@
         # Scale small icons up to this size, set to 0 to disable. Helpful
         # for e.g. small files or high-dpi screens. In case of conflict,
         # max_icon_size takes precedence over this.
-        min_icon_size = 32;
+        min_icon_size = 48;
 
         # Scale larger icons down to this size, set to 0 to disable
         max_icon_size = 64;
 
         # Paths to default icons.
-        icon_path = "/usr/share/icons/gnome/128x128/status/:/usr/share/icons/gnome/128x128/devices/";
-        icon_theme = "Papirus, Adwaita";
+        # icon_path = "/usr/share/icons/gnome/128x128/status/:/usr/share/icons/gnome/128x128/devices/";.
+        # icon_path = "/usr/share/icons/Papirus-Dark/48x48/apps:/usr/share/icons/Papirus-Dark/48x48/categories:/usr/share/icons/Papirus-Dark/48x48/devices:/usr/share/icons/Papirus-Dark/48x48/emblems:/usr/share/icons/Papirus-Dark/48x48/mimetypes:/usr/share/icons/Papirus-Dark/48x48/places:/usr/share/icons/Papirus-Dark/48x48/status";
+        # icon_theme = "Papirus, Adwaita";
         enable_recursive_icon_lookup = true;
 
         # always_run_scripts = true
@@ -244,9 +245,9 @@
         # corners.
         # The radius will be automatically lowered if it exceeds half of the
         # notification height to avoid clipping text and/or icons.
-        corner_radius = 10;
+        corner_radius = 8;
 
-        icon_corner_radius = 10;
+        icon_corner_radius = 6;
 
         # Ignore the dbus closeNotification message.
         # Useful to enforce the timeout set by dunst configuration. Without this
@@ -310,10 +311,10 @@
           # IMPORTANT: colors have to be defined in quotation marks.
           # Otherwise the "#" and following would be interpreted as a comment.
           timeout = 3;
-          background = 	"#111019";
+          background = 	"#22253D55";
           foreground = 	"#F1F0F5";
-          frame_color = "#0B0A10";
-          highlight =   "#AAC5A0";
+          # frame_color = "#515468";
+          highlight =   "#CB8CF4";
           # script = ~/.scripts/dunst/sound-normal.sh
           # Icon for notifications with low urgency, uncomment to enable
           #default_icon = /path/to/icon
@@ -321,9 +322,9 @@
 
       urgency_normal = {
           timeout = 5;
-          background = 	"#111019";
+          background = 	"#22253D55";
           foreground = 	"#F1F0F5";
-          frame_color = "#0B0A10";
+          # frame_color = "#515468";
           highlight =   "#A8C5E6";
           # script = ~/.scripts/dunst/sound-normal.sh
           # Icon for notifications with normal urgency, uncomment to enable
@@ -332,10 +333,10 @@
 
       urgency_critical = {
           timeout = 10;
-          background = 	"#111019";
+          background = 	"#22253D55";
           foreground = 	"#E97193";
-          frame_color = "#0B0A10";
-          highlight =   "#E97193";
+          # frame_color = "#515468";
+          highlight =   "#FB7B81";
       };
     };
   };

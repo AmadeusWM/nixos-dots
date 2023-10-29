@@ -24,6 +24,8 @@
       # Exports
       # export AUTO_NOTIFY_THRESHOLD=10 # Notify only if commands take longer than 10 seconds
       # export XDG_DATA_HOME="$HOME/.local/share"
+
+      export XDG_DATA_DIRS="$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
       
       # == Keybinds ==
       # ctrl + remove

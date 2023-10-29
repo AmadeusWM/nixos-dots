@@ -29,8 +29,8 @@ in
     bind=SUPER,E,exec,nautilus
 
     # Kitty
-    bind=CTRLALT_L,T,exec,kitty
-    bind=SUPER,T,exec,kitty
+    bind=CTRLALT_L,T,exec,kitty --single-instance
+    bind=SUPER,T,exec,kitty --single-instance
     # Tools
     # bind=SUPER,V,exec,cliphist list | anyrun | cliphist decode | wl-copy
     bind=SUPER,V,exec,hyprctl dispatch exec '[float] copyq toggle'
@@ -83,11 +83,17 @@ in
     bind=SUPER,z,layoutmsg,togglesplit
 
     # resizing
-    bind=SUPERSHIFT,left,exec, hyprctl dispatch splitratio -0.1 # left
-    bind=SUPERSHIFT,right,exec, hyprctl dispatch splitratio 0.1 # right
-    bind=SUPERSHIFT,up,exec, hyprctl dispatch splitratio -0.1 # up
-    bind=SUPERSHIFT,down,exec, hyprctl dispatch splitratio 0.1 # down
-
+    binde=SUPERSHIFT,left,exec,  hyprctl dispatch resizeactive -50 0  # left
+    binde=SUPERSHIFT,right,exec, hyprctl dispatch resizeactive  50 0  # right
+    binde=SUPERSHIFT,up,exec,    hyprctl dispatch resizeactive  0 -50  # up
+    binde=SUPERSHIFT,down,exec,  hyprctl dispatch resizeactive  0  50  # down
+    # moving floating windows
+    binde=SUPERCTRLSHIFT,left,exec,  hyprctl dispatch moveactive -50 0  # left
+    binde=SUPERCTRLSHIFT,right,exec, hyprctl dispatch moveactive  50 0  # right
+    binde=SUPERCTRLSHIFT,up,exec,    hyprctl dispatch moveactive  0 -50  # up
+    binde=SUPERCTRLSHIFT,down,exec,  hyprctl dispatch moveactive  0  50  # down
+    
+    
     # moving to other wokspace with mouse control
     bind=SUPER,mouse_down,workspace,e-1
     bind=SUPER,mouse_up,workspace,e+1
@@ -110,12 +116,12 @@ in
     bindl=,XF86AudioMedia,exec,playerctl play-pause
     bindl=,XF86AudioStop,exec,playerctl stop
 
-    bindle=,XF86AudioRaiseVolume,exec,~/nixos/home/dots/services/dunst/scripts/volume up
-    bindle=,XF86AudioLowerVolume,exec,~/nixos/home/dots/services/dunst/scripts/volume down
-    bindle=,XF86AudioMute,exec,~/nixos/home/dots/services/dunst/scripts/volume mute
+    bindle=,XF86AudioRaiseVolume,exec,~/nixos/home/dots/services/dunst/scripts/volume/volume.sh up
+    bindle=,XF86AudioLowerVolume,exec,~/nixos/home/dots/services/dunst/scripts/volume/volume.sh down
+    bindle=,XF86AudioMute,exec,~/nixos/home/dots/services/dunst/scripts/volume/volume.sh mute
     # brightness
-    bindle=,XF86MonBrightnessUp,exec,~/nixos/home/dots/services/dunst/scripts/brightness up
-    bindle=,XF86MonBrightnessDown,exec,~/nixos/home/dots/services/dunst/scripts/brightness down
+    bindle=,XF86MonBrightnessUp,exec,~/nixos/home/dots/services/dunst/scripts/brightness/brightness.sh up
+    bindle=,XF86MonBrightnessDown,exec,~/nixos/home/dots/services/dunst/scripts/brightness/brightness.sh down
     bind=,XF86Calculator,exec,qalculate
 
     # Lid open/close

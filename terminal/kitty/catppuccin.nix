@@ -7,6 +7,7 @@
 ## blurb: Soothing pastel theme for the high-spirited!
 {
     allow_remote_control = true;
+    enabled_layouts = "splits:split_axis=vertical";
     # General settings
     window_padding_width = 8;
     font_size = 12;

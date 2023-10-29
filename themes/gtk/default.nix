@@ -9,10 +9,10 @@
         variant = "mocha";
         tweaks = ["normal"];
       })
-      (catppuccin-papirus-folders.override {
-        accent = "blue";
-        flavor = "mocha";
-      })
+      # (catppuccin-papirus-folders.override {
+      #   accent = "blue";
+      #   flavor = "mocha";
+      # })
     ];
   };
   
@@ -39,13 +39,13 @@
     #   package = pkgs.materia-theme;
     # };
 
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        accent = "blue";
-        flavor = "mocha";
-      };
-    };
+    # iconTheme = {
+    #   name = "Papirus-Dark";
+    #   package = pkgs.catppuccin-papirus-folders.override {
+    #     accent = "blue";
+    #     flavor = "mocha";
+    #   };
+    # };
 
     # font = {
     #   name = "Lexend";
