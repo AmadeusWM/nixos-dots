@@ -8,6 +8,9 @@ in
     bindm=SUPER,mouse:272,movewindow
     bindm=SUPER,mouse:273,resizewindow
 
+    # bind=SUPERCTRL,P,exec,hyprctl dispatch exec 'kitty -c "/home/amadeusw/Documents/scripts/hyprpaper/kitty.conf" --class="kitty-bg" "/home/amadeusw/Documents/scripts/hyprpaper/hyprBonsai.sh"'
+    bind=SUPERALT,T,exec,notify-send "$(date '+%T')"
+
     # basic keybinds
     bind=SUPER,Q,killactive,
     bind=SUPERCTRL,Q,exec,${hyprPath}/config/scripts/tools/wkill.sh
@@ -41,6 +44,7 @@ in
     bind=SUPER,F,exec,firefox
     bind=SUPER,A,exec,hyprctl dispatch fullscreen 1
     bind=SUPERCTRL,A,exec,hyprctl dispatch fullscreen 2
+    bind=SUPERALT,A,exec,hyprctl dispatch fakefullscreen
     bind=SUPER,O,exec,obsidian
     bind=SUPERCTRL,O,exec,obs --minimize-to-tray
     bind=SUPER,W,exec,code

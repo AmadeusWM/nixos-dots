@@ -101,7 +101,7 @@
         format = "SND {volume}%";
         format-muted = "SND: 0%";
         scroll-step = 10;
-        on-click = "myxer";
+        on-click = "pavucontrol";
         tooltip-format = "At {volume}%";
     };
     backlight = {

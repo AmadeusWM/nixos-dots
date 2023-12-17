@@ -1,0 +1,67 @@
+label {
+  font-weight: bold; }
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 0px;
+  background-color: unset;
+  background: unset; }
+
+.bar {
+  background-color: rgba(33, 33, 44, 0.5); }
+
+.quicksettings {
+  background-color: rgba(33, 33, 44, 0.5); }
+
+.workspaces button {
+  background-color: transparent;
+  color: #eee;
+  padding: 0px 5px; }
+  .workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #efefef; }
+  .workspaces button:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff; }
+  .workspaces button .focused {
+    color: #CBA6F7; }
+
+.media {
+  background-color: transparent;
+  color: #eee; }
+
+.media:hover {
+  background-color: rgba(255, 255, 255, 0);
+  color: #efefef; }
+
+.media:active {
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff; }
+
+.client-title {
+  margin-left: 1em;
+  color: #888; }
+
+.notification image {
+  color: yellow;
+  margin-left: 1em; }
+
+.battery {
+  color: #A6E3A1;
+  margin: 0px 6px; }
+
+.audio-button {
+  margin: 0px 6px; }
+
+.clock {
+  margin: 0 6px;
+  font-size: 1.1em; }
+
+.sys-tray button {
+  padding: 0px 5px; }
+
+progress, highlight {
+  background-color: aqua;
+  min-height: 8px; }

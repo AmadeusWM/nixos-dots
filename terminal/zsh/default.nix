@@ -30,7 +30,7 @@
       # == Keybinds ==
       # ctrl + remove
       bindkey '^H' backward-kill-word # ctrl + backspace
-      bindkey '5~' kill-word # ctrl + delete
+      # bindkey '5~' kill-word # ctrl + delete
 
       # ctrl + arrows
       bindkey '^[[1;5C' forward-word

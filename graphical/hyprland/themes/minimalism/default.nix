@@ -3,5 +3,5 @@
   imports = [
     ./waybar
   ];
-  wayland.windowManager.hyprland.extraConfig = import ./hyprland.conf;
+  wayland.windowManager.hyprland.extraConfig = builtins.readFile ./hyprland.conf;
 }

@@ -8,15 +8,19 @@
     # nix dependencies
     nil
     # typescript
+    nodePackages_latest.typescript
     nodePackages_latest.typescript-language-server
     # python
     python311Packages.python-lsp-server
     nodePackages_latest.pyright
     python311Packages.debugpy # debugger
+    black # formatter
     # java
-    vimPlugins.nvim-jdtls
+    # jdt-language-server # outdated
     # markdown
     marksman
+    # formatter
+    nodePackages.prettier
   ];
 
   programs.helix = {
@@ -60,9 +64,30 @@
       };
     };
     languages = {
+      language-servers = [
+          {
+              name = "javascript-langserver";
+              command = "typescript-language-server";
+              args = ["--stdio"];
+              language-id = "javascript";
+          }
+      ];
       language = [
         {
+          name = "java";
+        }
+        {
+          name = "markdown";
+          soft-wrap.enable = true;
+          formatter = { command = "prettier"; args = ["--parser" "markdown"]; };
+          auto-format = true;
+        }
+        {
           name = "cpp";
+        }
+        {
+          name = "javascript";
+          language-servers = [ "typescript-language-server" ];
         }
         {
           name = "nix";
@@ -74,20 +99,7 @@
           shebangs = ["python"];
           roots = ["setup.py" "setup.cfg" "pyproject.toml"];
           formatter = { command = "black"; args = ["--quiet" "-"]; };
-          language-server = { command = "pyright-langserver"; args = ["--stdio"]; };
-          config = {};
-          debugger = {
-            name = "debugpy";
-            transport = "stdio";
-            command = "python3";
-            args = ["-m" "debugpy.adapter"];
-            templates = [{
-              name = "source";
-              request = "launch";
-              completion = [ { name = "entrypoint"; completion = "filename"; default = "."; } ];
-              args = { mode = "debug"; program = "dns_proxy.py"; };
-            }];
-          };
+          language-servers = [ "pyright" ];
         }
       ];
     };
@@ -102,3 +114,12 @@
     };
   };
 }
+
+#  _____________ 
+# < wsup brotha >
+#  ------------- 
+#         \   ^__^
+#          \  (--)\_______
+#             (__)\       )\/\
+#                 ||----w |
+#                 ||     ||

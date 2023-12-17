@@ -11,6 +11,13 @@
 
     exec-once=$HOME/nixos/home/dots/graphical/hyprland/config/scripts/idle_handler.sh
 
+    # plugin {
+    #     hyprwinwrap {
+    #         # class is an EXACT match and NOT a regex!
+    #         class = kitty-bg
+    #     }
+    # }
+
     input {
         kb_layout=
         kb_variant=ffffff
@@ -43,6 +50,7 @@
     }
 
     decoration {
+        # screen_shader=/home/amadeusw/nixos/home/dots/graphical/hyprland/shaders/crt.frag
         blur {
             enabled=true
             new_optimizations = on

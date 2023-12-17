@@ -19,7 +19,7 @@
     selection_background    = "#575268";
 
     # Transparent Background
-    background_opacity      = "0.95";
+    background_opacity      = "0.9";
 
     # Cursor colors
     cursor                  = "#F5E0DC";

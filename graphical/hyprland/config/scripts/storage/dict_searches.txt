@@ -1,3 +1,4 @@
+Gdk-Message: 19:10:24.486: Error flushing display: Resource temporarily unavailable
 aristocratic
 conceit
 contempt

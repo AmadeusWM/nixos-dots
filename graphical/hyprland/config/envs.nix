@@ -11,5 +11,6 @@
     env = XCURSOR_SIZE, 24
 
     env = XDG_SESSION_TYPE, wayland
+    # env = NIXOS_OZONE_WL, "1"
   '';
 }

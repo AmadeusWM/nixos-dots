@@ -2,8 +2,8 @@
 {
   wayland.windowManager.hyprland.extraConfig = ''
     general {
-      border_size=2
-      col.active_border=0xffA8C5E6
+      border_size=3
+      col.active_border=0xffEAE9F0
       col.inactive_border=0xFF0C0B10
 
       gaps_in=2

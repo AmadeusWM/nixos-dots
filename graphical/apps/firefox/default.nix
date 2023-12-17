@@ -7,7 +7,6 @@ in
   # Example config source: https://discourse.nixos.org/t/help-setting-up-firefox-with-home-manager/23333
   programs.firefox = {
     enable = true;
-    
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {
         CaptivePortal = false;
@@ -37,6 +36,7 @@ in
         extraConfig = ''
           user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
           user_pref("svg.context-properties.content.enabled", true);
+          user_pref("browser.display.background_color.dark", "#11111B");
         '';
         # userChrome = ''
         #   @import "${chromePath}/config.css";
@@ -53,6 +53,34 @@ in
           @import "${chromePath}/userContent.css";
           @import "${chromePath}/userChrome.css";
         '';
+        
+        # containers = {
+        #   personal = {
+        #     color = "blue";
+        #     icon = "fingerprint";
+        #     id = 1;
+        #   };
+        #   work = {
+        #     color = "yellow";
+        #     icon = "briefcase";
+        #     id = 2;
+        #   };
+        #   banking = {
+        #     color = "green";
+        #     icon = "dollar";
+        #     id = 3;
+        #   };
+        #   shopping = {
+        #     color = "pink";
+        #     icon = "cart";
+        #     id = 4;
+        #   };
+        #   dangerous = {
+        #     color = "red";
+        #     icon = "fruit";
+        #     id = 5;
+        #   };
+        # };
       };
     };
   };

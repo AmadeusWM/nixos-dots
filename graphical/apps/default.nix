@@ -1,8 +1,9 @@
 { pkgs, config, ... }:
 {
   imports = [
+    ./copyq
     ./firefox
     ./vscode
-    ./copyq
+    ./zathura
   ];
 }

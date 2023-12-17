@@ -37,6 +37,9 @@
     # launchers
     wofi = ./graphical/launchers/wofi;
     anyrun = ./graphical/launchers/anyrun;
+
+    # bars
+    ags = ./graphical/bars/ags;
     
     # services
     dunst = ./services/dunst;
