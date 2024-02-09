@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   imports = [
-    ./dunst
+    # ./dunst
     # Wayland:
     ./swayidle
     ./gtklock

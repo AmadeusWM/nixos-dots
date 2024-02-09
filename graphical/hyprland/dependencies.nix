@@ -6,13 +6,14 @@
     dart-sass
     gtklock
     grim # Screenshots
+    hyprpaper
     hyprpicker
     networkmanagerapplet
     socat
     slurp # Screencoordinates for selected area
     swappy # Screenshot editor
     swaylock
-    swayidle
+    # swayidle
     swww
     wdisplays
     wf-recorder

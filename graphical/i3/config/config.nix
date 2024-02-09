@@ -227,9 +227,9 @@ in {
           # }
           # feh wallpaper
           {
-            # command = "feh --bg-scale /home/amadeusw/Pictures/wallpapers/pixel-skyline.png";
-            command = "feh --bg-center /home/amadeusw/Pictures/wallpapers/wallpapers/widescreen/greenbruh.png";
-            # command = "feh --bg-center /home/amadeusw/Pictures/wallpapers/wallpapers/pixelart/MasterSword.png";
+            # command = "feh --bg-scale ~/Pictures/wallpapers/pixel-skyline.png";
+            command = "feh --bg-center ~/Pictures/wallpapers/wallpapers/widescreen/greenbruh.png";
+            # command = "feh --bg-center ~/Pictures/wallpapers/wallpapers/pixelart/MasterSword.png";
             always = false;
             notification = false;
           }

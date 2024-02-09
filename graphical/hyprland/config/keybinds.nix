@@ -8,7 +8,6 @@ in
     bindm=SUPER,mouse:272,movewindow
     bindm=SUPER,mouse:273,resizewindow
 
-    # bind=SUPERCTRL,P,exec,hyprctl dispatch exec 'kitty -c "/home/amadeusw/Documents/scripts/hyprpaper/kitty.conf" --class="kitty-bg" "/home/amadeusw/Documents/scripts/hyprpaper/hyprBonsai.sh"'
     bind=SUPERALT,T,exec,notify-send "$(date '+%T')"
 
     # basic keybinds
@@ -30,6 +29,7 @@ in
 
     # basic applications
     bind=SUPER,E,exec,nautilus
+    bind=SUPERCTRL,N,exec,XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi
 
     # Kitty
     bind=CTRLALT_L,T,exec,kitty --single-instance
@@ -56,8 +56,8 @@ in
 
     # ease of life
     ## Color picker
-    bind=SUPER,C,exec,hyprpicker | wl-copy -n && notify-send --icon /home/amadeusw/nixos/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
-    bind=SUPERCTRL,C,exec,hyprpicker | cut -c 2-7 | wl-copy -n && notify-send --icon /home/amadeusw/nixos/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
+    bind=SUPER,C,exec,hyprpicker | wl-copy -n && notify-send --icon ~/nixos/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
+    bind=SUPERCTRL,C,exec,hyprpicker | cut -c 2-7 | wl-copy -n && notify-send --icon ~/nixos/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
 
     bind=SUPER,U,exec,pkill -f '.*GradleDaemon.*'
     

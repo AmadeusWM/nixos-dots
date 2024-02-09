@@ -21,4 +21,9 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     });
   };
+
+  xdg.configFile."hypr/hyprpaper.conf".text = ''
+    preload = ~/Pictures/wallpapers/wallpapers/widescreen/spirit_dark_blue.png
+    wallpaper = ,~/Pictures/wallpapers/wallpapers/widescreen/spirit_dark_blue.png
+  '';
 }

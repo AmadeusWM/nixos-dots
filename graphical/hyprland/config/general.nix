@@ -50,7 +50,7 @@
     }
 
     decoration {
-        # screen_shader=/home/amadeusw/nixos/home/dots/graphical/hyprland/shaders/crt.frag
+        # screen_shader=~/nixos/home/dots/graphical/hyprland/shaders/crt.frag
         blur {
             enabled=true
             new_optimizations = on

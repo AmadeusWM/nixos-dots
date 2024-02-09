@@ -13,7 +13,6 @@
     bluez
     chromium
     dict
-    dunst
     eww
     gnome.dconf-editor # to find gnome keybinds
     gnome.gnome-tweaks
@@ -33,6 +32,7 @@
 
     # FONTS
     nerdfonts
+    minecraftia
 
     # ICONS
     papirus-icon-theme

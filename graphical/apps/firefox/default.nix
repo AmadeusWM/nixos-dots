@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ inputs, pkgs, config, lib, ... }:
 let
   chromePath = "${config.home.homeDirectory}/nixos/home/dots/graphical/apps/firefox/themes/minimal";
   # chromePath = "${config.home.homeDirectory}/nixos/home/dots/graphical/apps/firefox/themes/apatheia";
@@ -7,23 +7,24 @@ in
   # Example config source: https://discourse.nixos.org/t/help-setting-up-firefox-with-home-manager/23333
   programs.firefox = {
     enable = true;
-    package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-      extraPolicies = {
-        CaptivePortal = false;
-        DisableFirefoxStudies = true;
-        DisablePocket = true;
-        DisableTelemetry = true;
-        DisableFirefoxAccounts = false;
-        NoDefaultBookmarks = true;
-        FirefoxHome = {
-          Search = true;
-          Pocket = false;
-          Snippets = false;
-          TopSites = false;
-          Highlights = false;
-        };
-      };
-    };
+    package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
+    # package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+    #   extraPolicies = {
+    #     CaptivePortal = false;
+    #     DisableFirefoxStudies = true;
+    #     DisablePocket = true;
+    #     DisableTelemetry = true;
+    #     DisableFirefoxAccounts = false;
+    #     NoDefaultBookmarks = true;
+    #     FirefoxHome = {
+    #       Search = true;
+    #       Pocket = false;
+    #       Snippets = false;
+    #       TopSites = false;
+    #       Highlights = false;
+    #     };
+    #   };
+    # };
     profiles = {
       default = {
         id = 0;

@@ -23,5 +23,5 @@ systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 xhost +local:
 
 # Background
-sleep 3
-~/nixos/home/dots/graphical/hyprland/config/scripts/wallpaper/wallpaper
+# sleep 3
+# ~/nixos/home/dots/graphical/hyprland/config/scripts/wallpaper/wallpaper

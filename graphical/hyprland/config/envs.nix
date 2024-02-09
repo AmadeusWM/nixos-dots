@@ -12,5 +12,6 @@
 
     env = XDG_SESSION_TYPE, wayland
     # env = NIXOS_OZONE_WL, "1"
+    env = MOZ_ENABLE_WAYLAND, 1
   '';
 }
