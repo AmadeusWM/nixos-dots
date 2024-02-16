@@ -87,15 +87,15 @@ in
     bind=SUPER,z,layoutmsg,togglesplit
 
     # resizing
-    binde=SUPERSHIFT,left,exec,  hyprctl dispatch resizeactive -50 0  # left
-    binde=SUPERSHIFT,right,exec, hyprctl dispatch resizeactive  50 0  # right
-    binde=SUPERSHIFT,up,exec,    hyprctl dispatch resizeactive  0 -50  # up
-    binde=SUPERSHIFT,down,exec,  hyprctl dispatch resizeactive  0  50  # down
+    binde=SUPERSHIFT,left,exec,  hyprctl dispatch resizeactive -200 0  # left
+    binde=SUPERSHIFT,right,exec, hyprctl dispatch resizeactive  200 0  # right
+    binde=SUPERSHIFT,up,exec,    hyprctl dispatch resizeactive  0 -200  # up
+    binde=SUPERSHIFT,down,exec,  hyprctl dispatch resizeactive  0  200  # down
     # moving floating windows
-    binde=SUPERCTRLSHIFT,left,exec,  hyprctl dispatch moveactive -50 0  # left
-    binde=SUPERCTRLSHIFT,right,exec, hyprctl dispatch moveactive  50 0  # right
-    binde=SUPERCTRLSHIFT,up,exec,    hyprctl dispatch moveactive  0 -50  # up
-    binde=SUPERCTRLSHIFT,down,exec,  hyprctl dispatch moveactive  0  50  # down
+    binde=SUPERCTRLSHIFT,left,exec,  hyprctl dispatch moveactive -200 0  # left
+    binde=SUPERCTRLSHIFT,right,exec, hyprctl dispatch moveactive  200 0  # right
+    binde=SUPERCTRLSHIFT,up,exec,    hyprctl dispatch moveactive  0 -200  # up
+    binde=SUPERCTRLSHIFT,down,exec,  hyprctl dispatch moveactive  0  200  # down
     
     
     # moving to other wokspace with mouse control

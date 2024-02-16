@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # If an instance of wf-recorder is running under this user kill it with SIGINT and exit
-killall wf-recorder && exit
+killall -SIGINT wf-recorder && exit
 
 # Define paths
 DefaultSaveDir=$HOME'/Videos/Recordings'
@@ -24,14 +24,14 @@ Coords=$(slurp) || exit
 
 # Capture video using slup for screen area
 # timeout and exit after 10 minutes as user has almost certainly forgotten it's running
-timeout 600 wf-recorder --audio="alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.pro-output-0.monitor" -t -g "$Coords" -f "$TmpRecordPath" || exit
+timeout 600 wf-recorder --audio="alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.pro-output-0.monitor" -t -x yuv420p -g "$Coords" -f "$TmpRecordPath" || exit
 
 # Get the filename from the user and honor cancel
 SavePath=$( zenity \
 	--file-selection \
 	--save \
 	--file-filter=*.mp4 \
-	--filename="$DefaultSaveDir"'/.mp4' \
+	--filename="$DefaultSaveDir"'.mp4' \
 ) || exit
 
 # Copy the file from the temporary path to the save path

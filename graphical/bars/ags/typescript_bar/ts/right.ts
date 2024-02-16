@@ -46,15 +46,22 @@ const Clock = () => Widget.Label({
         self.poll(1000, self => execAsync(['date', '+%H:%M:%S %a%e %b'])
             .then(date => self.label = date).catch(console.error)),
 });
-  
+
+const ButtonAudio = () => Widget.Button({
+    className: 'audio-button',
+    child: Widget.Label("AUDIO"),
+    onPrimaryClick: (_, event) => { 
+        App.toggleWindow('quicksettings');
+    } 
+})
 
 export const Right = () =>
   Widget.Box({
     hpack: "end",
     children: [
       // SysTray(),
-      // ButtonAudio(),
       BatteryLabel(),
       Clock(),
+      ButtonAudio(),
     ],
   });

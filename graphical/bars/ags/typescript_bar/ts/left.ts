@@ -28,6 +28,7 @@ const workspaceIcons = {
   "17": "XVII",
   "18": "XVIII",
   "19": "XIX",
+  "20": "XX",
   "21": "XXI",
   "22": "XXII",
   "23": "XXIII",
@@ -44,7 +45,7 @@ const workspaceIcons = {
 const Workspaces = ({ monitor }) =>
   Widget.Box({
     className: "workspaces",
-    children: Array.from({ length: 30 }, (_, i) => i + 1).map((i) =>
+    children: Array.from({ length: 31 }, (_, i) => i + 1).map((i) =>
       Widget.Button({
         setup: (btn) => (btn.attribute = i),
         label: `${workspaceIcons[i]}`,

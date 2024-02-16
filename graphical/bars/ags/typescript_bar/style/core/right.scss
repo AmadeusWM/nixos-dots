@@ -1,0 +1,56 @@
+.quicksettings {
+    background-color: rgba(2, 2, 3, 0.5);;
+}
+
+.media {
+    background-color: transparent;
+    color: #eee;
+}
+
+.media:hover {
+    background-color: rgba(255, 255, 255, 0.0);
+    color: #efefef;
+}
+
+.media:active {
+    background-color: rgba(255, 255, 255, 0.0);
+    color: #fff;
+}
+
+.client-title {
+    margin-left: 1em;
+    color: #888;
+}
+
+.notification image {
+    color: #fff;
+    margin-left: 1em;
+}
+
+.battery {
+    font-size: 1.1em;
+    .low {
+        color: #E685A1;
+    }
+    .high {
+        color: #A6E3A1;
+    }
+}
+
+.audio-button {
+    margin: 0px 6px;
+}
+
+.clock {
+    margin: 0 6px;
+    font-size: 1.1em;
+}
+
+.sys-tray button {
+    padding: 0px 5px;
+}
+
+progress, highlight {
+    background-color: aqua;
+    min-height: 8px;
+}

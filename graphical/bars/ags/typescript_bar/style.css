@@ -1,3 +1,15 @@
+.workspaces button {
+  background-color: transparent;
+  color: #eee;
+  padding: 0px 5px; }
+  .workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #efefef; }
+
+.workspaces .focused {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #CBA6F7; }
+
 label {
   font-family: Minecraftia; }
 
@@ -12,20 +24,50 @@ button {
 .bar {
   background-color: rgba(2, 2, 3, 0.5); }
 
-.quicksettings {
+window#notifications {
+  all: unset; }
+
+.icon {
+  min-width: 68px;
+  min-height: 68px;
+  margin-right: 1em; }
+
+.icon image {
+  font-size: 58px;
+  min-width: 68px;
+  min-height: 68px;
+  /* to center the icon */
+  margin: 5px; }
+
+.icon box {
+  border-radius: 7px;
+  margin-left: 0px;
+  min-width: 68px;
+  min-height: 68px; }
+
+.notification {
+  min-width: 350px;
+  padding: 1em;
   background-color: rgba(2, 2, 3, 0.5); }
 
-.workspaces button {
-  background-color: transparent;
-  color: #eee;
-  padding: 0px 5px; }
-  .workspaces button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #efefef; }
+.notification.critical {
+  border: 1px solid lightcoral; }
 
-.workspaces .focused {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #CBA6F7; }
+.title {
+  font-size: 1.4em; }
+
+.actions .action-button {
+  margin: 0 .4em;
+  margin-top: .8em; }
+
+.actions .action-button:first-child {
+  margin-left: 0; }
+
+.actions .action-button:last-child {
+  margin-right: 0; }
+
+.quicksettings {
+  background-color: rgba(2, 2, 3, 0.5); }
 
 .media {
   background-color: transparent;
@@ -68,48 +110,47 @@ progress, highlight {
   background-color: aqua;
   min-height: 8px; }
 
-window#notifications {
-  all: unset; }
+.sink-selector {
+  margin: 0px 4px; }
+  .sink-selector .sink-item {
+    border-radius: 8px;
+    margin: 2px 0px;
+    padding: 2px 6px; }
+    .sink-selector .sink-item .sink-icon {
+      margin-right: 8px; }
+  .sink-selector .volume-slider-box {
+    margin: 6px 6px; }
+    .sink-selector .volume-slider-box .volume-icon {
+      margin-right: 8px; }
+    .sink-selector .volume-slider-box .volume-slider {
+      min-width: 100px;
+      margin: 8px 0px; }
+      .sink-selector .volume-slider-box .volume-slider trough {
+        border-radius: 8px;
+        min-height: 5px; }
+        .sink-selector .volume-slider-box .volume-slider trough highlight,
+        .sink-selector .volume-slider-box .volume-slider trough progress {
+          border-radius: 8px; }
+      .sink-selector .volume-slider-box .volume-slider slider {
+        min-width: 5px;
+        min-height: 5px; }
 
-window#notifications box.notifications {
-  padding: .5em; }
-
-.icon {
-  min-width: 68px;
-  min-height: 68px;
-  margin-right: 1em; }
-
-.icon image {
-  font-size: 58px;
-  /* to center the icon */
-  margin: 5px; }
-
-.icon box {
-  min-width: 68px;
-  min-height: 68px;
-  border-radius: 7px; }
-
-.notification {
+.app-mixer {
   min-width: 350px;
-  border-radius: 11px;
-  padding: 1em;
-  margin: .5em; }
-
-.notification.critical {
-  border: 1px solid lightcoral; }
-
-.title {
-  font-size: 1.4em; }
-
-.body {
-  background-color: rgba(2, 2, 3, 0.5); }
-
-.actions .action-button {
-  margin: 0 .4em;
-  margin-top: .8em; }
-
-.actions .action-button:first-child {
-  margin-left: 0; }
-
-.actions .action-button:last-child {
-  margin-right: 0; }
+  margin: 8px; }
+  .app-mixer .mixer-item.horizontal .mixer-content {
+    margin: 0px 16px; }
+    .app-mixer .mixer-item.horizontal .mixer-content .mixer-slider {
+      min-width: 100px;
+      margin: 8px 0px; }
+      .app-mixer .mixer-item.horizontal .mixer-content .mixer-slider trough {
+        border-radius: 8px;
+        min-height: 5px; }
+        .app-mixer .mixer-item.horizontal .mixer-content .mixer-slider trough highlight,
+        .app-mixer .mixer-item.horizontal .mixer-content .mixer-slider trough progress {
+          border-radius: 8px; }
+      .app-mixer .mixer-item.horizontal .mixer-content .mixer-slider slider {
+        min-width: 5px;
+        min-height: 5px; }
+  .app-mixer .mixer-item.horizontal .mixer-percentage {
+    min-width: 46px; }

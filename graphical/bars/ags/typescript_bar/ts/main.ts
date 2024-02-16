@@ -6,12 +6,13 @@ import Window from "types/widgets/window";
 import Hyprland from 'resource:///com/github/Aylur/ags/service/hyprland.js';
 import Gdk from "types/@girs/gdk-3.0/gdk-3.0";
 import { Right } from "./right";
-const hyprland = await Service.import("hyprland");
+import PopupWindow from "./popups/PopupWindow";
+import { VolumeMixerContent } from "./notifications/volume";
 
 const Bar = (monitor: number ) => Widget.Window({
   name: `bar-${monitor}`, // name has to be unique
   className: 'bar',
-  monitor,
+  monitor: monitor,
   anchor: ['top', 'left', 'right'],
   exclusivity: "exclusive",
   child: Widget.CenterBox({
@@ -22,15 +23,11 @@ const Bar = (monitor: number ) => Widget.Window({
 
 let bars: Window<any, any>[] = []
 
-function range(length: number, start = 1) {
-    return Array.from({ length }, (_, i) => i + start);
-}
-
 function initBars(){
     bars.forEach(bar => !bar.is_destroyed && bar.destroy())
-    const monitorCount = Gdk.Display.get_default()?.get_n_monitors() || 1
-    bars = range(monitorCount, 0).map(i => Bar(i))
+    bars = Hyprland.monitors.map(monitor => Bar(monitor.id))
 }
+
 
 Hyprland.connect("monitor-added", (service, ...args) => {
     console.log("args", args)
@@ -42,13 +39,25 @@ Hyprland.connect("monitor-removed", (service, ...args) => {
     initBars()
 })
 
-initBars()
+// delay so that Hyprland can be initialized
+setTimeout(() => {
+    initBars()
+}, 500)
+ 
+
+const AudioMenu = () => PopupWindow({
+    name: 'quicksettings',
+    anchor: ['right', 'top'],
+    transition: 'slide_down',
+    child: VolumeMixerContent()
+});
 
 // exporting the config so ags can manage the windows
 export default {
     style: App.configDir + '/style.css',
     windows: [
         ...bars,
-        NotificationPopup
+        NotificationPopup(),
+        AudioMenu()
     ],
 };

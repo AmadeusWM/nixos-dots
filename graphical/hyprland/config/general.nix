@@ -29,7 +29,7 @@
 
         touchpad {
             natural_scroll=yes
-            disable_while_typing=true
+            disable_while_typing=yes
             scroll_factor=1
         }
     }

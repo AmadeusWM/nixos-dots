@@ -1,0 +1,55 @@
+@mixin slider {
+  min-width: 100px;
+  margin: 8px 0px;
+
+  trough {
+    border-radius: 8px;
+    min-height: 5px;
+    // min-width:  ;
+
+    highlight,
+    progress {
+      border-radius: 8px;
+    }
+  }
+  slider {
+    min-width: 5px;
+    min-height: 5px;
+  }
+}
+
+.sink-selector {
+  margin: 0px 4px;
+  .sink-item {
+    border-radius: 8px;
+    margin: 2px 0px;
+    padding: 2px 6px;
+    .sink-icon {
+      margin-right: 8px;
+    }
+  }
+  .volume-slider-box {
+    margin: 6px 6px;
+    .volume-icon {
+      margin-right: 8px;
+    }
+    .volume-slider {
+      @include slider;
+    }
+  }
+}
+.app-mixer {
+  min-width: 350px;
+  margin: 8px;
+  .mixer-item.horizontal {
+    .mixer-content {
+      margin: 0px 16px;
+      .mixer-slider {
+        @include slider;
+      }
+    }
+    .mixer-percentage {
+      min-width: 46px;
+    }
+  }
+}

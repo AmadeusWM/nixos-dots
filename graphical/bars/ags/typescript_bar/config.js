@@ -16,26 +16,27 @@ try {
 
 const main = await import(`file://${outdir}/main.js`)
 
-Utils.monitorFile(
-    // directory that contains the scss files (recursively for all scss files)
+const scssDirectories = [
     `${App.configDir}/style`,
+    `${App.configDir}/style/core`
+]
+scssDirectories.forEach((dir) => {
+    Utils.monitorFile(dir, reloadCss, 'directory')
+})
 
-    // reload function
-    function() {
-        // main scss file (that includes other scss files)
-        const scss = `${App.configDir}/style/style.scss` 
+// reload function
+function reloadCss() {
+    console.log('reloading css')
+    // main scss file (that includes other scss files)
+    const scss = `${App.configDir}/style/style.scss` 
 
-        // target css file
-        const css = `${App.configDir}/style.css` // compile into 1 .css file
+    // target css file
+    const css = `${App.configDir}/style.css` // compile into 1 .css file
 
-        // compile, reset, apply
-        Utils.exec(`sassc ${scss} ${css}`)
-        App.resetCss()
-        App.applyCss(css)
-    },
-
-    // specify that its a directory, to make the monitor recursive
-    'directory',
-)
+    // compile, reset, apply
+    Utils.exec(`sassc ${scss} ${css}`)
+    App.resetCss()
+    App.applyCss(css)
+}
 
 export default main.default
