@@ -4,6 +4,8 @@ let
 in
 {
   wayland.windowManager.hyprland.extraConfig = ''
+    bind=CAPS,Caps_Lock,exec,ags -r "capsLock.value = !capsLock.value"
+    
     # example binds
     bindm=SUPER,mouse:272,movewindow
     bindm=SUPER,mouse:273,resizewindow
@@ -55,7 +57,7 @@ in
     bind=SUPERCTRL,L,exec,${hyprPath}/config/scripts/lock
 
     # ease of life
-    ## Color picker
+    # Color picker
     bind=SUPER,C,exec,hyprpicker | wl-copy -n && notify-send --icon ~/nixos/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
     bind=SUPERCTRL,C,exec,hyprpicker | cut -c 2-7 | wl-copy -n && notify-send --icon ~/nixos/home/dots/graphical/hyprland/themes/winter/eww/assets/snowflake2.png -t 4000 "$(wl-paste)"
 
@@ -64,26 +66,26 @@ in
     # Wallpaper
     bind=SUPER,B,exec,${hyprPath}/config/scripts/wallpaper/wallpaper_picker
 
-    ### binds for workspaces ###
-    ## focusing windows
+    # binds for workspaces ##
+    # focusing windows
     bind=SUPER,left,movefocus,l
     bind=SUPER,right,movefocus,r
     bind=SUPER,up,movefocus,u
     bind=SUPER,down,movefocus,d
 
-    ## moving windows
+    # moving windows
     bind=SUPERCTRL,left,movewindow,l
     bind=SUPERCTRL,right,movewindow,r
     bind=SUPERCTRL,up,movewindow,u
     bind=SUPERCTRL,down,movewindow,d
 
-    ## swapping windows
+    # swapping windows
     bind=SUPERCTRLSHIFT,left,swapwindow,l
     bind=SUPERCTRLSHIFT,right,swapwindow,r
     bind=SUPERCTRLSHIFT,up,swapwindow,u
     bind=SUPERCTRLSHIFT,down,swapwindow,d
 
-    ## swap between horizontal/vertical splitting
+    # swap between horizontal/vertical splitting
     bind=SUPER,z,layoutmsg,togglesplit
 
     # resizing
@@ -136,7 +138,7 @@ in
     # trigger when the switch is turning off
     bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
 
-    ## workspaces
+    # workspaces
     # focusing other workspaces
     bind=SUPER,1,exec, ${hyprPath}/config/scripts/workspace visit 1
     bind=SUPER,2,exec, ${hyprPath}/config/scripts/workspace visit 2

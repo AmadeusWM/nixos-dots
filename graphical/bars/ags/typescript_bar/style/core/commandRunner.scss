@@ -1,0 +1,27 @@
+.command-runner {
+    background-color: #1A1C26;
+    .menu {
+        min-width: 400px;
+        padding: 0px 6px;
+        .command-runner-search {
+            .prefix {
+                margin-right: 2px;
+            }
+            entry {
+                all: unset;
+                font-size: 16px;
+                border-radius: 0px;
+                background-color: #1A1C26;
+            }
+        }
+        .command-list {
+            .command-entry {
+                padding: 2px 0px;
+                &:focus {
+                    background-color: #67566A;
+                    box-shadow: unset;
+                }
+            }
+        }
+    }
+}

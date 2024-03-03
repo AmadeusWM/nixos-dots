@@ -1,13 +1,10 @@
-import { timeout, execAsync } from "resource:///com/github/Aylur/ags/utils.js";
-import { Left } from "./left";
-import { NotificationPopup } from "./notifications/notificationPopups";
-import { Monitor } from "types/service/hyprland";
+import { Left } from "./Left";
+import { NotificationPopup } from "./notifications/NotificationPopups";
 import Window from "types/widgets/window";
 import Hyprland from 'resource:///com/github/Aylur/ags/service/hyprland.js';
-import Gdk from "types/@girs/gdk-3.0/gdk-3.0";
-import { Right } from "./right";
-import PopupWindow from "./popups/PopupWindow";
-import { VolumeMixerContent } from "./notifications/volume";
+import { Right } from "./Right";
+import { AudioMenu } from "./popups/AudioMenu";
+import { CommandRunner } from "./popups/CommandRunner";
 
 const Bar = (monitor: number ) => Widget.Window({
   name: `bar-${monitor}`, // name has to be unique
@@ -43,14 +40,6 @@ Hyprland.connect("monitor-removed", (service, ...args) => {
 setTimeout(() => {
     initBars()
 }, 500)
- 
-
-const AudioMenu = () => PopupWindow({
-    name: 'quicksettings',
-    anchor: ['right', 'top'],
-    transition: 'slide_down',
-    child: VolumeMixerContent()
-});
 
 // exporting the config so ags can manage the windows
 export default {
@@ -58,6 +47,7 @@ export default {
     windows: [
         ...bars,
         NotificationPopup(),
-        AudioMenu()
+        AudioMenu(),
+        CommandRunner()
     ],
 };

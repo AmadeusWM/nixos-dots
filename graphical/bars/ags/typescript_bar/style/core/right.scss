@@ -46,11 +46,20 @@
     font-size: 1.1em;
 }
 
-.sys-tray button {
-    padding: 0px 5px;
-}
-
 progress, highlight {
     background-color: aqua;
     min-height: 8px;
+}
+
+.caps {
+    margin: 0px 5px;
+    padding: 0px 5px;
+}
+
+.caps.caps-on {
+    background-color: #E685A1;
+    color: #000;
+}
+
+.caps.caps-off {
 }

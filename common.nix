@@ -27,7 +27,6 @@
     pavucontrol
     playerctl
     rm-improved # rip: alternative to rm (https://github.com/nivekuil/rip)
-    vscode
     xorg.xkill
 
     # FONTS

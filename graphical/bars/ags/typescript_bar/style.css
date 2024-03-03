@@ -10,11 +10,10 @@
   background-color: rgba(255, 255, 255, 0.1);
   color: #CBA6F7; }
 
-label {
+* {
   font-family: Minecraftia; }
 
 button {
-  font-family: monospace;
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
@@ -103,12 +102,17 @@ window#notifications {
   margin: 0 6px;
   font-size: 1.1em; }
 
-.sys-tray button {
-  padding: 0px 5px; }
-
 progress, highlight {
   background-color: aqua;
   min-height: 8px; }
+
+.caps {
+  margin: 0px 5px;
+  padding: 0px 5px; }
+
+.caps.caps-on {
+  background-color: #E685A1;
+  color: #000; }
 
 .sink-selector {
   margin: 0px 4px; }
@@ -154,3 +158,27 @@ progress, highlight {
         min-height: 5px; }
   .app-mixer .mixer-item.horizontal .mixer-percentage {
     min-width: 46px; }
+
+.command-runner {
+  background-color: #1A1C26; }
+  .command-runner .menu {
+    min-width: 400px;
+    padding: 0px 6px; }
+    .command-runner .menu .command-runner-search .prefix {
+      margin-right: 2px; }
+    .command-runner .menu .command-runner-search entry {
+      all: unset;
+      font-size: 16px;
+      border-radius: 0px;
+      background-color: #1A1C26; }
+    .command-runner .menu .command-list .command-entry {
+      padding: 2px 0px; }
+      .command-runner .menu .command-list .command-entry:focus {
+        background-color: #67566A;
+        box-shadow: unset; }
+
+.bar-tray {
+  margin: 1px 5px; }
+
+.sys-tray button {
+  padding: 0px 5px; }

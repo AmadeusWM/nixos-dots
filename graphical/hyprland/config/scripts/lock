@@ -6,3 +6,5 @@
 # kill %%
 
 systemctl suspend
+
+# hyprlock

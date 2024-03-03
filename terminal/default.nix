@@ -6,5 +6,6 @@
     ./starship
     ./nvim
     ./helix
+    ./broot
   ];
 }

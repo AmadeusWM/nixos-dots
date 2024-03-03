@@ -23,6 +23,7 @@
         kb_variant=ffffff
         kb_model=
         kb_options=compose:rctrl,level3:ralt_switch
+        kb_options = caps:swapescape # fuck it, we ball
         kb_rules=
 
         follow_mouse=1
@@ -32,6 +33,7 @@
             disable_while_typing=yes
             scroll_factor=1
         }
+        repeat_delay=250 # time between key registers when holding down
     }
 
     misc {
@@ -84,7 +86,7 @@
     windowrule=float,title:^(New Text Note — Okular)$
     windowrule=float,title:^(org.gnome.Nautilus New Folder)$
     # firefox sharing indicator
-    windowrule=nofullscreenrequest,title:^(Firefox — Sharing Indicator)$
+    # windowrule=nofullscreenrequest,title:^(Firefox — Sharing Indicator)$
     windowrule=float,title:^(Firefox — Sharing Indicator)$
     windowrule=move 100%-470 15,title:^(Firefox — Sharing Indicator)$
     # idle inhibit when watching videos

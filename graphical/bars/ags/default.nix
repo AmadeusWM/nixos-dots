@@ -16,4 +16,8 @@
     sassc
     brightnessctl
   ];
+  
+  wayland.windowManager.hyprland.extraConfig = ''
+    bind=SUPERSHIFT,semicolon,exec, ags --toggle-window command-runner
+  '';
 }

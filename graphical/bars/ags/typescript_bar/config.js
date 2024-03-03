@@ -1,4 +1,5 @@
 import Utils from 'resource:///com/github/Aylur/ags/utils.js';
+import Gio from 'gi://Gio';
 
 const entry = App.configDir + '/ts/main.ts'
 const outdir = '/tmp/ags/js'
@@ -21,8 +22,11 @@ const scssDirectories = [
     `${App.configDir}/style/core`
 ]
 scssDirectories.forEach((dir) => {
-    Utils.monitorFile(dir, reloadCss, 'directory')
+    Utils.monitorFile(dir, reloadCss)
 })
+
+// Utils.monitorFile("/sys/devices/platform/i8042/serio0/input/input0/input0::capslock", () => {console.log("capslock changed")}, 'directory') // doesn't work
+// Utils.monitorFile("/sys/class/backlight/amdgpu_bl0/brightness", () => {console.log("brightness changed")}) // works!
 
 // reload function
 function reloadCss() {

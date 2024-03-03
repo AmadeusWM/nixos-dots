@@ -1,25 +1,9 @@
 import Battery from "resource:///com/github/Aylur/ags/service/battery.js";
 import SystemTray from "resource:///com/github/Aylur/ags/service/systemtray.js";
 import { execAsync } from "resource:///com/github/Aylur/ags/utils.js";
-
-const SysTray = () =>
-  Widget.Box({
-    className: "sys-tray",
-    setup: (self) =>
-      self.hook(SystemTray, (self) => {
-        self.children = SystemTray.items.map((item) =>
-          Widget.Button({
-            child: Widget.Icon({
-              setup: (self) => self.bind("icon", item, "icon"),
-            }),
-            onPrimaryClick: (_, event) => item.activate(event),
-            onSecondaryClick: (_, event) => item.openMenu(event),
-            setup: (self) =>
-              self.bind("tooltip_markup", item, "tooltip_markup"),
-          })
-        );
-      }),
-  });
+import CapsLockService from "./services/CapsLockService";
+import { capsLock } from "./state/global";
+import Tray from "./widgets/Tray";
 
 const BatteryLabel = () =>
   Widget.Box({
@@ -51,15 +35,28 @@ const ButtonAudio = () => Widget.Button({
     className: 'audio-button',
     child: Widget.Label("AUDIO"),
     onPrimaryClick: (_, event) => { 
-        App.toggleWindow('quicksettings');
+        App.toggleWindow('audio');
     } 
 })
+
+const CapsIndicator = () => Widget.Label({
+  label: "CAPS",
+  class_name: "caps caps-off",
+  setup: (self) => self.hook(capsLock, (self) => {
+    const capsOn = Utils.exec(`brightnessctl --device="input*::capslock" get`) == "1"
+    self.class_name = capsOn ? "caps caps-on" : "caps caps-off"
+    self.label = capsOn ? "CAPS ON" : "CAPS"
+    self.visible = capsOn
+  })
+  // setup: (self) => self.bind("visible", CapsLockService, 'caps_lock_value', (value) => self.visible = value)
+});
 
 export const Right = () =>
   Widget.Box({
     hpack: "end",
     children: [
-      // SysTray(),
+      Tray(),
+      CapsIndicator(),
       BatteryLabel(),
       Clock(),
       ButtonAudio(),

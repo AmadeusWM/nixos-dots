@@ -2,11 +2,14 @@
 {
   # test if language is supported with e.g. `hx --health python`
   home.packages = with pkgs; [
+    # github copilot
+    (callPackage ./pkgs/helix-gpt.nix {})
     # cpp dependencies
     clang-tools
     lldb
     # nix dependencies
     nil
+    nixd
     # typescript
     nodePackages_latest.typescript
     nodePackages_latest.typescript-language-server
@@ -15,8 +18,6 @@
     nodePackages_latest.pyright
     python311Packages.debugpy # debugger
     black # formatter
-    # java
-    # jdt-language-server # outdated
     # markdown
     marksman
     # formatter
@@ -25,10 +26,13 @@
 
   programs.helix = {
     enable = true;
+    defaultEditor = true;
     settings = {
       theme = "catppuccin_espresso";
       editor = {
         line-number = "relative";
+        idle-timeout = 0;
+        color-modes = true;
       };
       keys.normal = {
         "C-/" = "toggle_comments";
@@ -64,17 +68,26 @@
       };
     };
     languages = {
-      language-servers = [
-          {
-              name = "javascript-langserver";
-              command = "typescript-language-server";
-              args = ["--stdio"];
-              language-id = "javascript";
-          }
-      ];
+      language-server = {
+        ts-server = {
+          command = "typescript-language-server";
+          args = ["--stdio"];
+          language-id = "javascript";
+        };
+        nixd-server = {
+          command = "nixd";
+          language-id = "nix";
+        };
+        gpt = {
+          command = "helix-gpt";
+        };
+      };
       language = [
         {
-          name = "java";
+          name = "rust";
+          language-servers = [
+            "rust-analyzer"
+          ];
         }
         {
           name = "markdown";
@@ -83,14 +96,30 @@
           auto-format = true;
         }
         {
-          name = "cpp";
+          name = "nix";
+          language-servers = [ 
+            "nixd-server"
+          ];
         }
         {
           name = "javascript";
-          language-servers = [ "typescript-language-server" ];
+          language-servers = [ 
+            "ts-server"
+          ];
         }
         {
-          name = "nix";
+          name = "typescript";
+          language-servers = [ 
+            "ts-server"
+            "gpt"
+          ];
+        }
+        {
+          name = "tsx";
+          language-servers = [ 
+            "ts-server"
+            "gpt"
+          ];
         }
         {
           name = "python"; 
@@ -99,9 +128,17 @@
           shebangs = ["python"];
           roots = ["setup.py" "setup.cfg" "pyproject.toml"];
           formatter = { command = "black"; args = ["--quiet" "-"]; };
-          language-servers = [ "pyright" ];
+          language-servers = [ 
+            "pyright" 
+          ];
         }
-      ];
+      ] ++
+        map (lang: {
+            name = lang;
+            # language-servers = [
+            #   "gpt"
+            # ];
+          }) [ "java" "cpp"];
     };
     themes = {
       catppuccin_espresso = {

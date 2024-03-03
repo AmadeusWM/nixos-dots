@@ -112,7 +112,7 @@ in {
   "ui.statusline.select" = { fg = base; bg = flamingo; modifiers = ["bold"]; };
 
   "ui.popup" = { fg = text; bg = surface0; };
-  "ui.window" = { fg = crust };
+  "ui.window" = { fg = crust; };
   "ui.help" = { fg = overlay2; bg = surface0; };
 
   "ui.bufferline" = { fg = subtext0; bg = mantle; };
@@ -134,25 +134,25 @@ in {
   "ui.cursor.primary" = { fg = base; bg = rosewater; };
   "ui.cursor.match" = { fg = peach; modifiers = ["bold"]; };
 
-  "ui.cursor.primary.normal" = { fg = base; bg = lavender };
-  "ui.cursor.primary.insert" = { fg = base; bg = green };
-  "ui.cursor.primary.select" = { fg = base; bg = flamingo };
+  "ui.cursor.primary.normal" = { fg = base; bg = lavender; };
+  "ui.cursor.primary.insert" = { fg = base; bg = green; };
+  "ui.cursor.primary.select" = { fg = base; bg = flamingo; };
 
-  "ui.cursor.normal" = { fg = base; bg = secondary_cursor_normal };
-  "ui.cursor.insert" = { fg = base; bg = secondary_cursor_insert };
-  "ui.cursor.select" = { fg = base; bg = secondary_cursor };
+  "ui.cursor.normal" = { fg = base; bg = secondary_cursor_normal; };
+  "ui.cursor.insert" = { fg = base; bg = secondary_cursor_insert; };
+  "ui.cursor.select" = { fg = base; bg = secondary_cursor; };
 
-  "ui.cursorline.primary" = { bg = cursorline };
+  "ui.cursorline.primary" = { bg = cursorline; };
 
   "ui.highlight" = { bg = surface1; modifiers = ["bold"]; };
 
-  "ui.menu" = { fg = overlay2; bg = surface0 };
+  "ui.menu" = { fg = overlay2; bg = surface0; };
   "ui.menu.selected" = { fg = text; bg = surface1; modifiers = ["bold"]; };
 
-  "diagnostic.error" = { underline = { color = red; style = "curl" } };
-  "diagnostic.warning" = { underline = { color = yellow; style = "curl" } };
-  "diagnostic.info" = { underline = { color = sky; style = "curl" } };
-  "diagnostic.hint" = { underline = { color = teal; style = "curl" } };
+  "diagnostic.error" = { underline = { color = red; style = "curl"; }; };
+  "diagnostic.warning" = { underline = { color = yellow; style = "curl"; }; };
+  "diagnostic.info" = { underline = { color = sky; style = "curl"; }; };
+  "diagnostic.hint" = { underline = { color = teal; style = "curl"; }; };
 
   error = red;
   warning = yellow;

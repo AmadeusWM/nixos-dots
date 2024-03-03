@@ -13,29 +13,17 @@
     historySubstringSearch.searchUpKey = [ "^[[A" "^[OA" ];
     historySubstringSearch.searchDownKey = [ "^[[B" "^[OB" ];
     
-    # oh-my-zsh = {
-    #   enable = true;
-    #   plugins = [ "git" ];
-    #   # theme = "robbyrussell";
-    # };
-
     # use `cat -v` for keys
     initExtra = ''
-      # Exports
-      # export AUTO_NOTIFY_THRESHOLD=10 # Notify only if commands take longer than 10 seconds
-      # export XDG_DATA_HOME="$HOME/.local/share"
+# == Keybinds ==
+# ctrl + remove
+bindkey '^H' backward-kill-word # ctrl + backspace
+# bindkey '5~' kill-word # ctrl + delete
 
-      export XDG_DATA_DIRS="$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
-      
-      # == Keybinds ==
-      # ctrl + remove
-      bindkey '^H' backward-kill-word # ctrl + backspace
-      # bindkey '5~' kill-word # ctrl + delete
-
-      # ctrl + arrows
-      bindkey '^[[1;5C' forward-word
-      bindkey '^[[1;5D' backward-word
-    '';
+# ctrl + arrows
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+'';
     plugins = [
       {
         name = "zsh-nix-shell";

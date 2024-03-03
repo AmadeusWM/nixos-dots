@@ -131,7 +131,7 @@ const MixerItem = (stream) =>
     ],
   });
 
-export const AppMixer = () =>
+const AppMixer = () =>
   Widget.Box({
     name: "app-mixer",
     class_name: "app-mixer",
@@ -144,7 +144,7 @@ export const AppMixer = () =>
     ],
   });
 
-export const VolumeMixerContent = () =>
+const VolumeMixerContent = () =>
   Widget.Box({
     vertical: true,
     children: [
@@ -154,4 +154,12 @@ export const VolumeMixerContent = () =>
         children: [SinkSelector(), AppMixer()],
       }),
     ],
+  });
+
+export const AudioMenu = () =>
+  Widget.Window({
+    name: "audio",
+    anchor: ["right", "top"],
+    visible: false,
+    child: VolumeMixerContent(),
   });
