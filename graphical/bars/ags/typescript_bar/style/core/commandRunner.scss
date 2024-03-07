@@ -1,20 +1,22 @@
+@import "./variables.scss";
+
 .command-runner {
-    background-color: #1A1C26;
     .menu {
         min-width: 400px;
         padding: 0px 6px;
         .command-runner-search {
+            min-height: $bar-height;
             .prefix {
                 margin-right: 2px;
             }
             entry {
                 all: unset;
-                font-size: 16px;
                 border-radius: 0px;
-                background-color: #1A1C26;
+                // background-color: #1A1C26;
             }
         }
         .command-list {
+            background-color: $b0-t;
             .command-entry {
                 padding: 2px 0px;
                 &:focus {

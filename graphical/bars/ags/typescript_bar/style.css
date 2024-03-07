@@ -1,63 +1,133 @@
 .workspaces button {
   background-color: transparent;
   color: #eee;
-  padding: 0px 5px; }
+  padding: 2px 4px; }
   .workspaces button:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: #efefef; }
 
 .workspaces .focused {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #CBA6F7; }
+  background-color: #B4BEFE;
+  color: #151822; }
 
 * {
-  font-family: Minecraftia; }
+  font-family: monospace;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px; }
 
 button {
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
   background-color: unset;
-  background: unset; }
+  background: unset;
+  min-height: 0px; }
+
+label {
+  padding-top: 2px; }
 
 .bar {
   background-color: rgba(2, 2, 3, 0.5); }
+  .bar box {
+    padding: 0px;
+    margin: 0px;
+    min-height: 24px; }
 
-window#notifications {
-  all: unset; }
+.client-title {
+  margin-left: 1em;
+  color: #888; }
 
-.icon {
-  min-width: 68px;
-  min-height: 68px;
-  margin-right: 1em; }
+.notification-overlay {
+  padding-bottom: 4px; }
 
-.icon image {
-  font-size: 58px;
-  min-width: 68px;
-  min-height: 68px;
-  /* to center the icon */
-  margin: 5px; }
-
-.icon box {
-  border-radius: 7px;
-  margin-left: 0px;
-  min-width: 68px;
-  min-height: 68px; }
+.notifications {
+  margin: 4px 0px; }
 
 .notification {
-  min-width: 350px;
-  padding: 1em;
-  background-color: rgba(2, 2, 3, 0.5); }
+  background: #11111b;
+  opacity: 0;
+  min-height: 100px;
+  min-width: 500px; }
+  .notification .content .text {
+    padding-left: 24px; }
+    .notification .content .text .title {
+      font-size: 1.2em;
+      font-weight: bold; }
+  .notification .content .icon {
+    min-width: 68px;
+    min-height: 68px;
+    margin-right: 20px;
+    margin-left: 12px; }
+  .notification .content .icon image {
+    font-size: 58px;
+    min-width: 68px;
+    min-height: 68px; }
+  .notification .content .icon box {
+    margin-left: 0px;
+    min-width: 68px;
+    min-height: 68px;
+    border-radius: 2px; }
+  .notification .urgency-indicator {
+    background-color: white;
+    min-width: 4px; }
+  .notification.low .urgency-indicator {
+    background-color: #B4BEFE; }
+  .notification.normal .urgency-indicator {
+    background-color: #A4E09F; }
+  .notification.critical .urgency-indicator {
+    background-color: #F08080; }
+  .notification.enter2 {
+    opacity: 1; }
+  .notification.leave {
+    opacity: 0; }
 
-.notification.critical {
-  border: 1px solid lightcoral; }
+.hider.low {
+  background: linear-gradient(90deg, transparent 0%, transparent 50%, #B4BEFE 50%, #B4BEFE 100%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.3s cubic-bezier(0.15, 0.79, 0, 1); }
+  .hider.low.enter {
+    background-position: 100% 0; }
+  .hider.low.enter2 {
+    background-position: 0% 0; }
+  .hider.low.leave {
+    background-position: 100% 0; }
+  .hider.low.leave2 {
+    background-position: 200% 0; }
 
-.title {
-  font-size: 1.4em; }
+.hider.normal {
+  background: linear-gradient(90deg, transparent 0%, transparent 50%, #A4E09F 50%, #A4E09F 100%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.3s cubic-bezier(0.15, 0.79, 0, 1); }
+  .hider.normal.enter {
+    background-position: 100% 0; }
+  .hider.normal.enter2 {
+    background-position: 0% 0; }
+  .hider.normal.leave {
+    background-position: 100% 0; }
+  .hider.normal.leave2 {
+    background-position: 200% 0; }
+
+.hider.critical {
+  background: linear-gradient(90deg, transparent 0%, transparent 50%, #F08080 50%, #F08080 100%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.3s cubic-bezier(0.15, 0.79, 0, 1); }
+  .hider.critical.enter {
+    background-position: 100% 0; }
+  .hider.critical.enter2 {
+    background-position: 0% 0; }
+  .hider.critical.leave {
+    background-position: 100% 0; }
+  .hider.critical.leave2 {
+    background-position: 200% 0; }
 
 .actions .action-button {
-  margin: 0 .4em;
-  margin-top: .8em; }
+  margin: 0 0.4em;
+  margin-top: 0.8em; }
 
 .actions .action-button:first-child {
   margin-left: 0; }
@@ -65,42 +135,26 @@ window#notifications {
 .actions .action-button:last-child {
   margin-right: 0; }
 
-.quicksettings {
-  background-color: rgba(2, 2, 3, 0.5); }
-
-.media {
-  background-color: transparent;
-  color: #eee; }
-
-.media:hover {
-  background-color: rgba(255, 255, 255, 0);
-  color: #efefef; }
-
-.media:active {
-  background-color: rgba(255, 255, 255, 0);
-  color: #fff; }
-
-.client-title {
-  margin-left: 1em;
-  color: #888; }
+.separator {
+  min-width: 8px;
+  min-height: 5px; }
 
 .notification image {
   color: #fff;
   margin-left: 1em; }
 
-.battery {
-  font-size: 1.1em; }
-  .battery .low {
-    color: #E685A1; }
-  .battery .high {
-    color: #A6E3A1; }
+.battery .low {
+  color: #E685A1; }
+
+.battery .high {
+  color: #B4BEFE; }
 
 .audio-button {
+  color: #B4BEFE;
   margin: 0px 6px; }
 
 .clock {
-  margin: 0 6px;
-  font-size: 1.1em; }
+  margin-right: 6px; }
 
 progress, highlight {
   background-color: aqua;
@@ -159,26 +213,32 @@ progress, highlight {
   .app-mixer .mixer-item.horizontal .mixer-percentage {
     min-width: 46px; }
 
-.command-runner {
-  background-color: #1A1C26; }
-  .command-runner .menu {
-    min-width: 400px;
-    padding: 0px 6px; }
+.command-runner .menu {
+  min-width: 400px;
+  padding: 0px 6px; }
+  .command-runner .menu .command-runner-search {
+    min-height: 24px; }
     .command-runner .menu .command-runner-search .prefix {
       margin-right: 2px; }
     .command-runner .menu .command-runner-search entry {
       all: unset;
-      font-size: 16px;
-      border-radius: 0px;
-      background-color: #1A1C26; }
+      border-radius: 0px; }
+  .command-runner .menu .command-list {
+    background-color: rgba(2, 2, 3, 0.5); }
     .command-runner .menu .command-list .command-entry {
       padding: 2px 0px; }
       .command-runner .menu .command-list .command-entry:focus {
         background-color: #67566A;
         box-shadow: unset; }
 
+.options .options-button {
+  background-color: #B4BEFE;
+  color: #151822;
+  padding: 2px 5px 0px; }
+
+.options button {
+  padding: 0px 5px;
+  margin: 0px; }
+
 .bar-tray {
   margin: 1px 5px; }
-
-.sys-tray button {
-  padding: 0px 5px; }

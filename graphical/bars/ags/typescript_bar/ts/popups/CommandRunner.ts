@@ -15,8 +15,10 @@ const fuseOptions: IFuseOptions<any> = {
   keys: ["key", "short"],
 };
 
-const baprClient = "/home/amadeusw/projects/school/bapr/inf-bachpr-23-24-student-WolfM-2158257/tictactoe/client"
-const baprServer = "/home/amadeusw/projects/school/bapr/inf-bachpr-23-24-student-WolfM-2158257/tictactoe/server"
+const baprClient =
+  "/home/amadeusw/projects/school/bapr/inf-bachpr-23-24-student-WolfM-2158257/tictactoe/client";
+const baprServer =
+  "/home/amadeusw/projects/school/bapr/inf-bachpr-23-24-student-WolfM-2158257/tictactoe/server";
 
 const commands: Command[] = [
   {
@@ -34,7 +36,8 @@ const commands: Command[] = [
   },
   {
     key: "rust",
-    command: "firefox 'https://doc.rust-lang.org/book/title-page.html' 'https://doc.rust-lang.org/rust-by-example/' 'https://github.com/mre/idiomatic-rust'",
+    command:
+      "firefox 'https://doc.rust-lang.org/book/title-page.html' 'https://doc.rust-lang.org/rust-by-example/' 'https://github.com/mre/idiomatic-rust'",
   },
   {
     key: "github euthymia",
@@ -59,9 +62,12 @@ const commands: Command[] = [
   },
   {
     key: "bapr all",
-    command: `bash -c "code '${baprClient}' && code '${baprServer}'` + "&" +
-    `firefox 'ext+container:name=Work&url=https://docs.google.com/spreadsheets/d/1vsQ9AEYGxq6CH7EpFhXjnT6okCrVdPlI61n_2hRWrlY/edit' 'ext+container:name=Work&url=https://github.com/INF-Vakken-BachPr-23-24/inf-bachpr-23-24-student-WolfM-2158257/issues'` + "&" +
-    `kitty --detach --hold sh -c 'hx /home/amadeusw/projects/school/bapr/inf-bachpr-23-24-student-WolfM-2158257/docs'\"`,
+    command:
+      `bash -c "code '${baprClient}' && code '${baprServer}'` +
+      "&" +
+      `firefox 'ext+container:name=Work&url=https://docs.google.com/spreadsheets/d/1vsQ9AEYGxq6CH7EpFhXjnT6okCrVdPlI61n_2hRWrlY/edit' 'ext+container:name=Work&url=https://github.com/INF-Vakken-BachPr-23-24/inf-bachpr-23-24-student-WolfM-2158257/issues'` +
+      "&" +
+      `kitty --detach --hold sh -c 'hx /home/amadeusw/projects/school/bapr/inf-bachpr-23-24-student-WolfM-2158257/docs'\"`,
   },
   {
     key: "bapr chrome",
@@ -75,7 +81,7 @@ const execCommand = async (command: Command) => {
 
 const execCommandAndExit = (command: Command) => {
   execCommand(command);
-  query.value = "";
+  query.setValue("")
   App.toggleWindow("command-runner");
 };
 
@@ -130,7 +136,7 @@ const Search = () => {
             execCommandAndExit(commandsFiltered[0]);
           }
         },
-      }),
+      }).bind("text", query),
     ],
   });
 };
@@ -149,6 +155,11 @@ export const CommandRunner = () =>
     class_name: "command-runner",
     anchor: ["left", "top"],
     keymode: "exclusive",
+    layer: "top",
+    exclusivity: "ignore",
     visible: false,
     child: Menu(),
-  }).keybind("Escape", () => App.closeWindow("command-runner"));
+  }).keybind("Escape", () => {
+    query.setValue("")
+    App.closeWindow("command-runner");
+  });

@@ -82,4 +82,8 @@ const ClientTitle = () =>
 export const Left = ({ monitor }) =>
   Widget.Box({
     children: [Workspaces({ monitor: monitor }), ClientTitle()],
-  });
+  }).hook(App, (self, windowName, visible)=> {
+    if (windowName === "command-runner") {
+      self.visible = !visible
+    }
+  }, "window-toggled");

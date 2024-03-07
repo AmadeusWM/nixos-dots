@@ -3,8 +3,13 @@ import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import { lookUpIcon } from "resource:///com/github/Aylur/ags/utils.js";
 import Hyprland from "resource:///com/github/Aylur/ags/service/hyprland.js";
 import notifications, { Notification } from "types/service/notifications";
-import Box from "types/widgets/box";
-import Gtk from "types/@girs/gtk-3.0/gtk-3.0";
+import { EventBox } from "resource:///com/github/Aylur/ags/widgets/eventbox.js";
+import { Box } from "resource:///com/github/Aylur/ags/widgets/box.js";
+import { Overlay } from "resource:///com/github/Aylur/ags/widgets/overlay.js";
+
+function getRandomInt(max: number) {
+  return Math.floor(Math.random() * max);
+}
 
 const NotificationIcon = ({ app_entry, app_icon, image }) => {
   if (image) {
@@ -38,22 +43,22 @@ const NotificationWidget = (notif: Notification) => {
     class_name: "title",
     xalign: 0,
     justification: "left",
-    hexpand: true,
-    max_width_chars: 24,
+    // max_width_chars: 24,
     truncate: "end",
+    hexpand: true,
     wrap: true,
-    label: notif.summary,
     use_markup: true,
+    label: notif.summary,
   });
 
   const body = Widget.Label({
     class_name: "body",
-    hexpand: true,
-    use_markup: true,
     xalign: 0,
-    justification: "left",
-    label: notif.body,
+    justification: "right",
+    hexpand: true,
     wrap: true,
+    use_markup: true,
+    label: notif.body,
   });
 
   const actions = Widget.Box({
@@ -68,63 +73,125 @@ const NotificationWidget = (notif: Notification) => {
     ),
   });
 
-  return Widget.EventBox({
+  const notifWidget = Widget.EventBox({
     on_primary_click: () => notif.dismiss(),
     child: Widget.Box({
       class_name: `notification ${notif.urgency}`,
-      vertical: true,
+      setup: (self) =>
+        self.hook(
+          notif,
+          () => {
+            if (notif.popup) {
+              Utils.timeout(300, () => {
+                self.toggleClassName("enter2");
+              });
+            } else {
+              self.toggleClassName("enter2");
+              Utils.timeout(300, () => {
+                self.toggleClassName("leave");
+              });
+            }
+          },
+          "dismissed"
+        ),
       children: [
         Widget.Box({
+          className: "urgency-indicator",
+        }),
+        Widget.Box({
+          className: "content",
+          vexpand: true,
+          vertical: true,
           children: [
-            icon,
             Widget.Box({
-              vertical: true,
-              children: [title, body],
+              className: "text",
+              vexpand: true,
+              vpack: "center",
+              children: [
+                Widget.Box({
+                  vpack: "center",
+                  vertical: true,
+                  children: [title, body],
+                }),
+                icon,
+              ],
             }),
+            actions,
           ],
         }),
-        actions,
       ],
+    }),
+  });
+  console.log("urgency: ", notif.urgency);
+  const hider = Widget.EventBox({
+    class_name: `hider ${notif.urgency}`,
+    setup: (self) =>
+      self.hook(
+        notif,
+        () => {
+          if (notif.popup) {
+            self.toggleClassName("enter");
+            Utils.timeout(300, () => {
+              self.toggleClassName("enter2");
+              self.toggleClassName("enter");
+            });
+          } else {
+            self.toggleClassName("enter2");
+            self.toggleClassName("leave");
+            Utils.timeout(300, () => {
+              self.toggleClassName("leave2");
+              self.toggleClassName("leave");
+            });
+          }
+        },
+        "dismissed"
+      ),
+  });
+
+  return Widget.Box({
+    class_name: "notification-overlay",
+    child: Widget.Overlay({
+      overlays: [hider],
+      child: notifWidget,
     }),
   });
 };
 
 const Popups = () => {
-  const notifs = new Map<number, Gtk.Widget>();
+  const notifs = new Map<number, Box<any, any>>();
 
-  const onNotified = (box: Box<Gtk.Widget, unknown>, id: number) => {
+  const onNotified = (box: Box<any, unknown>, id: number) => {
     const notif = Notifications.getNotification(id);
     if (!notif) return;
-    notifs.delete(id);
-    notifs.set(id, NotificationWidget(notif));
+    const notifId = getRandomInt(1000000);
+    notifs.delete(notifId);
+    const notifWidget = NotificationWidget(notif);
+    notifs.set(notifId, notifWidget);
     box.children = Array.from(notifs.values()).reverse();
-    Utils.timeout(200, () => {});
-  };
 
-  const onDismissed = (box: Box<Gtk.Widget, unknown>, id: number) => {
-    if (notifs.size - 1 === 0) {
-    }
-    Utils.timeout(200, () => {
-      notifs.get(id)?.destroy();
-      notifs.delete(id);
+    Utils.timeout(notif.timeout + 300, () => {
+      notif.dismiss(); // TODO: fix, spotify notifications always have the same ID, and are thus dismissed in a weird order
+      Utils.timeout(300, () => {
+        console.log("destroying");
+        notifWidget.destroy();
+        notifs.delete(notifId);
+      });
     });
   };
 
   return Widget.Box({
     class_name: "notifications",
     vertical: true,
-  })
-    .hook(Notifications, onNotified, "notified")
-    .hook(Notifications, onDismissed, "dismissed")
-    .hook(Notifications, onDismissed, "closed");
+  }).hook(Notifications, onNotified, "notified");
 };
 
 export const NotificationPopup = () => {
   return Widget.Window({
     name: "notifications",
-    anchor: ["top", "right"],
+    className: "notifications",
+    anchor: ["top", "left"],
     child: Widget.Box({
-      children: [Widget.Label(" "), Popups()],
+      children: [Popups(), Widget.Label(" ")],
     }),
     setup: (self) =>
       self.hook(Hyprland, (self) => {

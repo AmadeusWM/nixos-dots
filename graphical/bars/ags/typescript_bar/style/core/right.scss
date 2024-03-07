@@ -1,25 +1,6 @@
-.quicksettings {
-    background-color: rgba(2, 2, 3, 0.5);;
-}
-
-.media {
-    background-color: transparent;
-    color: #eee;
-}
-
-.media:hover {
-    background-color: rgba(255, 255, 255, 0.0);
-    color: #efefef;
-}
-
-.media:active {
-    background-color: rgba(255, 255, 255, 0.0);
-    color: #fff;
-}
-
-.client-title {
-    margin-left: 1em;
-    color: #888;
+.separator {
+    min-width: 8px;
+    min-height: 5px;
 }
 
 .notification image {
@@ -28,22 +9,21 @@
 }
 
 .battery {
-    font-size: 1.1em;
     .low {
         color: #E685A1;
     }
     .high {
-        color: #A6E3A1;
+        color: $f1;
     }
 }
 
 .audio-button {
+    color: $f1;
     margin: 0px 6px;
 }
 
 .clock {
-    margin: 0 6px;
-    font-size: 1.1em;
+    margin-right: 6px;
 }
 
 progress, highlight {

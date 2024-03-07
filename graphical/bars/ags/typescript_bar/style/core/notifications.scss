@@ -1,55 +1,123 @@
-window#notifications {
-    all: unset;
+@import "./variables.scss";
+
+.notification-overlay {
+  padding-bottom: 4px;
 }
 
-
-.icon {
-    min-width: 68px;
-    min-height: 68px;
-    margin-right: 1em;
-}
-
-.icon image {
-    font-size: 58px;
-    min-width: 68px;
-    min-height: 68px;
-    /* to center the icon */
-    margin: 5px;
-}
-
-.icon box {
-    border-radius: 7px;
-    margin-left: 0px;
-    min-width: 68px;
-    min-height: 68px;
+.notifications {
+  margin: 4px 0px;
 }
 
 .notification {
-    min-width: 350px;
-    padding: 1em;
-    background-color: rgba(2, 2, 3, 0.5);
+  background: #11111b;
+  opacity: 0;
+  min-height: 100px;
+  min-width: 500px;
+  .content {
+    .text {
+      padding-left: 24px;
+      .title {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .body {
+      }
+    }
+
+    .icon {
+      min-width: 68px;
+      min-height: 68px;
+      margin-right: 20px;
+      margin-left: 12px;
+    }
+
+    .icon image {
+      font-size: 58px;
+      min-width: 68px;
+      min-height: 68px;
+    }
+
+    .icon box {
+      margin-left: 0px;
+      min-width: 68px;
+      min-height: 68px;
+      border-radius: 2px;
+    }
+  }
+  .urgency-indicator {
+    background-color: white;
+    min-width: 4px;
+  }
+  &.low {
+    .urgency-indicator {
+      background-color: $urgency-low;
+    }
+  }
+  &.normal {
+    .urgency-indicator {
+      background-color: $urgency-normal;
+    }
+  }
+  &.critical {
+    .urgency-indicator {
+      background-color: $urgency-critical;
+    }
+  }
+  &.enter2 {
+    opacity: 1;
+  }
+  &.leave {
+    opacity: 0;
+  }
 }
 
-.notification.critical {
-    border: 1px solid lightcoral;
+@mixin notification-urgency($urgency-color) {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 50%,
+    $urgency-color 50%,
+    $urgency-color 100%
+  );
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.3s cubic-bezier(0.15, 0.79, 0, 1);
+  &.enter {
+    background-position: 100% 0;
+  }
+  &.enter2{
+    background-position: 0% 0;
+  }
+  &.leave {
+    background-position: 100% 0;
+  }
+  &.leave2 {
+    background-position: 200% 0;
+  }
 }
 
-.title {
-    font-size: 1.4em;
-}
-
-.body {
+.hider {
+  &.low{
+    @include notification-urgency($urgency-low);
+  }
+  &.normal {
+    @include notification-urgency($urgency-normal);
+  }
+  &.critical {
+    @include notification-urgency($urgency-critical);
+  }
 }
 
 .actions .action-button {
-    margin: 0 .4em;
-    margin-top: .8em;
+  margin: 0 0.4em;
+  margin-top: 0.8em;
 }
 
 .actions .action-button:first-child {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .actions .action-button:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }

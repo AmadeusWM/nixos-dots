@@ -3,7 +3,9 @@ import SystemTray from "resource:///com/github/Aylur/ags/service/systemtray.js";
 import { execAsync } from "resource:///com/github/Aylur/ags/utils.js";
 import CapsLockService from "./services/CapsLockService";
 import { capsLock } from "./state/global";
-import Tray from "./widgets/Tray";
+import OptionsRevealer from "./widgets/Options";
+
+const Separator = () => Widget.Box({ class_name: "separator" });
 
 const BatteryLabel = () =>
   Widget.Box({
@@ -12,7 +14,7 @@ const BatteryLabel = () =>
       Widget.Label({
         setup: (self) =>
           self.hook(Battery, (self) => {
-            const batterPercentage = Math.floor(Battery.percent / 10) * 10
+            const batterPercentage = Math.floor(Battery.percent)
             self.label = `${batterPercentage}%`;
             if (batterPercentage < 20){
               self.class_name = "low"
@@ -27,17 +29,9 @@ const BatteryLabel = () =>
 const Clock = () => Widget.Label({
     className: 'clock',
     setup: self => 
-        self.poll(1000, self => execAsync(['date', '+%H:%M:%S %a%e %b'])
+        self.poll(1000, self => execAsync(['date', '+%d-%m %H:%M:%S '])
             .then(date => self.label = date).catch(console.error)),
 });
-
-const ButtonAudio = () => Widget.Button({
-    className: 'audio-button',
-    child: Widget.Label("AUDIO"),
-    onPrimaryClick: (_, event) => { 
-        App.toggleWindow('audio');
-    } 
-})
 
 const CapsIndicator = () => Widget.Label({
   label: "CAPS",
@@ -55,10 +49,12 @@ export const Right = () =>
   Widget.Box({
     hpack: "end",
     children: [
-      Tray(),
       CapsIndicator(),
+      Separator(),
+      OptionsRevealer(),
+      Separator(),
       BatteryLabel(),
+      Separator(),
       Clock(),
-      ButtonAudio(),
     ],
   });

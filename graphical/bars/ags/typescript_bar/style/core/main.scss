@@ -1,5 +1,12 @@
+@import "./variables.scss";
+
 * {
-    font-family: Minecraftia;
+    // font-family: Minecraftia;
+    font-family: monospace;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
 }
 
 button {
@@ -8,8 +15,22 @@ button {
     border-radius: 0px;
     background-color: unset;
     background: unset;
+    min-height: 0px;
+}
+label {
+    padding-top: 2px;
 }
 
 .bar {
-    background-color: rgba(2, 2, 3, 0.5);
+    background-color: $b0-t;
+    box {
+        padding: 0px;
+        margin: 0px;
+        min-height: $bar-height;
+    }
+}
+
+.client-title {
+    margin-left: 1em;
+    color: #888;
 }

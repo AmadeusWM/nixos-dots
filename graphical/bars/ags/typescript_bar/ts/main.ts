@@ -36,7 +36,7 @@ Hyprland.connect("monitor-removed", (service, ...args) => {
     initBars()
 })
 
-// delay so that Hyprland can be initialized
+// delay to make sure `Hyprland` is ready
 setTimeout(() => {
     initBars()
 }, 500)

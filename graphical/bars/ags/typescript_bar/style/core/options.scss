@@ -1,0 +1,17 @@
+@import "./variables.scss";
+
+.options {
+	.options-button {
+    background-color: $f1;
+		color: $b0;
+		padding: 2px 5px 0px;
+	}
+  button {
+		padding: 0px 5px;
+    margin: 0px;
+  }
+}
+
+.bar-tray {
+  margin: 1px 5px;
+}

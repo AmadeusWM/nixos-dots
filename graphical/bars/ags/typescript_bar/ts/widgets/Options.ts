@@ -21,28 +21,42 @@ const SysTray = () =>
       }),
   });
 
-const Tray = () => {
+const ButtonAudio = () =>
+  Widget.Button({
+    className: "audio-button",
+    child: Widget.Label("AUDIO"),
+    onPrimaryClick: (_, event) => {
+      App.toggleWindow("audio");
+    },
+  });
+
+const OptionsRevealer = () => {
   return Widget.Box({
-    class_name: "bar-tray",
+    class_name: "options",
     child: Widget.EventBox({
       child: Widget.Box({
         children: [
           Widget.Revealer({
             transition_duration: 300,
             transition: "slide_left",
-            child: SysTray(),
+            child: Widget.Box({
+              children: [SysTray(), ButtonAudio()],
+            }),
           }).bind("reveal_child", isRevealed),
-          Widget.Label("TR"),
+          Widget.Button({
+            className: "options-button",
+            child: Widget.Label({
+              label: "OPT",
+            }),
+            on_primary_click: (self, event) => {
+              isRevealed.setValue(!isRevealed.value);
+              App.closeWindow("audio");
+            },
+          }),
         ],
       }),
-      on_hover: (self, event) => {
-        isRevealed.setValue(true);
-      },
-      on_hover_lost: (self, event) => {
-        isRevealed.setValue(false);
-      },
-    })
+    }),
   });
 };
 
-export default Tray;
+export default OptionsRevealer;

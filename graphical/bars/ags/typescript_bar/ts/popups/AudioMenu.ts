@@ -161,5 +161,6 @@ export const AudioMenu = () =>
     name: "audio",
     anchor: ["right", "top"],
     visible: false,
+    keymode: "on-demand",
     child: VolumeMixerContent(),
-  });
+  }).keybind("Escape", () => App.closeWindow("audio"));
