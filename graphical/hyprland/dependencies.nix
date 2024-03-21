@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     cliphist
     dart-sass
+    gnome.gnome-bluetooth
     gtklock
     grim # Screenshots
     hyprpaper

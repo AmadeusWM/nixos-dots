@@ -15,13 +15,15 @@
   min-width: 500px;
   .content {
     .text {
-      padding-left: 24px;
+      padding: 16px 0px 16px 24px;
       .title {
         font-size: 1.2em;
         font-weight: bold;
       }
 
       .body {
+        font-size: 1.1em;
+        color: #ddd;
       }
     }
 

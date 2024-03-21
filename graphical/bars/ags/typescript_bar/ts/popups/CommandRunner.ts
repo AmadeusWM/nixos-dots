@@ -70,8 +70,8 @@ const commands: Command[] = [
       `kitty --detach --hold sh -c 'hx /home/amadeusw/projects/school/bapr/inf-bachpr-23-24-student-WolfM-2158257/docs'\"`,
   },
   {
-    key: "bapr chrome",
-    command: `bash -c "hyprctl dispatch exec 'chromium --new-window http://localhost:5173/' && hyprctl dispatch exec 'chromium --new-window http://localhost:5173/'"`,
+    key: "bapr chromium",
+    command: `bash -c "hyprctl dispatch exec 'vivaldi  --new-window http://localhost:5173/' && hyprctl dispatch exec 'vivaldi  --new-window http://localhost:5173/'"`,
   },
 ];
 

@@ -3,9 +3,8 @@ import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import { lookUpIcon } from "resource:///com/github/Aylur/ags/utils.js";
 import Hyprland from "resource:///com/github/Aylur/ags/service/hyprland.js";
 import notifications, { Notification } from "types/service/notifications";
-import { EventBox } from "resource:///com/github/Aylur/ags/widgets/eventbox.js";
 import { Box } from "resource:///com/github/Aylur/ags/widgets/box.js";
-import { Overlay } from "resource:///com/github/Aylur/ags/widgets/overlay.js";
+import "./BluetoothNotifications"
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
@@ -23,12 +22,15 @@ const NotificationIcon = ({ app_entry, app_icon, image }) => {
     });
   }
 
-  let icon = "dialog-information-symbolic";
+  let icon = "";
   if (lookUpIcon(app_icon)) icon = app_icon;
 
-  if (app_entry && lookUpIcon(app_entry)) icon = app_entry;
-
-  return Widget.Box({ child: Widget.Icon(icon) });
+  // if (app_entry && lookUpIcon(app_entry)) icon = app_entry;
+  if (icon) {
+    return Widget.Box({ child: Widget.Icon(icon) });
+  }else {
+    return Widget.Box({});
+  }
 };
 
 /** @param {import('resource:///com/github/Aylur/ags/service/notifications.js').Notification} notif */
@@ -54,7 +56,7 @@ const NotificationWidget = (notif: Notification) => {
   const body = Widget.Label({
     class_name: "body",
     xalign: 0,
-    justification: "right",
+    justification: "left",
     hexpand: true,
     wrap: true,
     use_markup: true,

@@ -51,10 +51,13 @@ label {
   min-height: 100px;
   min-width: 500px; }
   .notification .content .text {
-    padding-left: 24px; }
+    padding: 16px 0px 16px 24px; }
     .notification .content .text .title {
       font-size: 1.2em;
       font-weight: bold; }
+    .notification .content .text .body {
+      font-size: 1.1em;
+      color: #ddd; }
   .notification .content .icon {
     min-width: 68px;
     min-height: 68px;
@@ -214,8 +217,7 @@ progress, highlight {
     min-width: 46px; }
 
 .command-runner .menu {
-  min-width: 400px;
-  padding: 0px 6px; }
+  min-width: 400px; }
   .command-runner .menu .command-runner-search {
     min-height: 24px; }
     .command-runner .menu .command-runner-search .prefix {
@@ -224,6 +226,7 @@ progress, highlight {
       all: unset;
       border-radius: 0px; }
   .command-runner .menu .command-list {
+    padding: 0px 6px;
     background-color: rgba(2, 2, 3, 0.5); }
     .command-runner .menu .command-list .command-entry {
       padding: 2px 0px; }

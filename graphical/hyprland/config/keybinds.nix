@@ -54,7 +54,7 @@ in
     bind=SUPER,P,exec,hyprctl dispatch exec '[float] nwg-displays -m ${hyprPath}/config/conf/monitors.conf'
 
     # lock screen
-    bind=SUPERCTRL,L,exec,${hyprPath}/config/scripts/lock
+    bind=SUPERCTRLALTSHIFT,l,exec,${hyprPath}/config/scripts/lock
 
     # ease of life
     # Color picker
@@ -84,6 +84,12 @@ in
     bind=SUPERCTRLSHIFT,right,swapwindow,r
     bind=SUPERCTRLSHIFT,up,swapwindow,u
     bind=SUPERCTRLSHIFT,down,swapwindow,d
+    
+    # move windows into/out of group
+    bind=SUPERALT,left,movewindoworgroup,l
+    bind=SUPERALT,right,movewindoworgroup,r
+    bind=SUPERALT,up,movewindoworgroup,u
+    bind=SUPERALT,down,movewindoworgroup,d
 
     # swap between horizontal/vertical splitting
     bind=SUPER,z,layoutmsg,togglesplit
@@ -107,6 +113,8 @@ in
     # group control
     bind=SUPER,g,togglegroup
     bind=SUPER,tab,changegroupactive
+    bind=SUPERALT,g,moveoutofgroup
+    bind=SUPER,l,lockactivegroup,toggle
 
     # kitty binds
     bind=SUPERCTRL,1,exec,kitty --title fly_is_kitty --hold cava

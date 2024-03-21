@@ -1,5 +1,28 @@
 { pkgs, config, ... }:
 {
+  home.packages = [
+    (pkgs.writeShellScriptBin "nixdev" ''
+      if [ -z "$1" ]; then
+        echo "missing dev template argument, you can choose from: clojure csharp cue dhall elixir elm gleam go hashi haskell haxe java kotlin latex nickel nim nix node ocaml opa php protobuf pulumi purescript python ruby rust-toolchain rust scala shell zig"
+        nix flake new -t github:nix-community/nix-direnv .
+      else
+        nix flake init --template github:the-nix-way/dev-templates#$1
+      fi
+      direnv allow .
+      cat .gitignore | grep ".direnv" || echo ".direnv" >> .gitignore
+    '')
+  ];
+  
+  programs.zsh.shellAliases = {
+    joepie = "echo 'joepiee!!'";
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   # https://nixos.wiki/wiki/Zsh
   programs.zsh = {
     enable = true;
@@ -23,23 +46,33 @@ bindkey '^H' backward-kill-word # ctrl + backspace
 # ctrl + arrows
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
-'';
-    plugins = [
-      {
-        name = "zsh-nix-shell";
-        file = "nix-shell.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "chisui";
-          repo = "zsh-nix-shell";
-          rev = "v0.5.0";
-          sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
-        };
-      }
-    ];
+
+# # == direnv (nix shells) ==
+# eval "$(direnv hook zsh)" # load nix shell when in directory with `.envrc` file that contasins `use_nix`
+  '';
   };
 }
 
+    # don't use this garbage, it makes my zsh lag for some reason
+    # oh-my-zsh = {
+    #   enable = true;
+    #   plugins = [ 
+    #     "direnv" # https://direnv.net/docs/hook.html
+    #    ];
+    # };
 
+    # plugins = [
+    #   {
+    #     name = "zsh-nix-shell";
+    #     file = "nix-shell.plugin.zsh";
+    #     src = pkgs.fetchFromGitHub {
+    #       owner = "chisui";
+    #       repo = "zsh-nix-shell";
+    #       rev = "v0.5.0";
+    #       sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
+    #     };
+    #   }
+    # ];
 # Other ZSH settings
   
     # https://github.com/zplug/zplug

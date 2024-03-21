@@ -3,7 +3,6 @@
 .command-runner {
     .menu {
         min-width: 400px;
-        padding: 0px 6px;
         .command-runner-search {
             min-height: $bar-height;
             .prefix {
@@ -16,6 +15,7 @@
             }
         }
         .command-list {
+            padding: 0px 6px;
             background-color: $b0-t;
             .command-entry {
                 padding: 2px 0px;

@@ -11,7 +11,6 @@
   home.packages = with pkgs; [
     acpi # check battery
     bluez
-    chromium
     dict
     eww
     gnome.dconf-editor # to find gnome keybinds
@@ -43,4 +42,39 @@
       enable = true;
     };
   };
+  home.pointerCursor = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+    gtk.enable = true;
+    x11.enable = false;
+  };
+  # home.pointerCursor = {
+  #   package = pkgs.capitaine-cursors;
+  #   name = "capitaine-cursors";
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   size = 24;
+  # };
+  # home.pointerCursor = 
+  #   let 
+  #     getFrom = url: hash: name: {
+  #         gtk.enable = true;
+  #         x11.enable = true;
+  #         name = name;
+  #         size = 26;
+  #         package = 
+  #           pkgs.runCommand "moveUp" {} ''
+  #             mkdir -p $out/share/icons
+  #             ln -s ${pkgs.fetchzip {
+  #               url = url;
+  #               hash = hash;
+  #             }}/src/cursors/dist $out/share/icons/${name}
+  #         '';
+  #       };
+  #   in
+  #     getFrom 
+  #       "https://github.com/vinceliuice/Qogir-icon-theme/archive/refs/tags/2023-06-05.tar.gz"
+  #       "sha256-qiHmA/K4hdXVSFzergGhgssKR+kXp3X0cqtX1X5ayM4="
+  #       "Qogir";
 }

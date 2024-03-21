@@ -72,27 +72,6 @@ in {
   #       "https://github.com/alvatip/Nordzy-cursors/releases/download/v0.6.0/Nordzy-cursors-white.tar.gz"
   #       "sha256-ikU2xQHLuXkS0Wk7AY4KYmmiEUhabF9leHkP7YzjVZE="
   #       "Nordzy-White";
-  home.pointerCursor = 
-    let 
-      getFrom = url: hash: name: {
-          gtk.enable = true;
-          x11.enable = true;
-          name = name;
-          size = 26;
-          package = 
-            pkgs.runCommand "moveUp" {} ''
-              mkdir -p $out/share/icons
-              ln -s ${pkgs.fetchzip {
-                url = url;
-                hash = hash;
-              }}/src/cursors/dist $out/share/icons/${name}
-          '';
-        };
-    in
-      getFrom 
-        "https://github.com/vinceliuice/Qogir-icon-theme/archive/refs/tags/2023-06-05.tar.gz"
-        "sha256-qiHmA/K4hdXVSFzergGhgssKR+kXp3X0cqtX1X5ayM4="
-        "Qogir";
   xsession.windowManager.i3 = {
     enable = true;
     config = {

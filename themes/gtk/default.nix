@@ -58,6 +58,7 @@
       gtk-xft-hintstyle = "hintslight";
       gtk-xft-rgba = "rgb";
       gtk-application-prefer-dark-theme = 1;
+      gtk-cursor-theme-name="Bibata-Modern-Classic";
     };
 
     gtk2 = {
@@ -68,6 +69,7 @@
         gtk-xft-hintstyle="hintslight"
         gtk-xft-rgba="rgb"
         gtk-application-prefer-dark-theme=1
+        gtk-cursor-theme-name="Bibata-Modern-Classic"
       '';
     };
     
@@ -77,6 +79,7 @@
       gtk-xft-hintstyle = "hintslight";
       gtk-xft-rgba = "rgb";
       gtk-application-prefer-dark-theme = 1;
+      gtk-cursor-theme-name="Bibata-Modern-Classic";
     };
   };
 }

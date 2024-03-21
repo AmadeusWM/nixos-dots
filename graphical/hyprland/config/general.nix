@@ -23,7 +23,7 @@
         kb_variant=ffffff
         kb_model=
         kb_options=compose:rctrl,level3:ralt_switch
-        kb_options = caps:swapescape # fuck it, we ball
+        # kb_options = caps:swapescape # fuck it, we ball. nvm, let's do this in kmonad bby
         kb_rules=
 
         follow_mouse=1
@@ -47,8 +47,6 @@
         # col.active_border=0xfff5c2e7
         # col.inactive_border=0xff45475a
         # apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-        # col.group_border=0xff89dceb
-        # col.group_border_active=0xfff9e2af
     }
 
     decoration {
@@ -61,6 +59,20 @@
             # Your blur "amount" is blur_size * blur_passes, but high blur_size (over around 5-ish) will produce artifacts.
             # if you want heavy blur, you need to up the blur_passes.
             # the more passes, the more you can up the blur_size without noticing artifacts.
+        }
+    }
+
+    group {
+        col.border_active=0xffCBA6F7
+        col.border_inactive=0xff0B0A10
+        col.border_locked_active = 0xffF38BA8
+        col.border_locked_inactive = 0xffC35B78
+        groupbar {
+            enabled=true
+            col.active = 0x99CBA6F7
+            col.inactive = 0x99816a9c
+            col.locked_active = 0x99F38BA8
+            col.locked_inactive = 0x99C35B78
         }
     }
 
