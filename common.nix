@@ -5,7 +5,7 @@
     ./terminal
     ./services
     ./themes
-  ];
+  ]; # hi 2
 
   
   home.packages = with pkgs; [
@@ -31,6 +31,7 @@
     # FONTS
     nerdfonts
     minecraftia
+    fira-code
 
     # ICONS
     papirus-icon-theme
@@ -77,4 +78,26 @@
   #       "https://github.com/vinceliuice/Qogir-icon-theme/archive/refs/tags/2023-06-05.tar.gz"
   #       "sha256-qiHmA/K4hdXVSFzergGhgssKR+kXp3X0cqtX1X5ayM4="
   #       "Qogir";
+  # home.pointerCursor = 
+  #   let 
+  #     getFrom = url: hash: name: {
+  #         gtk.enable = true;
+  #         x11.enable = true;
+  #         name = name;
+  #         size = 24;
+  #         package = 
+  #           pkgs.runCommand "moveUp" {} ''
+  #             mkdir -p $out/share/icons
+  #             ln -s ${pkgs.fetchzip {
+  #               url = url;
+  #               hash = hash;
+  #               stripRoot = false;
+  #             }}/pixelfun2 $out/share/icons/${name}
+  #         '';
+  #       };
+  #   in
+  #     getFrom 
+  #       "sha256-ML3fKJgb90rjPOOpcz+FuGtudgUqGnHOVYX/zdvckF8=https://git.sr.ht/~ainola/pixelfun2/refs/download/v6/pixelfun2-v6.tar.gz"
+  #       "sha256-ML3fKJgb90rjPOOpcz+FuGtudgUqGnHOVYX/zdvckF8="
+  #       "pixelfun2";
 }

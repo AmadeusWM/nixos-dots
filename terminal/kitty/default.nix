@@ -21,10 +21,10 @@
       "ctrl+shift+alt+up"    = "move_window up";
       "ctrl+shift+alt+down"  = "move_window down";
       # resize
-      "ctrl+alt+left"  = "resize_window narrower";
-      "ctrl+alt+right" = "resize_window wider";
-      "ctrl+alt+up"    = "resize_window taller";
-      "ctrl+alt+down"  = "resize_window shorter";
+      "ctrl+alt+left"  = "resize_window narrower 10";
+      "ctrl+alt+right" = "resize_window wider 10";
+      "ctrl+alt+up"    = "resize_window taller 10";
+      "ctrl+alt+down"  = "resize_window shorter 10";
     };
   };
 }

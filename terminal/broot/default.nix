@@ -1,4 +1,4 @@
-{lib, ...}:
+{lib, pkgs, ...}:
 {
   # programs.broot = {
   #   enable = true;
@@ -32,4 +32,17 @@ function br {
         return "$code"
     fi
 }'';
+
+  # idea from: https://quantonganh.com/2023/08/02/file-tree-workaround-for-helix.md
+  home.packages = [
+    ( pkgs.writeShellScriptBin "open-term-right" ''
+    #!/usr/bin/env sh
+    fpath="$1"
+
+    # will still print errors, and idk why we have to do \e\e tho
+    kitten @ focus-window --match 'neighbor:right' \
+      && kitten @ send-text "\e\e:open $fpath\r" \
+      || kitten @ action launch --cwd=current --location=vsplit hx $fpath
+    '')
+  ];
 }

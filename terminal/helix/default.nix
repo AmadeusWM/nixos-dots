@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   # test if language is supported with e.g. `hx --health python`
   home.packages = with pkgs; [
     # github copilot
-    (callPackage ./pkgs/helix-gpt.nix {})
+    # (callPackage ./pkgs/helix-gpt.nix {})
+    inputs.helix-gpt.packages.${pkgs.system}.default
     # cpp dependencies
     clang-tools
     lldb
@@ -38,6 +39,10 @@
         "C-C" = "yank_joined_to_clipboard";
         "C-S-v" = ":clipboard-paste-after";
         "home" = "goto_first_nonwhitespace";
+        "C-right" =    [ "move_next_word_end" ];
+        "C-left" =     [ "move_prev_word_start" ];
+        "C-up" =       [ "move_line_up" ];
+        "C-down" =     [ "move_line_down" ];
       };
       keys.insert = let s = [ "commit_undo_checkpoint" ]; in {
         # selection and movement
@@ -51,18 +56,11 @@
         # new lines
         "C-S-ret" =    [ "add_newline_above" "move_line_up" ] ++ s;
         "C-ret" =      [ "add_newline_below" "move_line_down" ] ++ s;
-        "S-ret" =      [ "goto_definition" ];
-        # tabbing
-        "C-[" =        [ "unindent" ] ++ s;
-        "C-]" =        [ "indent" ] ++ s;
         # state manipulation
         "C-s" =        [ ":write" ] ++ s;
         "C-z" =        [ "undo" ];
         "C-Z" =        [ "redo" ];
         # multiple cursors
-        "C-S-up" =     [ "copy_selection_on_prev_line" ];
-        "C-S-down" =   [ "copy_selection_on_next_line" ];
-        "C-," =        [ "keep_primary_selection" ];
         "C-/" =        [ "toggle_comments" ] ++ s;
         # copy/paste
         "C-S-v" =      [ ":clipboard-paste-after" ] ++ s;
@@ -87,19 +85,21 @@
         {
           name = "rust";
           language-servers = [
+            "gpt"
             "rust-analyzer"
           ];
+          auto-format = true;
         }
         {
           name = "markdown";
           soft-wrap.enable = true;
           formatter = { command = "prettier"; args = ["--parser" "markdown"]; };
-          auto-format = true;
         }
         {
           name = "nix";
           language-servers = [ 
             "nil"
+            "gpt"
           ];
         }
         {

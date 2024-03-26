@@ -25,22 +25,71 @@ verbs: [
     #    execution: "helix {file}:{line}"
     {
         invocation: edit
-        shortcut: ctrl-e
         keys: [
+            ctrl-e
             enter
             right
         ]
         apply_to: text_file
-        execution: "hx {file}"
+        execution: "open-term-right {file}"
+        leave_broot: false
+    }
+    {
+        invocation: edit_full
+        keys: [
+            ctrl-enter
+        ]
+        apply_to: text_file
+        execution: "$EDITOR {file}"
+        leave_broot: false
+    }
+	{
+		name: copy_path
+		invocation: copy_path
+		execution: 'bash -c "readlink -f {file} | wl-copy"'
+        leave_broot: false
+	}
+	{
+		name: touch
+        shortcut: tc
+		invocation: "touch {filename}"
+		execution: "touch {directory}/{filename}"
+        leave_broot: false
+	}
+	{
+		name: mkdir
+        shortcut: mk
+        invocation: "mkdir {subpath}"
+        external: "mkdir -p {directory}/{subpath}"
+        leave_broot: false
+	}
+    # {
+    #     invocation: top
+    #     key: home
+    #     internal: ":select_first"
+    # }
+    # {
+    #     invocation: bottom
+    #     key: end
+    #     internal: ":select_last"
+    # }
+    { key: "ctrl-x", internal: "toggle_stage" }
+    { key: "ctrl-down" internal: ":next_same_depth" }
+    { key: "ctrl-up" internal: ":previous_same_depth" }
+    { key: "ctrl-left",      internal: ":input_go_word_left" }
+    { key: "ctrl-right",     internal: ":input_go_word_right" }
+    { key: "alt-left",       internal: ":panel_left_no_open" }
+    { key: "alt-right",      internal: ":panel_right" }
+    { key: "ctrl-n",         internal: ":input_del_word_left" }
+    { key: "ctrl-del",       internal: ":input_del_word_right" }
+    # move to trash, don't delete permanently
+    {
+        invocation: "rm"
+        internal: "trash"
+        key: "alt-del"
         leave_broot: false
     }
 
-	{
-		name: copy_path
-		invocation: cpp
-		execution: 'bash -c "readlink -f {file} | wl-copy"'
-		leave_broot: false
-	}
     # Example 1: launching `tail -n` on the selected file (leaving broot)
     # {
     #     name: tail_lines
