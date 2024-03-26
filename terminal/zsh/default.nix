@@ -1,16 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   home.packages = [
-    (pkgs.writeShellScriptBin "nixdev" ''
-      if [ -z "$1" ]; then
-        echo "missing dev template argument, you can choose from: clojure csharp cue dhall elixir elm gleam go hashi haskell haxe java kotlin latex nickel nim nix node ocaml opa php protobuf pulumi purescript python ruby rust-toolchain rust scala shell zig"
-        nix flake new -t github:nix-community/nix-direnv .
-      else
-        nix flake init --template github:the-nix-way/dev-templates#$1
-      fi
-      direnv allow .
-      cat .gitignore | grep ".direnv" || echo ".direnv" >> .gitignore
-    '')
+    inputs.dev-templates-nix.packages.${pkgs.system}.default
   ];
   
   programs.zsh.shellAliases = {

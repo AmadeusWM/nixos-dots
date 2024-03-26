@@ -1,5 +1,7 @@
 # How to use
 
+Add modules from dots to home-manager modules like this:
+
 ```nix
 {
   description = "Your Nixos Configuration"; 
