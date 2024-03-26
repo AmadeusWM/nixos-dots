@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # variables
-config=$HOME/nixos/home/dots/graphical/hyprland/config
+config=$HOME/nixos/modules/home-manager-modules/graphical/hyprland/config
 scripts=$config/scripts
 
 # notification daemon
@@ -24,4 +24,4 @@ xhost +local:
 
 # Background
 # sleep 3
-# ~/nixos/home/dots/graphical/hyprland/config/scripts/wallpaper/wallpaper
+# ~/nixos/modules/home-manager-modules/graphical/hyprland/config/scripts/wallpaper/wallpaper

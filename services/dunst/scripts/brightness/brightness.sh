@@ -1,6 +1,6 @@
 #!/bin/sh
 
-iconPath="$HOME/nixos/home/dots/services/dunst/scripts/brightness/icons"
+iconPath="$HOME/nixos/modules/home-manager-modules/services/dunst/scripts/brightness/icons"
 
 down() {
   light -U 5

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-iconPath="$HOME/nixos/home/dots/services/dunst/scripts/volume/icons"
+iconPath="$HOME/nixos/modules/home-manager-modules/services/dunst/scripts/volume/icons"
 
 down() {
   pamixer -d 5

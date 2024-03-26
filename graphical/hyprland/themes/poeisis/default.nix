@@ -46,8 +46,8 @@
     layerrule=blur,notifications
     layerrule=ignorezero,notifications
 
-    bind=SUPERSHIFT,B,exec, ~/nixos/home/dots/graphical/hyprland/themes/poeisis/waybar/waybar.sh
+    bind=SUPERSHIFT,B,exec, ~/nixos/modules/home-manager-modules/graphical/hyprland/themes/poeisis/waybar/waybar.sh
 
-    exec=~/nixos/home/dots/graphical/hyprland/themes/poeisis/waybar/waybar.sh
+    exec=~/nixos/modules/home-manager-modules/graphical/hyprland/themes/poeisis/waybar/waybar.sh
   '';
 }

@@ -116,7 +116,7 @@
     };
     "custom/dunst" = {
         format = "{}";
-        exec = "~/nixos/home/dots/graphical/hyprland/themes/comic/waybar/modules/dunst.sh";
+        exec = "~/nixos/modules/home-manager-modules/graphical/hyprland/themes/comic/waybar/modules/dunst.sh";
         on-click = "dunstctl set-paused toggle";
         restart-interval = 1;
     };

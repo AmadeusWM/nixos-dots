@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   wayland.windowManager.hyprland.extraConfig = ''
-    exec-once=$HOME/nixos/home/dots/graphical/hyprland/config/scripts/startup/autostart
+    exec-once=$HOME/nixos/modules/home-manager-modules/graphical/hyprland/config/scripts/startup/autostart
     exec-once=copyq --start-server 
 
     exec-once=hyprctl setcursor Sunity-cursors 24
@@ -9,7 +9,7 @@
     env=DOWNGRADE_FROM_ALA,1
     # env=QT_STYLE_OVERRIDE,kvantum
 
-    exec-once=$HOME/nixos/home/dots/graphical/hyprland/config/scripts/idle_handler.sh
+    exec-once=$HOME/nixos/modules/home-manager-modules/graphical/hyprland/config/scripts/idle_handler.sh
 
     # plugin {
     #     hyprwinwrap {
@@ -50,7 +50,7 @@
     }
 
     decoration {
-        # screen_shader=~/nixos/home/dots/graphical/hyprland/shaders/crt.frag
+        # screen_shader=~/nixos/modules/home-manager-modules/graphical/hyprland/shaders/crt.frag
         blur {
             enabled=true
             new_optimizations = on

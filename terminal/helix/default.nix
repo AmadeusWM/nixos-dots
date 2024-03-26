@@ -3,7 +3,6 @@
   # test if language is supported with e.g. `hx --health python`
   home.packages = with pkgs; [
     # github copilot
-    # (callPackage ./pkgs/helix-gpt.nix {})
     inputs.helix-gpt.packages.${pkgs.system}.default
     # cpp dependencies
     clang-tools
@@ -150,18 +149,3 @@
 #             (__)\       )\/\
 #                 ||----w |
 #                 ||     ||
-# pyright
-# dependencies: 
-# - nodePackages_latest.pyright
-# - black # formatter
-# {
-#   name = "python"; 
-#   auto-format = true;
-#   scope = "source.python";
-#   shebangs = ["python"];
-#   roots = ["setup.py" "setup.cfg" "pyproject.toml"];
-#   formatter = { command = "black"; args = ["--quiet" "-"]; };
-#   language-servers = [ 
-#     "pyright" 
-#   ];
-# }

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # load $WALLPAPER_IMAGE environment variable
-source $HOME/nixos/home/dots/graphical/hyprland/config/scripts/variables/load_envs
+source $HOME/nixos/modules/home-manager-modules/graphical/hyprland/config/scripts/variables/load_envs
 
 function load_wp(){
     swww img -t any --filter=Nearest --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration .8 --transition-step 255 --transition-fps 60 $BACKGROUND_IMAGE

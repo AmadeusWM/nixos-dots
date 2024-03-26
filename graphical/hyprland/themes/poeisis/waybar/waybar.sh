@@ -7,4 +7,4 @@ killall -q .waybar-wrapped
 while pgrep -x waybar >/dev/null; do sleep 1; done
 
 # Launch main
-waybar -c $HOME/nixos/home/dots/graphical/hyprland/themes/poeisis/waybar/config -s $HOME/nixos/home/dots/graphical/hyprland/themes/poeisis/waybar/style.css &
+waybar -c $HOME/nixos/modules/home-manager-modules/graphical/hyprland/themes/poeisis/waybar/config -s $HOME/nixos/modules/home-manager-modules/graphical/hyprland/themes/poeisis/waybar/style.css &

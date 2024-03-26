@@ -1,6 +1,6 @@
 import subprocess, os;
 
-pathStoredSearches = "~/nixos/home/dots/graphical/hyprland/config/scripts/storage/dict_searches.txt";
+pathStoredSearches = "~/nixos/modules/home-manager-modules/graphical/hyprland/config/scripts/storage/dict_searches.txt";
 
 def runDictionary():
     inp = getWofiWithPreviousSearches();
@@ -15,7 +15,7 @@ def getWofiWithPreviousSearches():
     return subprocess.getoutput(parseEchoCommand(prevSearches) + " | " + wofiCmd);
 
 def listPrevSearches():
-    cmd = "cat ~/nixos/home/dots/graphical/hyprland/config/scripts/storage/dict_searches.txt";
+    cmd = "cat ~/nixos/modules/home-manager-modules/graphical/hyprland/config/scripts/storage/dict_searches.txt";
     return subprocess.getoutput(cmd);
 
 def showMeaning(inp):
