@@ -35,7 +35,6 @@
       };
       keys.normal = {
         "C-/" = "toggle_comments";
-        "C-C" = "yank_joined_to_clipboard";
         "C-S-v" = ":clipboard-paste-after";
         "home" = "goto_first_nonwhitespace";
         "C-right" =    [ "move_next_word_end" ];
@@ -52,15 +51,6 @@
         "C-backspace" =[ "delete_word_backward" ] ++ s;
         "C-del" =      [ "delete_word_forward" ] ++ s;
         "home" =       [ "goto_first_nonwhitespace" ];
-        # new lines
-        "C-S-ret" =    [ "add_newline_above" "move_line_up" ] ++ s;
-        "C-ret" =      [ "add_newline_below" "move_line_down" ] ++ s;
-        # state manipulation
-        "C-s" =        [ ":write" ] ++ s;
-        "C-z" =        [ "undo" ];
-        "C-Z" =        [ "redo" ];
-        # multiple cursors
-        "C-/" =        [ "toggle_comments" ] ++ s;
         # copy/paste
         "C-S-v" =      [ ":clipboard-paste-after" ] ++ s;
       };

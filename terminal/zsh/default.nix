@@ -19,7 +19,7 @@
     enable = true;
     # autocd = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     # # "^[OA" and "^[OB" fix up and down not working... (source: https://www.reddit.com/r/zsh/comments/kae8yg/plugin_zshhistorysubstringsearch_not_working/)

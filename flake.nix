@@ -36,10 +36,10 @@
 
     # launchers
     wofi = ./graphical/launchers/wofi;
-    anyrun = ./graphical/launchers/anyrun;
+    anyrun = ./graphical/launchers/anyrun; # required anyrun flake input
 
     # bars
-    ags = ./graphical/bars/ags;
+    ags = ./graphical/bars/ags; # required ags flake input
     
     # services
     dunst = ./services/dunst;

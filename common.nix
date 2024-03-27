@@ -29,9 +29,9 @@
     xorg.xkill
 
     # FONTS
-    nerdfonts
     minecraftia
     fira-code
+    nerdfonts
 
     # ICONS
     papirus-icon-theme
@@ -40,7 +40,7 @@
   # Font for bar
   fonts = {
     fontconfig = {
-      enable = true;
+      enable = true;      
     };
   };
   home.pointerCursor = {
@@ -48,8 +48,9 @@
     name = "Bibata-Modern-Classic";
     size = 24;
     gtk.enable = true;
-    x11.enable = false;
+    x11.enable = true;
   };
+
   # home.pointerCursor = {
   #   package = pkgs.capitaine-cursors;
   #   name = "capitaine-cursors";

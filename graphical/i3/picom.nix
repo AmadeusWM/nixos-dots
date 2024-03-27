@@ -1,7 +1,6 @@
-{ pkgs, config, ... }:
 {
-    services.picom = {
-        enable = true;
-        vSync = false;
-    };
+  services.picom = {
+    enable = true;
+    vSync = false;
+  };
 }

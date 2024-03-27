@@ -7,16 +7,19 @@ focused_output=$(i3-msg -t get_workspaces | jq -r '.[]|select(.focused == true) 
 active_prefix=0
 echo $focused_output
 
-if [[ $focused_output == "DisplayPort-0" ]]; then
+if [[ $focused_output == "DP-1" ]]; then
     active_prefix=1
 fi
-if [[ $focused_output == "HDMI-A-0" ]]; then
+if [[ $focused_output == "HDMI-1" ]]; then
     active_prefix=2
 fi
 
 echo $active_prefix
 
 target_workspace=${active_prefix}${workspace}
+trim_char="0"
+target_workspace=${target_workspace#$trim_char} # remove leading zero's
+echo "target: ${target_workspace}"
 
 
 visit() {

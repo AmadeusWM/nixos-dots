@@ -11,7 +11,7 @@
     # General settings
     window_padding_width = 8;
     font_size = 12;
-    font_family = "FiraCode Nerd Font";
+    font_family = "FiraCode";
 
     # The basic colors
     foreground              = "#E2E0EC";
@@ -20,7 +20,8 @@
     selection_background    = "#575268";
 
     # Transparent Background
-    background_opacity      = "0.9";
+    background_opacity      = "1.0";
+    # background_opacity      = "0.9";
 
     # Cursor colors
     cursor                  = "#F5E0DC";
