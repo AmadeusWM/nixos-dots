@@ -7,6 +7,6 @@
     ./nvim
     ./helix
     ./broot
-    # ./wezterm
+    ./wezterm
   ];
 }

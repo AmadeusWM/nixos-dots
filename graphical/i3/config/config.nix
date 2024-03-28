@@ -16,8 +16,8 @@ in {
         "${mod}+Control+m" = "exit";
         "${mod}+Control+n" = "exec XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi";
         "${mod}+m" = "exec morgen";
-        "${mod}+t" = "exec kitty";
-        "${alt}+Control+t" = "exec kitty";
+        "${mod}+t" = "exec wezterm";
+        "${alt}+Control+t" = "exec wezterm";
         "${mod}+f" = "exec firefox";
         "${mod}+e" = "exec nautilus";
         "${mod}+w" = "exec code";
@@ -28,7 +28,7 @@ in {
         "Print" = "exec flameshot gui -c -p ~/Pictures/Screenshots";
         "${alt}+Print" = "exec flameshot gui -p ~/Pictures/Screenshots";
         "${mod}+Print" = "exec deepin-screen-recorder --record --save-path '~/videos/Screen Recordings'";
-        "${mod}+Control+Shift+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 10 && systemctl suspend'";
+        "${mod}+Control+Shift+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 2 && systemctl suspend'";
 
         # tools
         "${mod}+d" = "exec python3 ~/nixos/modules/home-manager-modules/graphical/i3/config/scripts/tools/dict.py";
@@ -42,6 +42,8 @@ in {
         "${mod}+s" = "floating toggle";
         "${mod}+Control+s" = "exec i3-msg exit";
         "${mod}+z" = "layout toggle split";
+        "${mod}+v" = "splitv";
+        "${mod}+h" = "splith";
 
         # Focus
         "${mod}+Left" =  "focus left";
@@ -56,16 +58,16 @@ in {
         "${mod}+Control+Right" = "move right";
         
         # Resize Grow
-        "${mod}+Shift+Left" =  "resize grow left  10 px or 10 ppt";
-        "${mod}+Shift+Down" =  "resize grow down  10 px or 10 ppt";
-        "${mod}+Shift+Up" =    "resize grow up    10 px or 10 ppt";
-        "${mod}+Shift+Right" = "resize grow right 10 px or 10 ppt";
+        "${mod}+Shift+Left" =  "resize grow left  40 px or 10 ppt";
+        "${mod}+Shift+Down" =  "resize grow down  40 px or 10 ppt";
+        "${mod}+Shift+Up" =    "resize grow up    40 px or 10 ppt";
+        "${mod}+Shift+Right" = "resize grow right 40 px or 10 ppt";
 
         # Resize Shrink
-        "${mod}+Control+Shift+Left" =  "resize shrink right   10 px or 10 ppt";
-        "${mod}+Control+Shift+Down" =  "resize shrink up      10 px or 10 ppt";
-        "${mod}+Control+Shift+Up" =    "resize shrink down    10 px or 10 ppt";
-        "${mod}+Control+Shift+Right" = "resize shrink left    10 px or 10 ppt";
+        "${mod}+Control+Shift+Left" =  "resize shrink right   40 px or 10 ppt";
+        "${mod}+Control+Shift+Down" =  "resize shrink up      40 px or 10 ppt";
+        "${mod}+Control+Shift+Up" =    "resize shrink down    40 px or 10 ppt";
+        "${mod}+Control+Shift+Right" = "resize shrink left    40 px or 10 ppt";
 
         # switch to workspace
         "${mod}+1" = "exec ${workspace} visit 1";
@@ -123,6 +125,11 @@ in {
         "XF86Calculator" = "exec kitty qalc";
       };
       startup = [
+          {
+            command = "setxkbmap -option compose:caps";
+            always = true;
+            notification = false;
+          }
           # Set refreshrate WideScreen
           {
             command = "xrandr --output DP-1 --rate 74.98 --mode 3440x1440";
@@ -150,7 +157,7 @@ in {
           }
           # Lock and suspend after a while
           {
-            command = "xidlehook --not-when-fullscreen --timer 600 'brightnessctl --save; brightnessctl set 10%' 'brightnessctl --restore' --timer 10 'i3lock && suspend' 'brightnessctl --restore'";
+            command = "xidlehook --detect-sleep --not-when-fullscreen --timer 600 'i3lock && sleep 2 && systemctl suspend' ''";
             always = false;
             notification = false;
           }

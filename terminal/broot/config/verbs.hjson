@@ -31,7 +31,7 @@ verbs: [
             right
         ]
         apply_to: text_file
-        execution: "open-term-right {file}"
+        execution: "open-term-right-wez {file}"
         leave_broot: false
     }
     {

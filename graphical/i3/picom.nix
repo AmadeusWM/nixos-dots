@@ -1,6 +1,6 @@
 {
   services.picom = {
     enable = true;
-    vSync = false;
+    vSync = true;
   };
 }
