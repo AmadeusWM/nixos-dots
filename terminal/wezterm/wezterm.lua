@@ -45,6 +45,26 @@ config.keys = {
     key = "v",
     mods = "CTRL|ALT",
     action = wezterm.action.SplitVertical,
+  },
+  {
+    key = "UpArrow",
+    mods = "CTRL|ALT|SHIFT",
+    action = wezterm.action.AdjustPaneSize { "Up", 5 },
+  },
+  {
+    key = "RightArrow",
+    mods = "CTRL|ALT|SHIFT",
+    action = wezterm.action.AdjustPaneSize { "Right", 5 },
+  },
+  {
+    key = "DownArrow",
+    mods = "CTRL|ALT|SHIFT",
+    action = wezterm.action.AdjustPaneSize { "Down", 5 },
+  },
+  {
+    key = "LeftArrow",
+    mods = "CTRL|ALT|SHIFT",
+    action = wezterm.action.AdjustPaneSize { "Left", 5 },
   }
 }
 

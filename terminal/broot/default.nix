@@ -35,6 +35,7 @@ function br {
 
   # idea from: https://quantonganh.com/2023/08/02/file-tree-workaround-for-helix.md
   home.packages = [
+    # kitty
     ( pkgs.writeShellScriptBin "open-term-right-kitty" ''
     #!/usr/bin/env sh
     fpath="$1"
@@ -44,6 +45,7 @@ function br {
       && kitten @ send-text "\e\e:open $fpath\r" \
       || kitten @ action launch --cwd=current --location=vsplit hx $fpath
     '')
+    # wezterm
     ( pkgs.writeShellScriptBin "open-term-right-wez" ''
     #!/bin/sh
     fpath="$1"
