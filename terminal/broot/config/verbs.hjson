@@ -31,7 +31,7 @@ verbs: [
             right
         ]
         apply_to: text_file
-        execution: "open-term-right-wez {file}"
+        execution: "open-helix-wez {file}"
         leave_broot: false
     }
     {
@@ -149,6 +149,13 @@ verbs: [
         key: ctrl-t
         execution: "$SHELL"
         set_working_dir: true
+        leave_broot: false
+    }
+    # idk, I just want to override this...
+    {
+        invocation: write
+        key: "ctrl-w"
+        external: "ls"
         leave_broot: false
     }
 

@@ -7,7 +7,7 @@ in
   # Example config source: https://discourse.nixos.org/t/help-setting-up-firefox-with-home-manager/23333
   programs.firefox = {
     enable = true;
-    package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
+    # package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
     # package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
     #   extraPolicies = {
     #     CaptivePortal = false;

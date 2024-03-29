@@ -13,6 +13,8 @@
     # typescript
     nodePackages_latest.typescript
     nodePackages_latest.typescript-language-server
+    ## TS Eslint
+    vscode-langservers-extracted
     # python
     (python3.withPackages (ps: with ps; [ python-lsp-server ] ++ python-lsp-server.optional-dependencies.all))
 
@@ -68,6 +70,20 @@
         };
         gpt = {
           command = "helix-gpt";
+        };
+
+        # source: https://github.com/helix-editor/helix/issues/3231#issuecomment-1876996743        
+        eslint = {
+          args = ["--stdio"]; # should come by def with helix
+          command = "vscode-eslint-language-server";
+          config = {
+            validate = "on"; # I assume this enabled eslit to validate the file, which now shows me counts for errors, warnings, etc in helix
+            experimental = { useFlatConfig = false; }; # not sure why this is here
+            rulesCustomizations = [];
+            run = "onType";
+            problems = { shortenToSingleLine = false; };
+            nodePath = ""; # seems redundant, why do we need to override this, should get detected autom.
+          };
         };
       };
       language = [
