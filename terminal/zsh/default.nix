@@ -1,11 +1,31 @@
 { pkgs, config, inputs, ... }:
 {
-  home.packages = [
+  home.packages = with pkgs; [
     inputs.dev-templates-nix.packages.${pkgs.system}.default
+    rm-improved
+    fzf
   ];
   
   programs.zsh.shellAliases = {
     joepie = "echo 'joepiee!!'";
+    la = "exa -la --icons";
+    ls = "exa --icons";
+    rm = "rip";
+  };
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    git = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [
+      "--cmd"
+      "cd"
+    ];
   };
 
   programs.direnv = {

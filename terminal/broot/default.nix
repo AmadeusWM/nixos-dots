@@ -73,6 +73,7 @@ function br {
     #!/bin/sh
     fpath="$1"
 
+    # we could use $WEZTERM_PANE instead
     current_pane_id=$(wezterm cli list-clients --format json | jq -r '.[] | .focused_pane_id')
     window_id=$(wezterm cli list --format json | jq -r ".[]|select(.pane_id == $current_pane_id) | .window_id")
     pane_id=$(wezterm cli list --format json | jq -r "[.[]|select(.window_id == $window_id) | select(.pane_id != $current_pane_id)][0] .pane_id")

@@ -27,6 +27,7 @@
 
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages.${pkgs.system}.default;
     defaultEditor = true;
     settings = {
       theme = "catppuccin_espresso";
@@ -34,6 +35,7 @@
         line-number = "relative";
         idle-timeout = 0;
         color-modes = true;
+        soft-wrap.enable = true;
       };
       keys.normal = {
         "C-/" = "toggle_comments";
@@ -90,7 +92,7 @@
         {
           name = "rust";
           language-servers = [
-            "gpt"
+            # "gpt"
             "rust-analyzer"
           ];
           auto-format = true;
@@ -104,7 +106,7 @@
           name = "nix";
           language-servers = [ 
             "nil"
-            "gpt"
+            # "gpt"
           ];
         }
         {
@@ -115,9 +117,10 @@
         }
         {
           name = "typescript";
+          roots = ["package-lock.json" "tsconfig.json" ".prettierrc.json"];
           language-servers = [ 
             "ts-server"
-            "gpt"
+            "eslint"
           ];
         }
         {

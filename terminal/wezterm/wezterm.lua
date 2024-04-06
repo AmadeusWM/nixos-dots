@@ -30,6 +30,11 @@ config.launch_menu = {
     cwd = "$HOME",
   },
   {
+    label = "moq",
+    args = { 'broot', '/home/amadeusw/projects/school/bapr/repos/moq' },
+    cwd = "$HOME",
+  },
+  {
     label = "moq-rs",
     args = { 'broot', '/home/amadeusw/projects/school/bapr/repos/moq-rs' },
     cwd = "$HOME",
@@ -67,22 +72,22 @@ config.keys = {
   {
     key = "UpArrow",
     mods = "CTRL|ALT|SHIFT",
-    action = wezterm.action.AdjustPaneSize { "Up", 5 },
+    action = wezterm.action.AdjustPaneSize { "Up", 3 },
   },
   {
     key = "RightArrow",
     mods = "CTRL|ALT|SHIFT",
-    action = wezterm.action.AdjustPaneSize { "Right", 5 },
+    action = wezterm.action.AdjustPaneSize { "Right", 3 },
   },
   {
     key = "DownArrow",
     mods = "CTRL|ALT|SHIFT",
-    action = wezterm.action.AdjustPaneSize { "Down", 5 },
+    action = wezterm.action.AdjustPaneSize { "Down", 3 },
   },
   {
     key = "LeftArrow",
     mods = "CTRL|ALT|SHIFT",
-    action = wezterm.action.AdjustPaneSize { "Left", 5 },
+    action = wezterm.action.AdjustPaneSize { "Left", 3 },
   }
 }
 

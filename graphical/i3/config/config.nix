@@ -27,7 +27,8 @@ in {
         "${mod}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
         "Print" = "exec flameshot gui -c -p ~/Pictures/Screenshots";
         "${alt}+Print" = "exec flameshot gui -p ~/Pictures/Screenshots";
-        "${mod}+Print" = "exec deepin-screen-recorder --record --save-path '~/videos/Screen Recordings'";
+        "${mod}+Print" = "exec i3-record";
+        # "${mod}+Print" = "exec deepin-screen-recorder --record --save-path '~/videos/Screen Recordings'";
         "${mod}+Control+Shift+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 2 && systemctl suspend'";
 
         # tools
@@ -58,16 +59,16 @@ in {
         "${mod}+Control+Right" = "move right";
         
         # Resize Grow
-        "${mod}+Shift+Left" =  "resize grow left  40 px or 10 ppt";
-        "${mod}+Shift+Down" =  "resize grow down  40 px or 10 ppt";
-        "${mod}+Shift+Up" =    "resize grow up    40 px or 10 ppt";
-        "${mod}+Shift+Right" = "resize grow right 40 px or 10 ppt";
+        "${mod}+Shift+Left" =  "resize grow left  40 px or 3 ppt";
+        "${mod}+Shift+Down" =  "resize grow down  40 px or 3 ppt";
+        "${mod}+Shift+Up" =    "resize grow up    40 px or 3 ppt";
+        "${mod}+Shift+Right" = "resize grow right 40 px or 3 ppt";
 
         # Resize Shrink
-        "${mod}+Control+Shift+Left" =  "resize shrink right   40 px or 10 ppt";
-        "${mod}+Control+Shift+Down" =  "resize shrink up      40 px or 10 ppt";
-        "${mod}+Control+Shift+Up" =    "resize shrink down    40 px or 10 ppt";
-        "${mod}+Control+Shift+Right" = "resize shrink left    40 px or 10 ppt";
+        "${mod}+Control+Shift+Left" =  "resize shrink right   40 px or 3 ppt";
+        "${mod}+Control+Shift+Down" =  "resize shrink up      40 px or 3 ppt";
+        "${mod}+Control+Shift+Up" =    "resize shrink down    40 px or 3 ppt";
+        "${mod}+Control+Shift+Right" = "resize shrink left    40 px or 3 ppt";
 
         # switch to workspace
         "${mod}+1" = "exec ${workspace} visit 1";
@@ -132,13 +133,14 @@ in {
           }
           # Set refreshrate WideScreen
           {
-            command = "xrandr --output DP-1 --rate 74.98 --mode 3440x1440";
+            # command = "xrandr --output DP-1 --rate 74.98 --mode 3440x1440";
+            command = "xrandr --output DisplayPort-0 --rate 74.98 --mode 3440x1440";
             always = true;
             notification = false;
           }
           # feh wallpaper
           {
-            command = "sleep 2 && feh --bg-center /home/amadeusw/Pictures/wallpapers/wallpapers/wallpapers2/makimablue.jpg";
+            command = "sleep 2 && feh --bg-fill /home/amadeusw/Pictures/wallpapers/wallpapers/funny/eea82a37a3c93c8b87cadf1fa18b0cd0_scaled_8x_pngcrushed.png";
             always = false;
             notification = false;
           }
@@ -171,6 +173,41 @@ in {
       # Assign Workspaces to Screens
       # i3-msg -t get_outputs
       workspaceOutputAssign = [
+        # With Nvidia
+        # { output = "eDP"; workspace = "1"; }
+        # { output = "eDP"; workspace = "2"; }
+        # { output = "eDP"; workspace = "3"; }
+        # { output = "eDP"; workspace = "4"; }
+        # { output = "eDP"; workspace = "5"; }
+        # { output = "eDP"; workspace = "6"; }
+        # { output = "eDP"; workspace = "7"; }
+        # { output = "eDP"; workspace = "8"; }
+        # { output = "eDP"; workspace = "9"; }
+        # { output = "eDP"; workspace = "0"; }
+
+        # { output = "DisplayPort-0"; workspace = "11"; }
+        # { output = "DisplayPort-0"; workspace = "12"; }
+        # { output = "DisplayPort-0"; workspace = "13"; }
+        # { output = "DisplayPort-0"; workspace = "14"; }
+        # { output = "DisplayPort-0"; workspace = "15"; }
+        # { output = "DisplayPort-0"; workspace = "16"; }
+        # { output = "DisplayPort-0"; workspace = "17"; }
+        # { output = "DisplayPort-0"; workspace = "18"; }
+        # { output = "DisplayPort-0"; workspace = "19"; }
+        # { output = "DisplayPort-0"; workspace = "10"; }
+
+        # { output = "HDMI-A-0"; workspace = "21"; }
+        # { output = "HDMI-A-0"; workspace = "22"; }
+        # { output = "HDMI-A-0"; workspace = "23"; }
+        # { output = "HDMI-A-0"; workspace = "24"; }
+        # { output = "HDMI-A-0"; workspace = "25"; }
+        # { output = "HDMI-A-0"; workspace = "26"; }
+        # { output = "HDMI-A-0"; workspace = "27"; }
+        # { output = "HDMI-A-0"; workspace = "28"; }
+        # { output = "HDMI-A-0"; workspace = "29"; }
+        # { output = "HDMI-A-0"; workspace = "20"; }
+
+        # Without Nvidia
         { output = "eDP-1"; workspace = "1"; }
         { output = "eDP-1"; workspace = "2"; }
         { output = "eDP-1"; workspace = "3"; }
