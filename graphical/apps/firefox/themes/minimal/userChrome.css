@@ -1,6 +1,6 @@
 /* bg: #2B2A33 */
 :root {
-   /* Minimal Functional Fox variables*/
+  /* Minimal Functional Fox variables*/
   --mff-bg: #11111B;
   --mff-icon-color: #e0fbfc;
   --mff-nav-toolbar-padding: 8px;
@@ -51,7 +51,7 @@
 }
 
 @-moz-document url("about:newtab"), url("about:home") {
-  body { 
+  body {
     background-color: #e7d74b !important;
   }
 }
@@ -96,7 +96,7 @@
 }
 
 .tab-close-button {
- display: none !important;
+  display: none !important;
 }
 
 .tab-text {
@@ -174,16 +174,17 @@ hbox.tab-content[pinned=true] .tab-text {
   |_| \___/ \___/|____|___/_/  \_\_|_\
 */
 
-.urlbar-icon > image {
+.urlbar-icon>image {
   fill: var(--mff-icon-color) !important;
   color: var(--mff-icon-color) !important;
 }
 
 .toolbarbutton-text {
-  color: var(--mff-icon-color)  !important;
+  color: var(--mff-icon-color) !important;
 }
+
 .urlbar-icon {
-  color: var(--mff-icon-color)  !important;
+  color: var(--mff-icon-color) !important;
 
 }
 
@@ -194,22 +195,24 @@ hbox.tab-content[pinned=true] .tab-text {
   color: var(--mff-urlbar-results-color) !important;
 }
 
-.urlbarView-row[type="bookmark"] > span{
+.urlbarView-row[type="bookmark"]>span {
   color: green !important;
 }
 
-.urlbarView-row[type="switchtab"] > span{
+.urlbarView-row[type="switchtab"]>span {
   color: orange !important;
 }
 
-.urlbarView-url, .search-panel-one-offs-container {
+.urlbarView-url,
+.search-panel-one-offs-container {
   color: var(--mff-urlbar-results-url-color) !important;
   font-family: var(--mff-urlbar-font-family);
   font-weight: var(--mff-urlbar-results-font-weight);
   font-size: var(--mff-urlbar-font-size) !important;
 }
 
-.urlbarView-favicon, .urlbarView-type-icon {
+.urlbarView-favicon,
+.urlbarView-type-icon {
   display: none !important;
 }
 
@@ -217,11 +220,11 @@ hbox.tab-content[pinned=true] .tab-text {
   font-size: var(--mff-urlbar-font-size) !important;
   color: var(--mff-urlbar-color) !important;
   font-family: var(--mff-urlbar-font-family) !important;
-  font-weight: var(--mff-urlbar-font-weight)!important;
+  font-weight: var(--mff-urlbar-font-weight) !important;
 }
 
 
-#back-button > .toolbarbutton-icon{
+#back-button>.toolbarbutton-icon {
   --backbutton-background: transparent !important;
   border: none !important;
 }
@@ -242,7 +245,8 @@ toolbar {
   opacity: .98 !important;
 }
 
-#navigator-toolbox, toolbaritem {
+#navigator-toolbox,
+toolbaritem {
   border: none !important;
 }
 
@@ -273,7 +277,7 @@ tab.tabbrowser-tab {
 }
 
 tab.tabbrowser-tab:hover {
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
 }
 
 toolbar#nav-bar {
@@ -294,7 +298,7 @@ toolbar#nav-bar {
 }
 
 
-.megabar[breakout-extend="true"]:not([open="true"]) > #urlbar-background {
+.megabar[breakout-extend="true"]:not([open="true"])>#urlbar-background {
   box-shadow: none !important;
   background-color: transparent !important;
 }
@@ -314,14 +318,15 @@ toolbarbutton {
 /* hide ugly top bar */
 #sidebar-header,
 #sidebar-splitter {
-    display: none !important;
+  display: none !important;
 }
 
 #sidebar-box #sidebar {
   background: var(--mff-bg) !important;
 }
 
-.close-icon, .urlbar-icon {
+.close-icon,
+.urlbar-icon {
   fill: var(--mff-icon-color) !important;
 }
 
@@ -330,7 +335,7 @@ toolbarbutton {
 }
 
 #sidebar-switcher-target {
-/*   color: white !important; */
+  /*   color: white !important; */
 }
 
 #sidebar-box {
@@ -365,4 +370,25 @@ image#sidebar-icon {
 
 toolbarseparator {
   display: none;
+}
+
+/* Hide top bar */
+
+#nav-bar {
+  /* customize this value. */
+  --navbar-margin: -48px;
+
+  margin-top: var(--navbar-margin);
+  /* margin-bottom: 0; */
+  z-index: -100;
+  /* transition: all 0.1s ease !important; */
+  opacity: 0;
+}
+
+#navigator-toolbox:focus-within>#nav-bar,
+#navigator-toolbox:hover>#nav-bar {
+  margin-top: 0;
+  /* margin-bottom: var(--navbar-margin); */
+  z-index: 100;
+  opacity: 1;
 }

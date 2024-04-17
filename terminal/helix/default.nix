@@ -23,6 +23,10 @@
     marksman
     # formatter
     nodePackages.prettier
+    # toml
+    taplo
+    # lua
+    lua-language-server
   ];
 
   programs.helix = {
@@ -45,6 +49,10 @@
         "C-left" =     [ "move_prev_word_start" ];
         "C-up" =       [ "move_line_up" ];
         "C-down" =     [ "move_line_down" ];
+      };
+      keys.normal.space = {
+        "f" = "file_picker_in_current_directory";
+        "F" = "file_picker";
       };
       keys.insert = let s = [ "commit_undo_checkpoint" ]; in {
         # selection and movement
@@ -95,7 +103,7 @@
             # "gpt"
             "rust-analyzer"
           ];
-          auto-format = true;
+          auto-format = false;
         }
         {
           name = "markdown";

@@ -48,6 +48,8 @@ config.launch_menu = {
 
 -- Keybindings (https://wezfurlong.org/wezterm/config/keys.html#configuring-key-assignments)
 config.keys = {
+  -- Disable default keybind for fullscreen
+  {key="Enter", mods="ALT", action="DisableDefaultAssignment"},
   { key = 'Backspace', mods = 'CTRL', action = wezterm.action.SendKey {key = 'w', mods = 'CTRL'} }, -- Fix Ctrl-Backspace not working: https://github.com/wez/wezterm/discussions/3983
   {
     key = ":",

@@ -159,7 +159,7 @@ in {
           }
           # Lock and suspend after a while
           {
-            command = "xidlehook --detect-sleep --not-when-fullscreen --timer 600 'i3lock && sleep 2 && systemctl suspend' ''";
+            command = "xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 600 'systemctl suspend' ''";
             always = false;
             notification = false;
           }
@@ -174,72 +174,72 @@ in {
       # i3-msg -t get_outputs
       workspaceOutputAssign = [
         # With Nvidia
-        # { output = "eDP"; workspace = "1"; }
-        # { output = "eDP"; workspace = "2"; }
-        # { output = "eDP"; workspace = "3"; }
-        # { output = "eDP"; workspace = "4"; }
-        # { output = "eDP"; workspace = "5"; }
-        # { output = "eDP"; workspace = "6"; }
-        # { output = "eDP"; workspace = "7"; }
-        # { output = "eDP"; workspace = "8"; }
-        # { output = "eDP"; workspace = "9"; }
-        # { output = "eDP"; workspace = "0"; }
+        { output = "eDP"; workspace = "1"; }
+        { output = "eDP"; workspace = "2"; }
+        { output = "eDP"; workspace = "3"; }
+        { output = "eDP"; workspace = "4"; }
+        { output = "eDP"; workspace = "5"; }
+        { output = "eDP"; workspace = "6"; }
+        { output = "eDP"; workspace = "7"; }
+        { output = "eDP"; workspace = "8"; }
+        { output = "eDP"; workspace = "9"; }
+        { output = "eDP"; workspace = "0"; }
 
-        # { output = "DisplayPort-0"; workspace = "11"; }
-        # { output = "DisplayPort-0"; workspace = "12"; }
-        # { output = "DisplayPort-0"; workspace = "13"; }
-        # { output = "DisplayPort-0"; workspace = "14"; }
-        # { output = "DisplayPort-0"; workspace = "15"; }
-        # { output = "DisplayPort-0"; workspace = "16"; }
-        # { output = "DisplayPort-0"; workspace = "17"; }
-        # { output = "DisplayPort-0"; workspace = "18"; }
-        # { output = "DisplayPort-0"; workspace = "19"; }
-        # { output = "DisplayPort-0"; workspace = "10"; }
+        { output = "DisplayPort-0"; workspace = "11"; }
+        { output = "DisplayPort-0"; workspace = "12"; }
+        { output = "DisplayPort-0"; workspace = "13"; }
+        { output = "DisplayPort-0"; workspace = "14"; }
+        { output = "DisplayPort-0"; workspace = "15"; }
+        { output = "DisplayPort-0"; workspace = "16"; }
+        { output = "DisplayPort-0"; workspace = "17"; }
+        { output = "DisplayPort-0"; workspace = "18"; }
+        { output = "DisplayPort-0"; workspace = "19"; }
+        { output = "DisplayPort-0"; workspace = "10"; }
 
-        # { output = "HDMI-A-0"; workspace = "21"; }
-        # { output = "HDMI-A-0"; workspace = "22"; }
-        # { output = "HDMI-A-0"; workspace = "23"; }
-        # { output = "HDMI-A-0"; workspace = "24"; }
-        # { output = "HDMI-A-0"; workspace = "25"; }
-        # { output = "HDMI-A-0"; workspace = "26"; }
-        # { output = "HDMI-A-0"; workspace = "27"; }
-        # { output = "HDMI-A-0"; workspace = "28"; }
-        # { output = "HDMI-A-0"; workspace = "29"; }
-        # { output = "HDMI-A-0"; workspace = "20"; }
+        { output = "HDMI-A-0"; workspace = "21"; }
+        { output = "HDMI-A-0"; workspace = "22"; }
+        { output = "HDMI-A-0"; workspace = "23"; }
+        { output = "HDMI-A-0"; workspace = "24"; }
+        { output = "HDMI-A-0"; workspace = "25"; }
+        { output = "HDMI-A-0"; workspace = "26"; }
+        { output = "HDMI-A-0"; workspace = "27"; }
+        { output = "HDMI-A-0"; workspace = "28"; }
+        { output = "HDMI-A-0"; workspace = "29"; }
+        { output = "HDMI-A-0"; workspace = "20"; }
 
         # Without Nvidia
-        { output = "eDP-1"; workspace = "1"; }
-        { output = "eDP-1"; workspace = "2"; }
-        { output = "eDP-1"; workspace = "3"; }
-        { output = "eDP-1"; workspace = "4"; }
-        { output = "eDP-1"; workspace = "5"; }
-        { output = "eDP-1"; workspace = "6"; }
-        { output = "eDP-1"; workspace = "7"; }
-        { output = "eDP-1"; workspace = "8"; }
-        { output = "eDP-1"; workspace = "9"; }
-        { output = "eDP-1"; workspace = "0"; }
+        # { output = "eDP-1"; workspace = "1"; }
+        # { output = "eDP-1"; workspace = "2"; }
+        # { output = "eDP-1"; workspace = "3"; }
+        # { output = "eDP-1"; workspace = "4"; }
+        # { output = "eDP-1"; workspace = "5"; }
+        # { output = "eDP-1"; workspace = "6"; }
+        # { output = "eDP-1"; workspace = "7"; }
+        # { output = "eDP-1"; workspace = "8"; }
+        # { output = "eDP-1"; workspace = "9"; }
+        # { output = "eDP-1"; workspace = "0"; }
 
-        { output = "DP-1"; workspace = "11"; }
-        { output = "DP-1"; workspace = "12"; }
-        { output = "DP-1"; workspace = "13"; }
-        { output = "DP-1"; workspace = "14"; }
-        { output = "DP-1"; workspace = "15"; }
-        { output = "DP-1"; workspace = "16"; }
-        { output = "DP-1"; workspace = "17"; }
-        { output = "DP-1"; workspace = "18"; }
-        { output = "DP-1"; workspace = "19"; }
-        { output = "DP-1"; workspace = "10"; }
+        # { output = "DP-1"; workspace = "11"; }
+        # { output = "DP-1"; workspace = "12"; }
+        # { output = "DP-1"; workspace = "13"; }
+        # { output = "DP-1"; workspace = "14"; }
+        # { output = "DP-1"; workspace = "15"; }
+        # { output = "DP-1"; workspace = "16"; }
+        # { output = "DP-1"; workspace = "17"; }
+        # { output = "DP-1"; workspace = "18"; }
+        # { output = "DP-1"; workspace = "19"; }
+        # { output = "DP-1"; workspace = "10"; }
 
-        { output = "HDMI-1"; workspace = "21"; }
-        { output = "HDMI-1"; workspace = "22"; }
-        { output = "HDMI-1"; workspace = "23"; }
-        { output = "HDMI-1"; workspace = "24"; }
-        { output = "HDMI-1"; workspace = "25"; }
-        { output = "HDMI-1"; workspace = "26"; }
-        { output = "HDMI-1"; workspace = "27"; }
-        { output = "HDMI-1"; workspace = "28"; }
-        { output = "HDMI-1"; workspace = "29"; }
-        { output = "HDMI-1"; workspace = "20"; }
+        # { output = "HDMI-1"; workspace = "21"; }
+        # { output = "HDMI-1"; workspace = "22"; }
+        # { output = "HDMI-1"; workspace = "23"; }
+        # { output = "HDMI-1"; workspace = "24"; }
+        # { output = "HDMI-1"; workspace = "25"; }
+        # { output = "HDMI-1"; workspace = "26"; }
+        # { output = "HDMI-1"; workspace = "27"; }
+        # { output = "HDMI-1"; workspace = "28"; }
+        # { output = "HDMI-1"; workspace = "29"; }
+        # { output = "HDMI-1"; workspace = "20"; }
       ];
     };
   };
