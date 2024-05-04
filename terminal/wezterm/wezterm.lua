@@ -14,7 +14,7 @@ config.use_fancy_tab_bar = false
 -- config.hide_tab_bar_if_only_one_tab = true
 config.default_cursor_style = 'SteadyBlock'
 config.animation_fps = 1 -- disables cursor easing in and out
--- config.exit_behavior = "Hold"
+config.exit_behavior = "Hold"
 config.audible_bell = "Disabled"
 
 -- Launch entries (https://wezfurlong.org/wezterm/config/launch.html#the-launcher-menu)

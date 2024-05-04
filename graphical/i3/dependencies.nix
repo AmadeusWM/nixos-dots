@@ -7,6 +7,7 @@
     flameshot # Screenshots
     gcolor3
     rofi
+    smile # emoji picker
     xclip
     xcolor
     xidlehook

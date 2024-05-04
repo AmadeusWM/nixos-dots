@@ -1,16 +1,90 @@
 { config, lib, pkgs, ... }:
-
 let 
   mod = "Mod4";
   alt = "Mod1";
   workspace = "~/nixos/modules/home-manager-modules/graphical/i3/config/scripts/workspace.sh";
 in {
+  home.packages = with pkgs; [
+    i3status
+    i3blocks
+  ];
   xsession.windowManager.i3 = {
     enable = true;
+
+    extraConfig = ''
+    # see https://i3wm.org/docs/userguide.html#client_colors
+    # class                 border  backgr. text    indicator child_border
+    
+    '';
     config = {
       modifier = mod;
 
       terminal = "kitty";
+      colors = {
+        focused = {
+          border =      "#b4befe";
+          background =  "#b4befe"; 
+          text =        "#11111b";
+          indicator =   "#89b4fa";
+          childBorder = "#b4befe";
+        };
+        # e.g. focused window from another screen, or inside another branch
+        focusedInactive = {
+          border =      "#1e1e2e";
+          background =  "#1e1e2e"; 
+          text =        "#ffffff";
+          indicator =   "#373757";
+          childBorder = "#1e1e2e";
+        };
+        unfocused = {
+          border =      "#181825";
+          background =  "#181825"; 
+          text =        "#888888";
+          indicator =   "#32324d";
+          childBorder = "#181825";
+        };
+      };
+      bars = [
+        {
+          statusCommand = "i3status";
+          # statusCommand = "i3blocks";
+          mode = "hide";
+          position = "bottom";
+          colors = {
+            background = "#0f0f17";
+            statusline = "#ffffff";
+            separator =  "#11111b";
+            focusedWorkspace  = {
+              background = "#b4befe"; 
+              border = "#181825"; 
+              text = "#11111b";
+            };
+            activeWorkspace   = {
+              background = "#b4befe"; 
+              border = "#181825"; 
+              text = "#11111b";
+            };
+            inactiveWorkspace = {
+              background = "#313244"; 
+              border = "#313244"; 
+              text = "#888888";
+            };
+            urgentWorkspace = {
+              background = "#2f343a"; 
+              border = "#900000"; 
+              text = "#ffffff";
+            };
+            bindingMode = {
+              background = "#2f343a"; 
+              border = "#900000"; 
+              text = "#ffffff";
+            };
+          };
+        }
+      ];
+      window = {
+        titlebar = true;
+      };
       keybindings = {
         # Applications
         "${mod}+Control+m" = "exit";
@@ -22,14 +96,14 @@ in {
         "${mod}+e" = "exec nautilus";
         "${mod}+w" = "exec code";
         "${mod}+o" = "exec obsidian";
+        "${mod}+period" = "exec smile";
         
         # Screen capture
         "${mod}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
         "Print" = "exec flameshot gui -c -p ~/Pictures/Screenshots";
         "${alt}+Print" = "exec flameshot gui -p ~/Pictures/Screenshots";
         "${mod}+Print" = "exec i3-record";
-        # "${mod}+Print" = "exec deepin-screen-recorder --record --save-path '~/videos/Screen Recordings'";
-        "${mod}+Control+Shift+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 2 && systemctl suspend'";
+        "${mod}+Control+Shift+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 2 && systemctl hibernate'";
 
         # tools
         "${mod}+d" = "exec python3 ~/nixos/modules/home-manager-modules/graphical/i3/config/scripts/tools/dict.py";
@@ -41,10 +115,10 @@ in {
         "--release ${mod}+Control+q" = "exec xkill"; # Doesn't work without `--release`
         "${mod}+a" = "fullscreen toggle";
         "${mod}+s" = "floating toggle";
-        "${mod}+Control+s" = "exec i3-msg exit";
         "${mod}+z" = "layout toggle split";
         "${mod}+v" = "splitv";
         "${mod}+h" = "splith";
+        "${mod}+b" = "bar mode toggle";
 
         # Focus
         "${mod}+Left" =  "focus left";
@@ -133,14 +207,14 @@ in {
           }
           # Set refreshrate WideScreen
           {
-            # command = "xrandr --output DP-1 --rate 74.98 --mode 3440x1440";
-            command = "xrandr --output DisplayPort-0 --rate 74.98 --mode 3440x1440";
+            command = "sleep 1 && xrandr --output DP-3 --rate 74.98 --mode 3440x1440";
+            # command = "xrandr --output DisplayPort-0 --rate 74.98 --mode 3440x1440";
             always = true;
             notification = false;
           }
           # feh wallpaper
           {
-            command = "sleep 2 && feh --bg-fill /home/amadeusw/Pictures/wallpapers/wallpapers/funny/eea82a37a3c93c8b87cadf1fa18b0cd0_scaled_8x_pngcrushed.png";
+            command = "sleep 2 && feh --bg-center /home/amadeusw/Pictures/wallpapers/free_zenneh_images.png";
             always = false;
             notification = false;
           }
@@ -157,9 +231,9 @@ in {
             always = false;
             notification = false;
           }
-          # Lock and suspend after a while
+          # Lock and hibernate after a while
           {
-            command = "xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 600 'systemctl suspend' ''";
+            command = "xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 600 'systemctl hibernate' ''";
             always = false;
             notification = false;
           }
@@ -174,72 +248,38 @@ in {
       # i3-msg -t get_outputs
       workspaceOutputAssign = [
         # With Nvidia
-        { output = "eDP"; workspace = "1"; }
-        { output = "eDP"; workspace = "2"; }
-        { output = "eDP"; workspace = "3"; }
-        { output = "eDP"; workspace = "4"; }
-        { output = "eDP"; workspace = "5"; }
-        { output = "eDP"; workspace = "6"; }
-        { output = "eDP"; workspace = "7"; }
-        { output = "eDP"; workspace = "8"; }
-        { output = "eDP"; workspace = "9"; }
-        { output = "eDP"; workspace = "0"; }
+        { output = "DP-0"; workspace = "1"; }
+        { output = "DP-0"; workspace = "2"; }
+        { output = "DP-0"; workspace = "3"; }
+        { output = "DP-0"; workspace = "4"; }
+        { output = "DP-0"; workspace = "5"; }
+        { output = "DP-0"; workspace = "6"; }
+        { output = "DP-0"; workspace = "7"; }
+        { output = "DP-0"; workspace = "8"; }
+        { output = "DP-0"; workspace = "9"; }
+        { output = "DP-0"; workspace = "0"; }
 
-        { output = "DisplayPort-0"; workspace = "11"; }
-        { output = "DisplayPort-0"; workspace = "12"; }
-        { output = "DisplayPort-0"; workspace = "13"; }
-        { output = "DisplayPort-0"; workspace = "14"; }
-        { output = "DisplayPort-0"; workspace = "15"; }
-        { output = "DisplayPort-0"; workspace = "16"; }
-        { output = "DisplayPort-0"; workspace = "17"; }
-        { output = "DisplayPort-0"; workspace = "18"; }
-        { output = "DisplayPort-0"; workspace = "19"; }
-        { output = "DisplayPort-0"; workspace = "10"; }
+        { output = "DP-3"; workspace = "11"; }
+        { output = "DP-3"; workspace = "12"; }
+        { output = "DP-3"; workspace = "13"; }
+        { output = "DP-3"; workspace = "14"; }
+        { output = "DP-3"; workspace = "15"; }
+        { output = "DP-3"; workspace = "16"; }
+        { output = "DP-3"; workspace = "17"; }
+        { output = "DP-3"; workspace = "18"; }
+        { output = "DP-3"; workspace = "19"; }
+        { output = "DP-3"; workspace = "10"; }
 
-        { output = "HDMI-A-0"; workspace = "21"; }
-        { output = "HDMI-A-0"; workspace = "22"; }
-        { output = "HDMI-A-0"; workspace = "23"; }
-        { output = "HDMI-A-0"; workspace = "24"; }
-        { output = "HDMI-A-0"; workspace = "25"; }
-        { output = "HDMI-A-0"; workspace = "26"; }
-        { output = "HDMI-A-0"; workspace = "27"; }
-        { output = "HDMI-A-0"; workspace = "28"; }
-        { output = "HDMI-A-0"; workspace = "29"; }
-        { output = "HDMI-A-0"; workspace = "20"; }
-
-        # Without Nvidia
-        # { output = "eDP-1"; workspace = "1"; }
-        # { output = "eDP-1"; workspace = "2"; }
-        # { output = "eDP-1"; workspace = "3"; }
-        # { output = "eDP-1"; workspace = "4"; }
-        # { output = "eDP-1"; workspace = "5"; }
-        # { output = "eDP-1"; workspace = "6"; }
-        # { output = "eDP-1"; workspace = "7"; }
-        # { output = "eDP-1"; workspace = "8"; }
-        # { output = "eDP-1"; workspace = "9"; }
-        # { output = "eDP-1"; workspace = "0"; }
-
-        # { output = "DP-1"; workspace = "11"; }
-        # { output = "DP-1"; workspace = "12"; }
-        # { output = "DP-1"; workspace = "13"; }
-        # { output = "DP-1"; workspace = "14"; }
-        # { output = "DP-1"; workspace = "15"; }
-        # { output = "DP-1"; workspace = "16"; }
-        # { output = "DP-1"; workspace = "17"; }
-        # { output = "DP-1"; workspace = "18"; }
-        # { output = "DP-1"; workspace = "19"; }
-        # { output = "DP-1"; workspace = "10"; }
-
-        # { output = "HDMI-1"; workspace = "21"; }
-        # { output = "HDMI-1"; workspace = "22"; }
-        # { output = "HDMI-1"; workspace = "23"; }
-        # { output = "HDMI-1"; workspace = "24"; }
-        # { output = "HDMI-1"; workspace = "25"; }
-        # { output = "HDMI-1"; workspace = "26"; }
-        # { output = "HDMI-1"; workspace = "27"; }
-        # { output = "HDMI-1"; workspace = "28"; }
-        # { output = "HDMI-1"; workspace = "29"; }
-        # { output = "HDMI-1"; workspace = "20"; }
+        { output = "HDMI-0"; workspace = "21"; }
+        { output = "HDMI-0"; workspace = "22"; }
+        { output = "HDMI-0"; workspace = "23"; }
+        { output = "HDMI-0"; workspace = "24"; }
+        { output = "HDMI-0"; workspace = "25"; }
+        { output = "HDMI-0"; workspace = "26"; }
+        { output = "HDMI-0"; workspace = "27"; }
+        { output = "HDMI-0"; workspace = "28"; }
+        { output = "HDMI-0"; workspace = "29"; }
+        { output = "HDMI-0"; workspace = "20"; }
       ];
     };
   };

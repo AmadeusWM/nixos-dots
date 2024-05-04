@@ -15,10 +15,10 @@ echo $focused_output
 #     active_prefix=2
 # fi
 # Nvidia
-if [[ $focused_output == "DisplayPort-0" ]]; then
+if [[ $focused_output == "DP-3" ]]; then
     active_prefix=1
 fi
-if [[ $focused_output == "HDMI-A-0" ]]; then
+if [[ $focused_output == "HDMI-0" ]]; then
     active_prefix=2
 fi
 

@@ -8,23 +8,23 @@ in
   programs.firefox = {
     enable = true;
     # package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
-    # package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-    #   extraPolicies = {
-    #     CaptivePortal = false;
-    #     DisableFirefoxStudies = true;
-    #     DisablePocket = true;
-    #     DisableTelemetry = true;
-    #     DisableFirefoxAccounts = false;
-    #     NoDefaultBookmarks = true;
-    #     FirefoxHome = {
-    #       Search = true;
-    #       Pocket = false;
-    #       Snippets = false;
-    #       TopSites = false;
-    #       Highlights = false;
-    #     };
-    #   };
-    # };
+    package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+      extraPolicies = {
+        CaptivePortal = false;
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        DisableFirefoxAccounts = false;
+        NoDefaultBookmarks = true;
+        FirefoxHome = {
+          Search = true;
+          Pocket = false;
+          Snippets = false;
+          TopSites = false;
+          Highlights = false;
+        };
+      };
+    };
     profiles = {
       default = {
         id = 0;

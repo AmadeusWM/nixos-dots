@@ -5,7 +5,7 @@
     ./terminal
     ./services
     ./themes
-  ]; # hi 2
+  ];
 
   
   home.packages = with pkgs; [
@@ -15,7 +15,7 @@
     eww
     gnome.dconf-editor # to find gnome keybinds
     gnome.gnome-tweaks
-    gnome.nautilus nautilus-open-any-terminal # nautilus + open different terminals with nautilus
+    gnome.nautilus
     gnome.zenity
     jq # JSON parsing
     killall

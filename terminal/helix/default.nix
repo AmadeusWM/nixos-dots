@@ -135,7 +135,7 @@
           name = "tsx";
           language-servers = [ 
             "ts-server"
-            "gpt"
+            # "gpt"
           ];
         }
       ] ++
