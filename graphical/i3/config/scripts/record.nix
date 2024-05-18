@@ -30,7 +30,12 @@
       #   -s $SCREENRES \
       #   -i :0.0 \
       #   -vcodec libx264 $OUTFILE
-      exec ffmpeg -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y -c:v libx264 -pix_fmt yuv420p -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" $OUTFILE 
+      exec ffmpeg \
+        -f pulse \
+        -i default \
+        -ac 2 \
+        -acodec vorbis \
+        -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y -c:v libx264 -pix_fmt yuv420p -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" $OUTFILE 
     '')
   ];
 }

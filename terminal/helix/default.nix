@@ -27,6 +27,8 @@
     taplo
     # lua
     lua-language-server
+    # Latex
+    texlab
   ];
 
   programs.helix = {
