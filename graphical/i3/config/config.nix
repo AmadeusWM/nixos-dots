@@ -232,8 +232,13 @@ in {
             notification = false;
           }
           # Lock and hibernate after a while
+          # {
+          #   command = "xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 600 'systemctl hibernate' ''";
+          #   always = false;
+          #   notification = false;
+          # }
           {
-            command = "xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 600 'systemctl hibernate' ''";
+            command = "xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 600 'xset dpms force off' 'xset dpms force on'";
             always = false;
             notification = false;
           }
