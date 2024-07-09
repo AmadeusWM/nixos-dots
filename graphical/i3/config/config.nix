@@ -103,7 +103,7 @@ in {
         "Print" = "exec flameshot gui -c -p ~/Pictures/Screenshots";
         "${alt}+Print" = "exec flameshot gui -p ~/Pictures/Screenshots";
         "${mod}+Print" = "exec i3-record";
-        "${mod}+Control+Shift+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 2 && systemctl hibernate'";
+        "${mod}+Control+Shift+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 2 && systemctl suspend'";
 
         # tools
         "${mod}+d" = "exec python3 ~/nixos/modules/home-manager-modules/graphical/i3/config/scripts/tools/dict.py";
@@ -207,7 +207,7 @@ in {
           }
           # Set refreshrate WideScreen
           {
-            command = "sleep 1 && xrandr --output DP-3 --rate 74.98 --mode 3440x1440";
+            command = "sleep 1 && xrandr --output DP-3 --rate 74.98 --mode 3440x1440 --dpi 96";
             # command = "xrandr --output DisplayPort-0 --rate 74.98 --mode 3440x1440";
             always = true;
             notification = false;

@@ -29,6 +29,8 @@
     lua-language-server
     # Latex
     texlab
+    # java
+    jdt-language-server
   ];
 
   programs.helix = {

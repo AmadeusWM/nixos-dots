@@ -231,12 +231,10 @@ hbox.tab-content[pinned=true] .tab-text {
 }
 
 #back-button {
-  display: none;
   list-style-image: url("left-arrow.svg") !important;
 }
 
 #forward-button {
-  display: none;
   list-style-image: url("right-arrow.svg") !important;
 }
 
@@ -283,55 +281,57 @@ tab.tabbrowser-tab:hover {
   box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
 }
 
-toolbar#nav-bar {
-  height: var(--mff-nav-toolbar-height) !important;
-  padding: var(--mff-nav-toolbar-padding) !important;
-  left: 188px;
-  position: absolute !important;
-  right: 0px;
-}
+/* == ALL THE STUFF FOR HIDDEN TOP BAR == */
+
+/* toolbar#nav-bar { */
+/* height: var(--mff-nav-toolbar-height) !important; */
+/* padding: var(--mff-nav-toolbar-padding) !important; */
+/* left: 188px; */
+/* position: absolute !important; */
+/* right: 0px; */
+/* } */
 
 
 /* == Hide top bar == */
-#nav-bar {
-  /* customize this value. */
-  /* NOTE: make some space hoverablen*/
-  --navbar-margin: -35px;
+/* #nav-bar { */
+/* customize this value. */
+/* NOTE: make some space hoverablen*/
+/* --navbar-margin: -35px; */
 
-  margin-top: var(--navbar-margin);
-  /* transition: all 0.05s ease !important; */
-  z-index: 100;
-  opacity: 0;
-}
+/* margin-top: var(--navbar-margin); */
+/* transition: all 0.05s ease !important; */
+/* z-index: 100; */
+/* opacity: 0; */
+/* } */
 
-#navigator-toolbox:focus-within>#nav-bar,
-#navigator-toolbox:hover>#nav-bar {
-  margin-top: 0;
-  /* margin-bottom: var(--navbar-margin); */
-  z-index: 100;
-  opacity: 1;
-}
+/* #navigator-toolbox:focus-within>#nav-bar, */
+/* #navigator-toolbox:hover>#nav-bar { */
+/* margin-top: 0; */
+/* margin-bottom: var(--navbar-margin); */
+/* z-index: 100; */
+/* opacity: 1; */
+/* } */
 
 /*==*/
 
-#urlbar {
-  max-width: 70% !important;
-  margin: 0 15% !important;
-}
+/* #urlbar { */
+/* max-width: 70% !important; */
+/* margin: 0 15% !important; */
+/* } */
 
-#urlbar-input:focus {
-  color: var(--mff-urlbar-focused-color) !important;
-}
+/* #urlbar-input:focus { */
+/* color: var(--mff-urlbar-focused-color) !important; */
+/* } */
 
 
-.megabar[breakout-extend="true"]:not([open="true"])>#urlbar-background {
-  box-shadow: none !important;
-  background-color: transparent !important;
-}
+/* .megabar[breakout-extend="true"]:not([open="true"])>#urlbar-background { */
+/* box-shadow: none !important; */
+/* background-color: transparent !important; */
+/* } */
 
-toolbarbutton {
-  box-shadow: none !important;
-}
+/* toolbarbutton { */
+/* box-shadow: none !important; */
+/* } */
 
 
 /*
