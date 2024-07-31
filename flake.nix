@@ -45,5 +45,12 @@
     dunst = ./services/dunst;
     gtklock = ./services/gtklock;
     swayidle = ./services/gtklock;
+
+    # terminal
+    helix = ./terminal/helix;
+    starship = ./terminal/starship;
+    zsh = ./terminal/zsh;
+    broot = ./terminal/broot;
+    tmux = ./terminal/tmux;
   };
 }
