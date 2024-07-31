@@ -8,5 +8,6 @@
     ./helix
     ./broot
     ./wezterm
+    ./tmux
   ];
 }
