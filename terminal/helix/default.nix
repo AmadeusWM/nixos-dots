@@ -38,7 +38,7 @@
     package = inputs.helix.packages.${pkgs.system}.default;
     defaultEditor = true;
     settings = {
-      theme = "catppuccin_espresso";
+      # theme = "catppuccin_espresso";
       editor = {
         line-number = "relative";
         idle-timeout = 0;
