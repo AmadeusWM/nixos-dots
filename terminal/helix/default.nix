@@ -44,6 +44,7 @@
         idle-timeout = 0;
         color-modes = true;
         soft-wrap.enable = true;
+        true-color = true;
       };
       keys.normal = {
         "C-/" = "toggle_comments";
