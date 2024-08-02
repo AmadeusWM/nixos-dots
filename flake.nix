@@ -52,5 +52,6 @@
     zsh = ./terminal/zsh;
     broot = ./terminal/broot;
     tmux = ./terminal/tmux;
+    zellij = ./terminal/zellij;
   };
 }

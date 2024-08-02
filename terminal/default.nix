@@ -9,5 +9,6 @@
     ./broot
     ./wezterm
     ./tmux
+    ./zellij
   ];
 }
